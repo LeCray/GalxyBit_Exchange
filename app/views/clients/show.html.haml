@@ -1,0 +1,51 @@
+
+
+.container
+	%div{:style => "margin-top: 25px"}
+		- flash.each do |key, value|
+			%div{:class => "alert alert-#{key}", :style => "text-align: center"}
+				= value	
+
+	
+	.row
+		%div{:class => "col-md-5 col-md-offset-2", :style => "margin-top: 50px"}
+			%h1
+				#{@client}
+
+			= link_to("Call", {:action => 'call', :id => @client.id}, :class => 'action call btn btn-warning pull-right') 	
+
+			%h4
+
+
+				#{@client.email} 
+			%h5
+				MT4 Number: #{@client.mt4_id}
+					
+			%hr
+			
+			Total number of downlines: #{@downlines.count} 
+
+			%br
+
+			- if @downlines.count > 0 
+				= "Last downline added on: #{@downlines.last.created_at}" 
+		
+							
+
+	
+	.row
+		%div{:class => 'col-md-8 col-md-offset-2', :style => 'margin-top: 20px'}
+
+			%hr
+
+			- if @downlines.count > 0 		
+				= render partial: 'downline_list', locals: { downlines: @downlines }
+			
+
+		
+
+
+
+
+
+					

@@ -1,0 +1,2 @@
+class DownlinesController < ApplicationController
+end

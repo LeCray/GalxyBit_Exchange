@@ -1,0 +1,11 @@
+What's up <%= @client.first_name %>
+
+Welcome to GALXYBIT! 
+
+These are literally your first steps towards financial freedom.
+"Without risk there can be no reward"
+
+
+Click on the link below to activate your account:
+
+<%= edit_account_activation_url(@client.activation_token, email: @client.email) %>

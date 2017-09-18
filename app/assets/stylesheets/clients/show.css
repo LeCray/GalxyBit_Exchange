@@ -1,0 +1,11 @@
+.div_center {
+	position: fixed;
+	z-index: 10;
+	text-align: center;
+	margin: 0 auto;
+    width: 20%; /* Set your desired with */
+    top: 50%;
+    left: 50%;
+    margin-top: -10%; /* Changes with height. */
+    margin-left: -10%;
+}

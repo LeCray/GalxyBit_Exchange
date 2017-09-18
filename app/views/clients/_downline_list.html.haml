@@ -1,0 +1,16 @@
+
+%table.table.table-bordered
+	%thead
+		%tr
+			%th <b>Name</b>
+			%th <b>Email</b>
+			%th <b>MT4 Number</b>
+			%th <b>Contact</b>
+	%tbody
+		- @downlines.each do |d|
+			%tr
+				%td #{d}
+				%td #{d.email}
+				%td #{d.mt4_id}
+				%td 
+		

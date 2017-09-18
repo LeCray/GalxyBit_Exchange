@@ -1,0 +1,40 @@
+.container
+
+	%h3
+		Client: #{@account.client}
+	%h4
+		Account ID: #{@account.id}
+
+	%hr
+
+	.btn-toolbar
+		= button_tag :new_transaction, id: 'btn-new-transaction', class: 'btn btn-primary' do 
+			New Transaction 	
+
+		= link_to client_accounts_path, class: 'btn btn-default' do
+			Accounts
+
+		= link_to root_path, class: 'btn btn-default' do
+			Home
+
+		= link_to client_path(@account.client.id), class: 'pull-right btn btn-default' do
+			Client Profile
+
+	%hr
+
+	-#Transactions Table
+	= render partial: 'transactions', locals: { account: @account, client: @client } 
+	-#Transaction Modal
+	= render partial: 'modal_transaction'
+
+	
+
+
+	#parameters{ data: { account_id: @account.id, client_id: @client.id } }
+			
+
+	= javascript_include_tag 'accounts/Show.js'
+	:javascript
+		$(document).ready(function() {
+			Show.init();
+		});

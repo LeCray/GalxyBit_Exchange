@@ -1,0 +1,14 @@
+%h1
+	New Account
+
+= simple_form_for @account do |f|
+	= f.input :account_number, input_html: { class: 'form-control' }
+	= f.association :client, input_html: { class: 'form-control' }
+
+	%hr
+		.btn-toolbar
+			= button_tag type: :submit, class: 'btn btn-primary' do
+				Create Account
+			= link_to root_path, class: 'btn btn-default' do
+				Cancel
+	 	 

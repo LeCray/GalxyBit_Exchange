@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use Postgres as the database for Active Record
-gem 'pg' # Added postgres and made it production only.
+gem 'pg', group: :production # Added postgres and made it production only.
 
 #gem 'activerecord-jdbcpostgresql-adapter'
 
@@ -57,6 +57,10 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, ]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
+#Environment Shandice
+gem "figaro"
+gem 'dotenv-rails', groups: [:development, :test]
 
 

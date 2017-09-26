@@ -19,3 +19,41 @@ HINT:  Is another postmaster already running on port 5432? If not, wait a few se
 WARNING:  could not create listen socket for "localhost"
 FATAL:  could not create any TCP/IP sockets
 LOG:  database system is shut down
+LOG:  database system was shut down at 2017-09-25 15:00:21 CAT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "postgres" does not exist
+FATAL:  database "Jaboo" does not exist
+ERROR:  new encoding (UTF8) is incompatible with the encoding of the template database (WIN1252)
+HINT:  Use the same encoding as in the template database, or use template0 as template.
+STATEMENT:  CREATE DATABASE "my_database_development" ENCODING = 'utf8'
+FATAL:  database "my_database_development" does not exist
+FATAL:  role "postgres" does not exist
+FATAL:  role "postgres" does not exist
+FATAL:  database "Jaboo" does not exist
+FATAL:  role "postgres" does not exist
+FATAL:  role "postgres" does not exist
+FATAL:  database "--my_database_development" does not exist
+ERROR:  new encoding (UTF8) is incompatible with the encoding of the template database (WIN1252)
+HINT:  Use the same encoding as in the template database, or use template0 as template.
+STATEMENT:  CREATE DATABASE "my_database_development" ENCODING = 'utf8'
+ERROR:  new encoding (UTF8) is incompatible with the encoding of the template database (WIN1252)
+HINT:  Use the same encoding as in the template database, or use template0 as template.
+STATEMENT:  CREATE DATABASE "my_database_development" ENCODING = 'utf8'
+FATAL:  database "Jaboo" does not exist
+FATAL:  database "Jaboo" does not exist
+FATAL:  database "--dbname" does not exist
+FATAL:  database "--template1" does not exist
+FATAL:  database "--my_database_development" does not exist
+FATAL:  database "-my_database_development" does not exist
+FATAL:  database "Jaboo" does not exist
+FATAL:  role "template1" does not exist
+FATAL:  database "Jaboo" does not exist
+FATAL:  database "bname" does not exist
+FATAL:  database "Jaboo" does not exist
+FATAL:  database "--template1" does not exist
+FATAL:  database "Jaboo" does not exist
+ERROR:  database "my_database_development" already exists
+STATEMENT:  CREATE DATABASE "my_database_development" ENCODING = 'utf8'
+FATAL:  role "postgres" does not exist

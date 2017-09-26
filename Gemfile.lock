@@ -83,9 +83,15 @@ GEM
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
     concurrent-ruby (1.0.5)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18-x86-mingw32)
+    figaro (1.1.1)
+      thor (~> 0.14)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     haml (5.0.2)
@@ -113,6 +119,7 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0-x86-mingw32)
       mini_portile2 (~> 2.2.0)
+    pg (0.19.0-x86-mingw32)
     puma (3.9.1)
     rack (2.0.3)
     rack-test (0.6.3)
@@ -140,7 +147,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.0.0)
+    rake (12.1.0)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -187,16 +194,18 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  activerecord-jdbcpostgresql-adapter
   bcrypt!
   bootstrap-sass
   bootstrap_form
   byebug
   coffee-rails (~> 4.2)
   compass-rails!
+  dotenv-rails
+  figaro
   haml
   jbuilder (~> 2.5)
   jquery-rails
+  pg
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)

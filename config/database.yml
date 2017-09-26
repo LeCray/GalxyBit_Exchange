@@ -9,7 +9,7 @@ development:
   database: my_database_development
   pool: 5
   timeout: 5000
-  username: postgres
+  username: Jaboo
   password: One1One1 
   host: localhost
 
@@ -18,14 +18,14 @@ test:
   database: my_database_test
   pool: 5
   timeout: 5000
-  username: mistercryptogrid@gmail.com
+  username: Jaboo
   password: One1One1
   host: localhost
 
 
 production:
   adapter: postgresql
-  username: mistercryptogrid@gmail.com
+  username: Jaboo
   password: One1One1
   statement_limit: 200
   host: /var/run/postgresql/.s.PGSQL.5432

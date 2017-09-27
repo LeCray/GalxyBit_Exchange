@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MoneyCalls</title>
+    <title>GalxyBit</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
  	<meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
+  <%= yield %>
+
+<!--
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 	<div style="margin-bottom: 50px">

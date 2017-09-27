@@ -63,3 +63,13 @@ LOG:  could not receive data from client: unrecognized winsock error 10054
 LOG:  could not receive data from client: unrecognized winsock error 10054
 LOG:  could not receive data from client: unrecognized winsock error 10054
 LOG:  could not receive data from client: unrecognized winsock error 10054
+LOG:  could not receive data from client: unrecognized winsock error 10054
+LOG:  could not receive data from client: unrecognized winsock error 10054
+LOG:  could not receive data from client: unrecognized winsock error 10054
+LOG:  could not receive data from client: unrecognized winsock error 10054
+LOG:  could not receive data from client: unrecognized winsock error 10054
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down

@@ -28,4 +28,3 @@ production:
   username: Jaboo
   password: One1One1
   statement_limit: 200
-  host: /var/run/postgresql/.s.PGSQL.5432

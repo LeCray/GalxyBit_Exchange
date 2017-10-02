@@ -1,8 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-require 'dotenv'
-Dotenv.load('development.env')
+
 
 
 

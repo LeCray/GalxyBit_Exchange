@@ -77,6 +77,11 @@ html, body {
     animation-name: fadeIn;
  }
 
+ #loading {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+ }
+
  
 
 body{background:#000}
@@ -88,19 +93,19 @@ figure div:after{content:"";width:20px;height:20px;border:1px solid #000;
 box-sizing:border-box;position:absolute;left:20px;top:20px;animation:shuffle 2s infinite;}
 
 figure div:nth-child(1){transform:rotate(0deg)}
-figure div:nth-child(1):after{animation-delay:-0.5s;}
+figure div:nth-child(1):after{animation-delay:-0.5s;border:1px solid rgb(204, 122, 0);}
 figure div:nth-child(2){transform:rotate(45deg)}
 figure div:nth-child(2):after{animation-delay:-1s;}
 figure div:nth-child(3){transform:rotate(90deg)}
-figure div:nth-child(3):after{animation-delay:-1.5s;}
+figure div:nth-child(3):after{animation-delay:-1.5s;border:1px solid rgb(204, 122, 0);}
 figure div:nth-child(4){transform:rotate(135deg)}
 figure div:nth-child(4):after{animation-delay:-2s;}
 figure div:nth-child(5){transform:rotate(180deg)}
-figure div:nth-child(5):after{animation-delay:-2.5s;}
+figure div:nth-child(5):after{animation-delay:-2.5s;border:1px solid rgb(204, 122, 0);}
 figure div:nth-child(6){transform:rotate(225deg)}
 figure div:nth-child(6):after{animation-delay:-3s;}
 figure div:nth-child(7){transform:rotate(270deg)}
-figure div:nth-child(7):after{animation-delay:-3.5s;}
+figure div:nth-child(7):after{animation-delay:-3.5s;border:1px solid rgb(204, 122, 0);}
 figure div:nth-child(8){transform:rotate(315deg)}
 figure div:nth-child(8):after{animation-delay:-4;}
 

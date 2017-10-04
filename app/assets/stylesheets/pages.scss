@@ -2,7 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ canvas { 
+    postion: fixed;   
+    z-index: -1;
+  }
+  
 
+
+.parallax {
+
+  background-image: url("https://i5.walmartimages.ca/images/Enlarge/580/6_r/875806_R.jpg");
+  /* Set a specific height */
+  min-height: 700px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Below is for the launching page
 
 *{
     -webkit-box-sizing: border-box;
@@ -83,7 +132,6 @@ html, body {
  }
 
  
-
 body{background:#000}
 
 figure{margin:0;transform:translate(-50%,-50%) rotate(0deg) scale(1.4,1.4);
@@ -115,3 +163,5 @@ figure div:nth-child(8):after{animation-delay:-4;}
 @keyframes shuffle{
   50%{transform:scale(0.4,0.4) rotate(-90deg);border-radius:50%;}
 }
+
+*/

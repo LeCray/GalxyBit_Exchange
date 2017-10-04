@@ -18,9 +18,9 @@ var ball = {
    },
 
    ball_color = {
-       r: 25,
-       g: 25,
-       b: 255
+       r: 204,
+       g: 122,
+       b: 0
    },
    R = 2,
    balls = [],

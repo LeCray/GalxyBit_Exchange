@@ -18,7 +18,7 @@ html, body {
 #heading {
   font-size: 50px;
   text-align: center;
-  margin-top: 15%;
+
 }
 
 .animate {
@@ -84,13 +84,34 @@ html, body {
 
  
 
-body{background:#000}
 
-figure{margin:0;transform:translate(-50%,-50%) rotate(0deg) scale(1.4,1.4);
-  position:absolute;left:50%;top:50%;border-radius:150px;box-sizing:border-box;animation:rotation 20s infinite linear;}
 
-figure div:after{content:"";width:20px;height:20px;border:1px solid #000;
-box-sizing:border-box;position:absolute;left:20px;top:20px;animation:shuffle 2s infinite;}
+figure {
+  margin:0;
+  transform:translate(-50%,-50%) rotate(0deg) scale(1.4,1.4);
+  position:absolute;
+  left:50%;
+  top:325px;
+  border-radius:150px;
+  box-sizing:border-box;
+  animation:rotation 20s infinite linear;
+
+  
+}
+
+figure div:after {
+  content:"";
+  width:20px;
+  height:20px;
+  border:1px solid #000;
+  box-sizing:border-box;
+  position:absolute;
+  left:20px;
+  top:20px;
+  animation:shuffle 3s infinite;
+
+  
+}
 
 figure div:nth-child(1){transform:rotate(0deg)}
 figure div:nth-child(1):after{animation-delay:-0.5s;border:1px solid rgb(204, 122, 0);}

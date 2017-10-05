@@ -9,35 +9,29 @@ canvas {
   
 
 
-.parallax {
-
-  /*background-image: url("https://i5.walmartimages.ca/images/Enlarge/580/6_r/875806_R.jpg");*/
-  /* Set a specific height */
-  min-height: 700px; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-}
 
 #heading {
   position: absolute;
   margin: 0 auto;
-  /*margin-top: 90px;*/
-  font-size: 1em;
+  font-size: 5.5em;
   text-align: center;
-  z-index: 11;
+  z-index: 1;
   width: 30%; /* Set your desired with */
+  top: 60%;
   left: 45%;
-  margin-top: -10%; /* Changes with height. */
+  margin-top: -33%; /* Changes with height. */
   margin-left: -10%;        
 }
 
 
-/*
+.everything {
+  postion: absolute;
+  height:1000px;
+  background-color:red;
+  font-size:36px;
+  z-index: 2;
+}
+
   
 
 *{
@@ -51,11 +45,6 @@ html, body {
     overflow: auto;
 }
 
-#heading {
-  font-size: 50px;
-  text-align: center;
-
-}
 
 .animate {
     -webkit-animation-duration: 5s;
@@ -92,8 +81,8 @@ html, body {
  }
 
 .fade {
-    -webkit-animation-duration: 15s;
-    animation-duration: 15s;
+    -webkit-animation-duration: 8s;
+    animation-duration: 8s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
  }
@@ -113,6 +102,9 @@ html, body {
     animation-name: fadeIn;
  }
 
+
+
+/*
  #loading {
   -webkit-animation-duration: 20s;
   animation-duration: 20s;

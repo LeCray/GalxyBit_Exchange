@@ -6,9 +6,23 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
  	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Material Design fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<!-- Bootstrap Material Design -->
+	<link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
+	<style type="text/css">
+		.form-control:focus{box-shadow: none; -webkit-box-shadow: none; border-color: #FF0000 } 
+		.has-error 
+
+	</style>
   </head>
 
   <%= yield %>
+
 
 <!--
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">

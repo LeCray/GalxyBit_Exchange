@@ -43,6 +43,9 @@ gem 'bootstrap_form'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass'
+
+
+
 gem 'haml'
 gem 'simple_form'
 

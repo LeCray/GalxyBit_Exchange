@@ -8,12 +8,13 @@ class ClientsController < ApplicationController
 		@client = Client.new
 	end
 
+
 	def create
 		@client = Client.new(client_params)
 		@account = @client.build_account(client_id: @client.id, balance: 0.00)
 		
 		if @client.save && @account.save 
-			#ClientMailer.account_activation(@client).deliver_now
+			ClientMailer.account_activation(@client).deliver_now
       		flash.now[:info] = "Awesome. Now swing over to your emails to activate your account :)"
       		render 'new'
 
@@ -21,6 +22,7 @@ class ClientsController < ApplicationController
 			render 'new'
 		end
 	end
+
 
 	def show
 		@client = Client.find(params[:id])
@@ -30,12 +32,6 @@ class ClientsController < ApplicationController
 
 	end
 
-	def call
-		@client = Client.find(params[:id])
-	  	#ClientMailer.call_request(@client).deliver_now
-	  	flash[:info] = "Your call request has been sent. Please wait while we process it :)"
-	    redirect_to client_path(@client)
-  	end
 
 
 	def edit

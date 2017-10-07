@@ -6,16 +6,20 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<div class="Hfade fadeInDown" id="heading" style="font-size: 4.5em; font-family: consolas">
-	 		<i style="font-family: arial">G</i>ALXY<i style="color: rgb(204, 122, 0)">BIT</i></br>  
+		<div class="Hfade fadeInDown" id="heading" style="font-size: 4.5em; font-family: consolas;">
+			<div style="z-index: 6">
+	 			<i style="font-family: arial">G</i>ALXY<i style="color: rgb(204, 122, 0)">BIT</i></br>  
+	 		</div>
 
-	 		<div class="Pfade fadeInDown" style="font-size: 0.35em; font-family: arial;">
+	 		<div class="Pfade fadeInDown" style="font-size: 0.35em; font-family: arial; ">
 	 			Your Only Cryptocurrency Exchange  /<i style="color: rgb(204, 122, 0)">/</i>/
 	 		</div>
 
-	  		<%= button_to new_client_path, :method => "get", class: 'btn-style hvr-shutter-out-horizontal btn-fade btnfadeInDown' do %>
-			  	JOIN THE REVOLUTION
-			<% end %>
+	 		<div style="z-index: 4">
+		  		<%= button_to new_client_path, :method => "get", class: 'btn-style hvr-shutter-out-horizontal btn-fade btnfadeInDown' do %>
+				  	JOIN THE REVOLUTION
+				<% end %>
+			</div>
 
 		</div>
 	</div>

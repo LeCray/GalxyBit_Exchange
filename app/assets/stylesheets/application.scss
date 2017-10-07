@@ -18,8 +18,16 @@
  *= require rails_bootstrap_forms
  */
 
+ 
+
+
+
+
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
+ 
+
+ 
 
 .navbar {
 
@@ -29,20 +37,22 @@
 }
 
 .navbar li a, .navbar {
-      color: rgb(255, 160, 0)  !important;
+      color: rgb(204, 122, 0)  !important;
   }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: rgb(255, 160, 0) !important;
-    background-color: #fff !important;
+    color: rgb(204, 122, 0) !important;
+    background-color: #DCDCDC !important;
  
 }
 
 .navbar-default .navbar-toggle {
     border-color: transparent;
-    color: rgb(255, 160, 0) !important;
+    color: rgb(204, 122, 0) !important;
 }
 
 .color {
-	color: rgb(255, 160, 0);
+	color: rgb(204, 122, 0);
 }
+
+

@@ -1,23 +1,33 @@
-<div style="overflow: hidden;">
-	<% provide(:title, "Log in") %>
-		<h1 style="text-align: center; color: rgb(255, 160, 0)"><b>Login</b></h1>
 
+<div class="container">
+	<h2 style="color: rgb(204, 122, 0); margin-left: 50%; margin-top: 100px" class="glyphicon glyphicon-menu-down" aria-hidden="true">	
+	</h2> 
+
+	<hr style="margin-bottom: 50px; margin-top: 50px">
+
+
+	<div style="overflow: hidden;">
+		<% provide(:title, "Log in") %>
 		<div class="row">
-		  <div class="col-md-6 col-md-offset-3">
-		    <%= form_for(:session, url: login_path) do |f| %>
+			<div class="col-md-6 col-md-offset-3">
 
-		      <%= f.label :email %>
-		      <%= f.email_field :email, class: 'form-control' %></br>
+				<%= bootstrap_form_for(:session, url: login_path) do |f| %>
+				<%= f.email_field :email, label: 'Email'%><br>
+			    <%= f.password_field :email, label: 'Password'%>
+			    <%= f.submit "Log in", class: "btn" %><br>
+			    <% end %>
 
-		      <%= f.label :password %>
-		      <%= f.password_field :password, class: 'form-control' %></br>
-
-		      <%= f.submit "Log in", class: "btn btn-warning" %></br>
-		    <% end %></br>
-
-		    <p>New user? <%= link_to "Sign up now!", new_client_path %></p>
-		  </div>
+			</div>
+			
 		</div>
+		<p style="margin-left: 25.5%">New user? <%= link_to "Sign up now!", new_client_path %></p>
+	</div>
+
 </div>
+
+
+	
+
+
 
 

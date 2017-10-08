@@ -3,14 +3,26 @@ class Account < ApplicationRecord
   has_many :transactions
 
   validates :client, presence: true
-  validates :balance, presence: true, numericality: true
+  validates :zar_balance, presence: true, numericality: true
+  validates :btc_balance, presence: true, numericality: true
+  validates :ltc_balance, presence: true, numericality: true
+  validates :eth_balance, presence: true, numericality: true
 
   before_validation :load_defaults
 
   def load_defaults
-  	if :balance.nil? 
-  		self.balance = 0.00;
-  	end
+  	if zar_balance.nil?
+  		self.zar_balance = 0.00;
+    end
+    
+      self.btc_balance = 0.00;    
+      
+    
+      self.ltc_balance = 0.00;    
+    
+    
+      self.eth_balance = 0.00;    
+    
   end
 
 

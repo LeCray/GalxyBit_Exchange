@@ -17,7 +17,6 @@ class ClientsController < ApplicationController
 			ClientMailer.account_activation(@client).deliver_now
       		flash.now[:info] = "Awesome. Now swing over to your emails to activate your account :)"
       		render 'new'
-
 		else
 			render 'new'
 		end
@@ -26,6 +25,22 @@ class ClientsController < ApplicationController
 
 	def show
 		@client = Client.find(params[:id])
+
+		@a = @client.account
+
+		if @a.zar_balance.nil?
+			@a.zar_balance = 0.00;
+		end
+		if @a.btc_balance.nil? 
+			@a.btc_balance = 0.000;
+		end
+		if @a.ltc_balance.nil? 
+			@a.ltc_balance = 0.000;
+		end
+		if @a.eth_balance.nil? 
+			@a.eth_balance = 0.000;
+		end
+
 		c = @client.id
 		@downlines = Client.where(referral_id: c) 
 

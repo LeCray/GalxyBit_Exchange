@@ -28,11 +28,13 @@ Rails.application.routes.draw do
 		end
 	end
 
-	#Making a new api with the rails tutorial.
 
-	namespace :api, defaults: {format: :json}, contraints: {subdomain: 'api'}, path: '/' do
+	root 'currencies#show', id: 'bitcoin'
 
-	end
+	resources :currencies, only: [:show]
+	
+	get '/currencies' => 'currencies#show'
+
 	
 
 

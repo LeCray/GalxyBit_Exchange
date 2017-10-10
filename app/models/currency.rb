@@ -6,13 +6,4 @@ class Currency < ApplicationRecord
 	enum currency_type: [:bitcoin, :ethereum, :litecoin]
 
 
-
-
-
-
-
-
-
-
-
 end

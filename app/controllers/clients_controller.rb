@@ -11,7 +11,8 @@ class ClientsController < ApplicationController
 
 	def create
 		@client = Client.new(client_params)
-		@account = @client.build_account(client_id: @client.id, balance: 0.00)
+		@account = @client.build_account(client_id: @client.id, zar_balance: 0.00, btc_balance: 0.00, ltc_balance: 0.00, 
+			eth_balance: 0.00)
 		
 		if @client.save && @account.save 
 			ClientMailer.account_activation(@client).deliver_now
@@ -26,27 +27,21 @@ class ClientsController < ApplicationController
 	def show
 		@client = Client.find(params[:id])
 
-		@a = @client.account
-
-		if @a.zar_balance.nil?
-			@a.zar_balance = 0.00;
-		end
-		if @a.btc_balance.nil? 
-			@a.btc_balance = 0.000;
-		end
-		if @a.ltc_balance.nil? 
-			@a.ltc_balance = 0.000;
-		end
-		if @a.eth_balance.nil? 
-			@a.eth_balance = 0.000;
-		end
 
 		c = @client.id
 		@downlines = Client.where(referral_id: c) 
 
 
-	end
+		#Getting variable for the graphs
+		@currencies = params[:id] ? params[:id].downcase : ''
+	    case @currencies
+	    when  !Currency.currency_types.include?(@currencies) 
+	      @currencies = {}
+	    else
+	      @currencies = set_currencies(@currencies)
+	    end
 
+	end 
 
 
 	def edit
@@ -73,6 +68,18 @@ class ClientsController < ApplicationController
 
 	def client_params
 		params.require(:client).permit(:first_name, :last_name, :email, :referral_id, :mt4_id,  :password, :password_confirmation)
+	end
+
+
+
+	def set_currencies(currency_type)
+	    @currencies = Currency.where(currency_type: Currency.currency_types["#{currency_type}"])
+	    @currencies.inject({}) do |new_element, current_element|
+		    date = current_element.date
+		    value = current_element.value
+		    new_element[date] = value
+		    new_element
+	    end
 	end
 
 end

@@ -22,7 +22,16 @@
 		</div>	
 
 		<div class="col-xs-8" style="height: 500px; border: 1px solid grey">
-			<a class='btn btn-primary' href=<%= currency_path('Bitcoin') %> role='button'>Bitcoin</a>
+
+			<a class='btn btn-primary' href=<%= currency_path('Bitcoin') %> role='button'>View Bitcoin Graph</a><br>
+			<a class='btn btn-primary' href=<%= currency_path('Litecoin') %> role='button'>View Litecoin Graph</a><br>
+			<a class='btn btn-primary' href=<%= currency_path('Ethereum') %> role='button'>View Ethereum Graph</a>
+
+			<!--
+			<%= link_to currency_path('Bitcoin'), class: 'btn' do %>
+				  	BITCOIN
+				<% end %>
+			-->	
 		</div>
 
 

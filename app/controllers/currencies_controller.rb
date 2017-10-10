@@ -8,18 +8,21 @@ class CurrenciesController < ApplicationController
 	    else
 	      @currencies = set_currencies(@currencies)
 	    end
-	  end
+
+
+	    @currency_type = params[:id]
+	 end
 
 	private
 
-	  def set_currencies(currency_type)
-	    @currencies = Currency.where(currency_type: Currency.currency_types["#{currency_type}"])
-	    @currencies.inject({}) do |new_element, current_element|
-	      date = current_element.date
-	      value = current_element.value
-	      new_element[date] = value
-	      new_element
-	    end
-	  end
-	
+	def set_currencies(currency_type)
+		@currencies = Currency.where(currency_type: Currency.currency_types["#{currency_type}"])
+		@currencies.inject({}) do |new_element, current_element|
+		date = current_element.date
+		value = current_element.value
+		new_element[date] = value
+		new_element
+		end
+	end
+
 end

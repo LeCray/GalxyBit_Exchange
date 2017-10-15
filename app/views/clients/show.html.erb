@@ -5,33 +5,41 @@
 			
 			<div style="margin: 20px; padding: 20px; background-color: #f2f2f2">
 				<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  My Balances </h6>
-
-			
-
-				<div style="text-align: center">
+				<div style="text-align: left">
 					ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%> <br>
-					<hr style="border-color: grey">
 					<hr style="border-color: grey">
 					BTC: <%= number_to_currency(@client.account.btc_balance, unit: '')%> <br>
 					<hr>
-					LTC: <%= number_to_currency(@client.account.ltc_balance, unit: '')%> <br>
-					<hr>
 					ETH: <%= number_to_currency(@client.account.eth_balance, unit: '')%> <br>
+					<hr>
+					LTC: <%= number_to_currency(@client.account.ltc_balance, unit: '')%> <br>
 				</div>
 			</div>
+
+
+			<div style="margin: 20px; padding: 20px; background-color: #f2f2f2">
+				<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  Exchange Rates </h6>
+
+					BTC/ZAR: <%= @btc_value %> <br>
+					<hr>
+					ETH/ZAR: <%= @eth_value %> <br>
+					<hr>
+					LTC/ZAR: <%= @ltc_value %> <br>
+
+			</div>
+
+
+
+
 		</div>	
 
 		<div class="col-xs-8" style="height: 500px; border: 1px solid grey">
 
 			<a class='btn btn-primary' href=<%= currency_path('Bitcoin') %> role='button'>View Bitcoin Graph</a><br>
+			<a class='btn btn-primary' href=<%= currency_path('Ethereum') %> role='button'>View Ethereum Graph</a><br>
 			<a class='btn btn-primary' href=<%= currency_path('Litecoin') %> role='button'>View Litecoin Graph</a><br>
-			<a class='btn btn-primary' href=<%= currency_path('Ethereum') %> role='button'>View Ethereum Graph</a>
 
-			<!--
-			<%= link_to currency_path('Bitcoin'), class: 'btn' do %>
-				  	BITCOIN
-				<% end %>
-			-->	
+			
 		</div>
 
 

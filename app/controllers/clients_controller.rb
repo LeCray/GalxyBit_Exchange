@@ -32,14 +32,9 @@ class ClientsController < ApplicationController
 		@downlines = Client.where(referral_id: c) 
 
 
-		#Getting variable for the graphs
-		@currencies = params[:id] ? params[:id].downcase : ''
-	    case @currencies
-	    when  !Currency.currency_types.include?(@currencies) 
-	      @currencies = {}
-	    else
-	      @currencies = set_currencies(@currencies)
-	    end
+		@btc_value = Currency.where(currency_type: 'bitcoin').last.value
+		@ltc_value = Currency.where(currency_type: 'litecoin').last.value
+		@eth_value = Currency.where(currency_type: 'ethereum').last.value
 
 	end 
 

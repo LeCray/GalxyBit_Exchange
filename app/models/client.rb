@@ -4,6 +4,7 @@ class Client < ApplicationRecord
 	before_create :create_activation_digest, :admin_default
 
 	has_one :account
+	has_many :transactions
 	has_secure_password
 
 	

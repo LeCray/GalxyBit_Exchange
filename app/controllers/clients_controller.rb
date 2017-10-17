@@ -39,7 +39,7 @@ class ClientsController < ApplicationController
 
 
 		@bitcoin_chart = 'bitcoin'
-		@bitcoin = 'BTC/ZAR'
+		@bitcoin = 'BITCOIN'
 
 		case @bitcoin_chart
 	    when  !Currency.currency_types.include?(@bitcoin_chart) 
@@ -51,7 +51,7 @@ class ClientsController < ApplicationController
 		
 
 		@ethereum_chart = 'ethereum'
-		@ethereum = 'ETH/ZAR'
+		@ethereum = 'ETHEREUM'
 
 		case @ethereum_chart
 	    when  !Currency.currency_types.include?(@ethereum_chart) 
@@ -63,7 +63,7 @@ class ClientsController < ApplicationController
 		
 
 		@litecoin_chart = 'litecoin'
-		@litecoin = 'LTC/ZAR'
+		@litecoin = 'LITECOIN'
 
 		case @litecoin_chart
 	    when  !Currency.currency_types.include?(@litecoin_chart) 

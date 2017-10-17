@@ -11,10 +11,9 @@ Rails.application.routes.draw do
 	get '/call' => "clients#call"
 
 	resources :clients do
-		get '/bitcoin' => 'clients#show', id: 'bitcoin'
 		resources :accounts
+		resources :transaction, only: [:new]
 	end
-
 
 
 	resources :account_activations, only: [:edit]

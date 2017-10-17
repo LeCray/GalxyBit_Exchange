@@ -16,3 +16,5 @@ Rails.application.config.assets.precompile += %w( pages/Particles.js )
 Rails.application.config.assets.precompile += %w( accounts/jquery.js )
 
 Rails.application.config.assets.precompile += %w( pages/Parallax.js )
+
+Rails.application.config.assets.precompile += %w( clients/Show.js )

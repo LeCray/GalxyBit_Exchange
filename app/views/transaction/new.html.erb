@@ -1,0 +1,57 @@
+<div class="container" style="margin-top: 150px;  height: 5000px; ">
+	<div class="row">
+
+		<div class="col-xs-4" style="height: 500px; border: 1px solid grey; ">
+			
+			<div style="margin: 20px; padding: 20px; background-color: #f2f2f2">
+				<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  My Balances </h6>
+				<div style="text-align: left">
+
+					ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%>
+					
+					<hr style="border-color: grey; ">
+
+					BTC: <%= number_to_currency(@client.account.btc_balance, unit: '')%> <br>
+					<hr>
+					ETH: <%= number_to_currency(@client.account.eth_balance, unit: '')%> <br>
+					<hr>
+					LTC: <%= number_to_currency(@client.account.ltc_balance, unit: '')%> <br>
+				</div>
+			</div>
+
+
+			<div style="margin: 20px; padding: 20px; background-color: #f2f2f2">
+				<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  Exchange Rates </h6>
+
+					BTC/ZAR: <%= @btc_value %> <br>
+					<hr>
+					ETH/ZAR: <%= @eth_value %> <br>
+					<hr>
+					LTC/ZAR: <%= @ltc_value %> <br>
+
+			</div>
+
+
+
+
+		</div>	
+
+		<div class="col-xs-8" style="height: 500px; border: 1px solid grey;">
+
+			<h3> DEPOSIT </h3>
+			
+			    <div class="form-row">
+				    <div class="input-group"> 
+				        <span class="input-group-addon">R</span>
+				        <input type="number" value="1000" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+				    </div>
+				    <input type="submit" class="form-control btn">
+				</div>
+
+
+	</div>
+</div>
+	
+
+
+					

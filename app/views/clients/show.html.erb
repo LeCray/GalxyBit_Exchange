@@ -1,13 +1,21 @@
-<div class="container" style="margin-top: 150px; border: 1px solid grey; height: 5000px">
+<div class="container" style="margin-top: 150px;  height: 5000px; ">
 	<div class="row">
 
-		<div class="col-xs-4" style="height: 500px; border: 1px solid grey">
+		<div class="col-xs-4" style="height: 500px; border: 1px solid grey; ">
 			
 			<div style="margin: 20px; padding: 20px; background-color: #f2f2f2">
 				<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  My Balances </h6>
 				<div style="text-align: left">
-					ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%> <br>
-					<hr style="border-color: grey">
+
+					ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%>
+					
+
+					<%= link_to "DEPOSIT/WITHDRAW", new_client_transaction_path(@client.id) %>
+
+
+
+					<hr style="border-color: grey; margin-top: -0.25px">
+
 					BTC: <%= number_to_currency(@client.account.btc_balance, unit: '')%> <br>
 					<hr>
 					ETH: <%= number_to_currency(@client.account.eth_balance, unit: '')%> <br>
@@ -33,57 +41,34 @@
 
 		</div>	
 
-		<div class="col-xs-8" style="height: 500px; border: 1px solid grey">
+		<div class="col-xs-8" style="height: 500px; border: 1px solid grey; background-color: white">
 
-			<!--
-			<a class='btn btn-primary' href=<%= currency_path('Bitcoin') %> role='button'>View Bitcoin chart</a><br>
-			<a class='btn btn-primary' href=<%= currency_path('Ethereum') %> role='button'>View Ethereum chart</a><br>
-			<a class='btn btn-primary' href=<%= currency_path('Litecoin') %> role='button'>View Litecoin chart</a><br>
-			-->
 			<div class="btc_chart" style="padding-top: 30px;">
-				<h3 style="text-align: center; padding-bottom: 20px;"> <%= @bitcoin%> </h3>
-				<%= area_chart @bitcoin_chart, curve: false, height: '300px' , ytitle: 'ZAR', min: '40000', colors: ['#cc7a00'] %>
+				<h3 class="heading"> <%= @bitcoin%> </h3> 
+				<button class='btn btn-primary' href=#  style="margin-bottom: 8px"> <h5>BUY/SELL </h5></button>
+				<%= area_chart @bitcoin_chart, curve: false, height: '300px', width: '740px', min: '40000', colors: ['#cc7a00','#cc7a00' ], backgroundColor: '#cc7a00' %>
 			</div>
 			<div class="eth_chart" style="padding-top: 30px; display: none ">
-				<h3 style="text-align: center; padding-bottom: 20px"> <%= @ethereum%> </h3>
-				<%= area_chart @ethereum_chart, curve: false, height: '300px', width: '740px', ytitle: 'ZAR',min: '2000', colors: ['#cc7a00'] %>
+				<h3 class="heading"> <%= @ethereum%> </h3>
+				<button class='btn btn-primary' href=#  style="margin-bottom: 8px"> <h5>BUY/SELL </h5></button>
+				<%= area_chart @ethereum_chart, curve: false, height: '300px', width: '740px',min: '2000', colors: ['#cc7a00'] %>
 			</div>
 			<div class="ltc_chart" style="padding-top: 30px; display: none">
-				<h3 style="text-align: center; padding-bottom: 20px"> <%= @litecoin%> </h3>
-				<%= area_chart @litecoin_chart, curve: false, height: '300px', width: '740px', ytitle: 'ZAR',min: '300', colors: ['#cc7a00'] %>
+				<h3 class="heading"> <%= @litecoin%> </h3>
+				<button class='btn btn-primary' href=#  style="margin-bottom: 8px"> <h5>BUY/SELL </h5></button>
+				<%= area_chart @litecoin_chart, curve: false, height: '300px', width: '740px',min: '300', colors: ['#cc7a00'], backgroundColor: '#555' %>
+
+
 			</div>
 
-			<div style="text-align: center; margin-top: 20px">	
-				<button id="btc" class="btn">Bitcoin</button>
-				<button id="eth" class="btn">Ethereum</button>
-				<button id="ltc" class="btn">Litecoin</button>
+
+			<div style="text-align: center; margin-top: 20px" >	
+				<button id="btc" class="btn">BTC/ZAR</button>
+				<button id="eth" class="btn">ETH/ZAR</button>
+				<button id="ltc" class="btn">LTC/ZAR</button>
 			</div>
 					
-			<script> 
-				$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
-				  $('#btc').click(function(){
-				    $('.btc_chart').show(); 
-				    $('.eth_chart').hide();
-				    $('.ltc_chart').hide();
-				  });
-				});
-
-				$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
-				  $('#eth').click(function(){
-				    $('.eth_chart').show(); 
-				    $('.btc_chart').hide();
-				    $('.ltc_chart').hide();
-				  });
-				});
-
-				$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
-				  $('#ltc').click(function(){
-				    $('.ltc_chart').show(); 
-				    $('.btc_chart').hide();
-				    $('.eth_chart').hide();
-				  });
-				});
-			</script>
+			<%= javascript_include_tag 'clients/Show.js' %>
 
 			
 		</div>

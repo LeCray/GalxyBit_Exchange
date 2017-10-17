@@ -40,16 +40,16 @@
 			<a class='btn btn-primary' href=<%= currency_path('Ethereum') %> role='button'>View Ethereum chart</a><br>
 			<a class='btn btn-primary' href=<%= currency_path('Litecoin') %> role='button'>View Litecoin chart</a><br>
 			-->
-			<div class="btc_chart" style="padding-top: 50px;">
-				<h1 style="text-align: center"> <%= @bitcoin%> </h1>
+			<div class="btc_chart" style="padding-top: 30px;">
+				<h3 style="text-align: center; padding-bottom: 20px;"> <%= @bitcoin%> </h3>
 				<%= area_chart @bitcoin_chart, curve: false, height: '300px' , ytitle: 'ZAR', min: '40000', colors: ['#cc7a00'] %>
 			</div>
-			<div class="eth_chart" style="padding-top: 50px; display: none ">
-				<h1 style="text-align: center"> <%= @ethereum%> </h1>
+			<div class="eth_chart" style="padding-top: 30px; display: none ">
+				<h3 style="text-align: center; padding-bottom: 20px"> <%= @ethereum%> </h3>
 				<%= area_chart @ethereum_chart, curve: false, height: '300px', width: '740px', ytitle: 'ZAR',min: '2000', colors: ['#cc7a00'] %>
 			</div>
-			<div class="ltc_chart" style="padding-top: 50px; display: none">
-				<h1 style="text-align: center"> <%= @litecoin%> </h1>
+			<div class="ltc_chart" style="padding-top: 30px; display: none">
+				<h3 style="text-align: center; padding-bottom: 20px"> <%= @litecoin%> </h3>
 				<%= area_chart @litecoin_chart, curve: false, height: '300px', width: '740px', ytitle: 'ZAR',min: '300', colors: ['#cc7a00'] %>
 			</div>
 

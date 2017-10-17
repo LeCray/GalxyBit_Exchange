@@ -35,9 +35,55 @@
 
 		<div class="col-xs-8" style="height: 500px; border: 1px solid grey">
 
-			<a class='btn btn-primary' href=<%= currency_path('Bitcoin') %> role='button'>View Bitcoin Graph</a><br>
-			<a class='btn btn-primary' href=<%= currency_path('Ethereum') %> role='button'>View Ethereum Graph</a><br>
-			<a class='btn btn-primary' href=<%= currency_path('Litecoin') %> role='button'>View Litecoin Graph</a><br>
+			<!--
+			<a class='btn btn-primary' href=<%= currency_path('Bitcoin') %> role='button'>View Bitcoin chart</a><br>
+			<a class='btn btn-primary' href=<%= currency_path('Ethereum') %> role='button'>View Ethereum chart</a><br>
+			<a class='btn btn-primary' href=<%= currency_path('Litecoin') %> role='button'>View Litecoin chart</a><br>
+			-->
+			<div class="btc_chart" style="padding-top: 50px;">
+				<h1 style="text-align: center"> <%= @bitcoin%> </h1>
+				<%= area_chart @bitcoin_chart, curve: false, height: '300px' , ytitle: 'ZAR', min: '40000', colors: ['#cc7a00'] %>
+			</div>
+			<div class="eth_chart" style="padding-top: 50px; display: none ">
+				<h1 style="text-align: center"> <%= @ethereum%> </h1>
+				<%= area_chart @ethereum_chart, curve: false, height: '300px', width: '740px', ytitle: 'ZAR',min: '2000', colors: ['#cc7a00'] %>
+			</div>
+			<div class="ltc_chart" style="padding-top: 50px; display: none">
+				<h1 style="text-align: center"> <%= @litecoin%> </h1>
+				<%= area_chart @litecoin_chart, curve: false, height: '300px', width: '740px', ytitle: 'ZAR',min: '300', colors: ['#cc7a00'] %>
+			</div>
+
+			<div style="text-align: center; margin-top: 20px">	
+				<button id="btc" class="btn">Bitcoin</button>
+				<button id="eth" class="btn">Ethereum</button>
+				<button id="ltc" class="btn">Litecoin</button>
+			</div>
+					
+			<script> 
+				$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
+				  $('#btc').click(function(){
+				    $('.btc_chart').show(); 
+				    $('.eth_chart').hide();
+				    $('.ltc_chart').hide();
+				  });
+				});
+
+				$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
+				  $('#eth').click(function(){
+				    $('.eth_chart').show(); 
+				    $('.btc_chart').hide();
+				    $('.ltc_chart').hide();
+				  });
+				});
+
+				$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
+				  $('#ltc').click(function(){
+				    $('.ltc_chart').show(); 
+				    $('.btc_chart').hide();
+				    $('.eth_chart').hide();
+				  });
+				});
+			</script>
 
 			
 		</div>
@@ -48,7 +94,4 @@
 	
 
 
-
-
-Name: <%= @client %> 
 					

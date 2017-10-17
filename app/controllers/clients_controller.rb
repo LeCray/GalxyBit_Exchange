@@ -36,7 +36,47 @@ class ClientsController < ApplicationController
 		@ltc_value = Currency.where(currency_type: 'litecoin').last.value
 		@eth_value = Currency.where(currency_type: 'ethereum').last.value
 
+
+
+		@bitcoin_chart = 'bitcoin'
+		@bitcoin = 'Bitcoin'
+
+		case @bitcoin_chart
+	    when  !Currency.currency_types.include?(@bitcoin_chart) 
+	      @bitcoin_chart = {}
+	    else
+	      @bitcoin_chart = set_bitcoin_chart(@bitcoin_chart)
+	    end
+
+		
+
+		@ethereum_chart = 'ethereum'
+		@ethereum = 'Ethereum'
+
+		case @ethereum_chart
+	    when  !Currency.currency_types.include?(@ethereum_chart) 
+	      @ethereum_chart = {}
+	    else
+	      @ethereum_chart = set_ethereum_chart(@ethereum_chart)
+	    end
+
+		
+
+		@litecoin_chart = 'litecoin'
+		@litecoin = 'Litecoin'
+
+		case @litecoin_chart
+	    when  !Currency.currency_types.include?(@litecoin_chart) 
+	      @litecoin_chart = {}
+	    else
+	      @litecoin_chart = set_litecoin_chart(@litecoin_chart)
+	    end
+
+		
+
+
 	end 
+
 
 
 	def edit
@@ -62,19 +102,42 @@ class ClientsController < ApplicationController
 
 
 	def client_params
-		params.require(:client).permit(:first_name, :last_name, :email, :referral_id, :mt4_id,  :password, :password_confirmation)
+		params.require(:client).permit(:first_name, :last_name, :email, :referral_id, :password, :password_confirmation)
 	end
 
 
 
-	def set_currencies(currency_type)
-	    @currencies = Currency.where(currency_type: Currency.currency_types["#{currency_type}"])
-	    @currencies.inject({}) do |new_element, current_element|
+	def set_bitcoin_chart(currency_type)
+	    @bitcoin_chart = Currency.where(currency_type: Currency.currency_types["bitcoin"])
+	    @bitcoin_chart.inject({}) do |new_element, current_element|
 		    date = current_element.date
 		    value = current_element.value
 		    new_element[date] = value
 		    new_element
 	    end
 	end
+
+	def set_ethereum_chart(currency_type)
+	    @ethereum_chart = Currency.where(currency_type: Currency.currency_types["ethereum"])
+	    @ethereum_chart.inject({}) do |new_element, current_element|
+		    date = current_element.date
+		    value = current_element.value
+		    new_element[date] = value
+		    new_element
+	    end
+	end
+
+	def set_litecoin_chart(currency_type)
+		    @litecoin_chart = Currency.where(currency_type: Currency.currency_types["litecoin"])
+		    @litecoin_chart.inject({}) do |new_element, current_element|
+			    date = current_element.date
+			    value = current_element.value
+			    new_element[date] = value
+			    new_element
+		    end
+		end
+
+
+
 
 end

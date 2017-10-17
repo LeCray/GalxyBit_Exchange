@@ -14,7 +14,7 @@ namespace :dev do
       insert_currencies('ethereum', ethereums)
       insert_currencies('litecoin', litecoins)
 
-      puts "Congratulations! You have all crypto currencies values in your database now!"
+      puts "Congratulations! You have all crypto currency values in your database now!"
 
     rescue ActiveRecord::StatementInvalid
       # ...which we ignore.

@@ -2,6 +2,7 @@ class CurrenciesController < ApplicationController
 
 	def show
 	    @currencies = params[:id] ? params[:id].downcase : ''
+	    
 	    case @currencies
 	    when  !Currency.currency_types.include?(@currencies) 
 	      @currencies = {}

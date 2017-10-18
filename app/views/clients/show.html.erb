@@ -10,7 +10,7 @@
 					ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%>
 					
 
-					<%= link_to "DEPOSIT/WITHDRAW", new_client_transaction_path(@client.id) %>
+					<%= link_to "DEPOSIT/WITHDRAW", client_zar_transactions_path(@client.id) %>
 
 
 

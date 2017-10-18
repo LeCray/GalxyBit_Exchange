@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
 	resources :clients do
 		resources :accounts
-		resources :transaction, only: [:new]
+		get '/zar_transactions' => 'zar_transactions#new'
+		
 	end
-
+	post '/zar_transactions' => 'zar_transactions#create'
 
 	resources :account_activations, only: [:edit]
 

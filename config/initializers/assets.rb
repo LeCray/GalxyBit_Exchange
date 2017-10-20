@@ -20,3 +20,5 @@ Rails.application.config.assets.precompile += %w( pages/Parallax.js )
 Rails.application.config.assets.precompile += %w( clients/Show.js )
 
 Rails.application.config.assets.precompile += %w( zar_transactions/New.js )
+
+

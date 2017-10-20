@@ -45,20 +45,30 @@
 
 			<div class="btc_chart" style="padding-top: 30px;">
 				<h3 class="heading"> <%= @bitcoin%> </h3> 
-				<button class='btn btn-primary' href=#  style="margin-bottom: 8px"> <h5>BUY/SELL </h5></button>
+
+				<span style="text-align: right;">
+				<button class='btn btn-primary' href=#  style="margin-bottom: 8px; text-align: right"> 
+					<h5>BUY/SELL </h5>
+				</button>
+				</span>
+
 				<%= area_chart @bitcoin_chart, curve: false, height: '300px', width: '740px', min: '40000', colors: ['#cc7a00','#cc7a00' ], backgroundColor: '#cc7a00' %>
 			</div>
+
 			<div class="eth_chart" style="padding-top: 30px; display: none ">
 				<h3 class="heading"> <%= @ethereum%> </h3>
-				<button class='btn btn-primary' href=#  style="margin-bottom: 8px"> <h5>BUY/SELL </h5></button>
+				<button class='btn btn-primary' href=#  style="margin-bottom: 8px; text-align: right"> 
+					<h5>BUY/SELL </h5>
+				</button>
 				<%= area_chart @ethereum_chart, curve: false, height: '300px', width: '740px',min: '2000', colors: ['#cc7a00'] %>
 			</div>
+
 			<div class="ltc_chart" style="padding-top: 30px; display: none">
 				<h3 class="heading"> <%= @litecoin%> </h3>
-				<button class='btn btn-primary' href=#  style="margin-bottom: 8px"> <h5>BUY/SELL </h5></button>
+				<button class='btn btn-primary' href=#  style="margin-bottom: 8px; text-align: right">
+					<h5>BUY/SELL </h5>
+				</button>
 				<%= area_chart @litecoin_chart, curve: false, height: '300px', width: '740px',min: '300', colors: ['#cc7a00'], backgroundColor: '#555' %>
-
-
 			</div>
 
 

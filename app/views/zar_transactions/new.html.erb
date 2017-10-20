@@ -40,30 +40,50 @@
 
 			
 
-			<div class="col-xs-6" style="margin: 20px; padding: 20px; background-color: #f2f2f2">
+			<div class="col-xs-6" style="margin-top: 20px; padding: 20px; background-color: #f2f2f2; height: 400px">
 
-			<h5 style="text-align: center; margin-bottom: 30px"> DEPOSIT </h5>
-			
-				<%= bootstrap_form_for(@zar_transactions) do |f| %>
-					<%= f.number_field :amount, min: '0', step: '10', label: 'Amount (Rands)'%>
-					<%= f.submit 'Proceed with Deposit' %>
-				<% end %>
+				<h6 style="text-align: center; margin-bottom: 30px"> DEPOSIT/WITHDRAW </h6>
+				
+				<div id="transaction-form">
+					
+					<label>
+						Transaction Type:
+						<%= select_tag(:transaction_type, options_for_select(Transaction::TRANSACTION_TYPES), class: 'form-control', id: 'select-transaction-type')%>
+					</label>
+					<br>
+					<label style="margin-top: 30px">
+						Amount:
+						<%= number_field_tag :amount, 1000, min: '0', step: '10', id: 'input-amount', class: 'form-control'%>
+					</label>
+					<button class="btn btn-primary" id="btn-save" type="button"> Proceed with Deposit </button>
+				
+				</div>
+				<div class="notification">
+				</div>	
 
 			</div>
 
-			<%= button_tag :new_transaction, id: 'btn-new-transaction', class: 'btn btn-primary' do  %>
-			  New Transaction 
-			<% end %>
 
+			<div class="col-xs-5" style="margin-top: 20px; margin-left: 40px; padding: 20px; height: 400px; background-color: #f2f2f2">
 
+				<h6 style="text-align: center"> Deposit Instructions </h6>
+				<hr>
+				<p>
+					Give me yo money douu
+				</p>
+				<h6 style="text-align: center; margin-top: 50px"> Withdrawal Instructions </h6>
+				<hr>
+				<p>
+					Don't take yo money douu
+				</p>
 
-			<%= render partial: 'modal_transaction' %>
+			</div>
 
-
-
+			
 
 	</div>
 </div>
+
 	
 <%= javascript_include_tag 'zar_transactions/New.js' %>
   <script>

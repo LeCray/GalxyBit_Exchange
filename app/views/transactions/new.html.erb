@@ -41,9 +41,22 @@
 			<h3> DEPOSIT </h3>
 			
 			<form action="/transactions" method="post">
+
+				<section id="header-container">
+				  <select>
+				    <option disabled>Depoit or Withdraw?</option>
+				    <option value="choix-2">DEPOSIT</option>
+				    <option value="choix-3">WITHDRAW</option>
+				  </select>
+				</section>
+				
 			    <div class="form-row">
 				    <div class="input-group"> 
 				        <span class="input-group-addon">R</span>
+				        <select>
+				        	<option value='Deposit'>Deposit</option>
+				        	<option value='Withdraw'>Withdraw</option>
+				        </select>
 				        <input type="number" value="1000" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
 				    </div>
 				    <input type="submit" class="btn" value="Proceed with deposit">
@@ -57,6 +70,9 @@
 	</div>
 </div>
 	
+
+
+
 
 
 					

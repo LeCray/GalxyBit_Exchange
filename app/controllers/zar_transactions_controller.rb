@@ -5,6 +5,7 @@ class ZarTransactionsController < ApplicationController
 		@zar_transactions = ZarTransaction.new
 
 		@client = current_client	
+		@account = current_client.account
 
 		@btc_value = Currency.where(currency_type: 'bitcoin').last.value
 		@ltc_value = Currency.where(currency_type: 'litecoin').last.value

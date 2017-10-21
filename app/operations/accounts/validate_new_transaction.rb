@@ -29,8 +29,8 @@ module Accounts
 		end
 
 		def validate_withdrawal!
-			if @account.balance - @amount < 0.00
-				@errors << 'Not enough funds'
+			if @account.zar_balance - @amount < 0.00
+				@errors << 'YOU TOO BROKE FOR THIS'
 			end
 		end
 

@@ -1,6 +1,6 @@
 class Account < ApplicationRecord
-  belongs_to :client
-  has_many :transactions
+  belongs_to :client, optional: true
+  has_many :zar_transactions
 
   validates :client, presence: true
   validates :zar_balance, presence: true, numericality: true

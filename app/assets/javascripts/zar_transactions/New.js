@@ -1,4 +1,4 @@
-var Show = (function() {
+var New = (function() {
 
 	var $btnNewTransaction;
 	var $btnSave;
@@ -12,6 +12,8 @@ var Show = (function() {
 	var AccountId;
 	var url = '/api/v1/accounts/new_transaction';
 
+
+
 	var fetchElements = function() {
 		$btnNewTransaction 		= $("#btn-new-transaction");
 		$btnSave 	       		= $('#btn-save');
@@ -23,6 +25,8 @@ var Show = (function() {
 
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
+
+	
 	};
 
 
@@ -40,9 +44,7 @@ var Show = (function() {
 
 
 	var initializeEvents = function() {
-		$btnNewTransaction.on("click", function() {
-			$modalTransaction.modal('show');			
-		});
+	
 
 		$btnSave.on("click", function() {
 			var amount = $inputAmount.val();
@@ -65,7 +67,7 @@ var Show = (function() {
 				},
 
 				success: function(response) {
-					window.location.href = '/clients/' + ClientId + '/accounts/'+ AccountId;
+					window.location.href = '/clients/' + ClientId + '/zar_transactions'
 				},
 				error: function(response) {
 					$notification.html(JSON.parse(response.responseText).errors.join());

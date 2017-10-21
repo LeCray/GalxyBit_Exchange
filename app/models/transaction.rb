@@ -1,6 +1,6 @@
 class Transaction < ApplicationRecord
   belongs_to :account
-  belongs_to :client
+  belongs_to :client, optional: true
 
    	TRANSACTION_TYPES = ["Deposit", "Withdraw"]
 

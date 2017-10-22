@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 	resources :clients do
 		resources :accounts
 		get '/zar_transactions' => 'zar_transactions#new'
-		get '/admin' => "clients#admin"
+		get '/admin' => "clients#admin" 
+
 		
 	end
 	post '/zar_transactions' => 'zar_transactions#create'

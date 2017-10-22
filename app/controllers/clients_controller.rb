@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
 
-	before_action :only_see_own_page, only: :show unless :is_admin
+	before_action :only_see_own_page, only: :show 
 	before_action :check_if_admin, only: [:admin, :index]
 
 
@@ -123,9 +123,7 @@ class ClientsController < ApplicationController
 	  	end
 	end
 
-	def is_admin
-		return @client.admin?
-	end
+
 
 
 

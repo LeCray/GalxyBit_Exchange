@@ -4,7 +4,10 @@ class Client < ApplicationRecord
 	before_create :create_activation_digest, :admin_default
 
 	has_one :account
+	has_many :zar_transactions
 	has_secure_password
+
+	
 
 	
 	validates :first_name, presence: true

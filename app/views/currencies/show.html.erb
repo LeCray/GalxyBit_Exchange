@@ -1,0 +1,18 @@
+
+
+<h1 style="text-align: center; margin-top: 120px"> <%= @currency_type %> </h1>
+
+<div style="padding: 50px">
+
+	<%= area_chart @currencies, curve: false, height: '400px' , ytitle: 'ZAR', colors: ['#cc7a00'] %>
+
+</div>
+
+<div style="text-align: center">
+
+	<%= link_to "BACK TO Dashboard", current_client, class: 'btn btn-primary' %>
+
+	
+
+</div>
+

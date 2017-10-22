@@ -1,30 +1,31 @@
 <div class="container">
-	<div style="margin-top: 25px">
+	<div style="margin-top: 120px; margin-bottom: -50px">
 		<% flash.each do |key, value| %>
-			<div style="text-align: center" class="alert alert-<%= key %>">
+			<div style="text-align: center; " class="alert alert-<%= key %>">
 				<%= value %>
 			</div>
 		<% end %>
 	</div>	
 	
-	<h1 style="text-align: center; color: rgb(255, 160, 0)"><b>Signup</b></h1>
 
-	<hr>
+	<h2 style="color: rgb(204, 122, 0); margin-left: 50%; margin-top: 100px" class="glyphicon glyphicon-menu-down" aria-hidden="true"></h2> 
 
-	<div style="margin-bottom: 150px">
+	<hr style="margin-bottom: 50px; margin-top: 50px">
+
+	<div style="margin-bottom: 150px; border-color: red">
 		<div class='row'>
-			<div class = 'col-md-6 col-md-offset-3'>
+			<div class = 'col-md-6 col-md-offset-3 '>
 
 			<%= bootstrap_form_for(@client) do |f| %>
-				<%= f.text_field :first_name, label: 'First Name' %> <br>
+
+				<%= f.text_field :first_name, label: 'First Name'%> <br>
 				<%= f.text_field :last_name, label: 'Last Name' %> <br>
 				<%= f.text_field :email, label: 'Email Address' %> <br>
 				<%= f.text_field :referral_id, label: 'Referral ID' %> <br>
-				<%= f.text_field :mt4_id, label: 'MetaTrader ID' %> <br>
 
 				<%= f.password_field :password, label: 'Password' %> <br>
-				<%= f.password_field :password_confirmation, label: "Confirm Password"  %> <br>
-				<%= f.submit "Create my account", class: 'btn btn-warning' %>
+				<%= f.password_field :password_confirmation, label: 'Confirm Password' %> <br>
+				<%= f.submit "Create my account", class: 'btn' %>
 
 			<% end %>
 			</div>
@@ -32,3 +33,16 @@
 	</div>
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://cdn.rawgit.com/HubSpot/tether/v1.3.4/dist/js/tether.min.js"></script>
+<script src="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.iife.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+<script>
+  $('body').bootstrapMaterialDesign();
+</script>
+
+
+
+

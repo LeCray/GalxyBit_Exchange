@@ -43,12 +43,19 @@ gem 'bootstrap_form'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass'
+
+
+
 gem 'haml'
 gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+	gem 'byebug', platform: :mri
+	gem 'dotenv-rails'
+
+	#For the cryptographs
+	gem 'rails-controller-testing'
 end
 
 group :development do
@@ -61,8 +68,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 #Environment Shandice
 gem "figaro"
-gem 'dotenv-rails', groups: [:development, :test]
 
 
+#API gems
+gem 'active_model_serializers'
+gem 'rest-client'
 
+gem 'whenever', require: false
+
+
+#For the cryptographs
+gem 'highcharts-rails'
+gem 'chartkick'
+gem 'groupdate'
 

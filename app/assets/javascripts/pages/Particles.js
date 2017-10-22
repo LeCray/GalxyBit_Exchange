@@ -17,10 +17,10 @@ var ball = {
       phase: 0
    },
 
-   ball_color = {
-       r: 25,
-       g: 25,
-       b: 255
+   ball_color = { 
+       r: 204,
+       g: 122,
+       b: 0
    },
    R = 2,
    balls = [],
@@ -173,7 +173,7 @@ function renderLines(){
            if(fraction < 1){
                alpha = (1 - fraction).toString();
 
-               ctx.strokeStyle = 'rgba(150,150,150,'+alpha+')';
+               ctx.strokeStyle = 'rgba(80,80,80,'+alpha+')';
                ctx.lineWidth = link_line_width;
                
                ctx.beginPath();

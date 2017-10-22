@@ -8,13 +8,15 @@ Rails.application.routes.draw do
 	root to: 'pages#index'
 
 	get '/about' => 'pages#about'
-	get '/call' => "clients#call"
+	
 
 	resources :clients do
 		resources :accounts
+		get '/zar_transactions' => 'zar_transactions#new'
+		get '/admin' => "clients#admin"
+		
 	end
-
-
+	post '/zar_transactions' => 'zar_transactions#create'
 
 	resources :account_activations, only: [:edit]
 
@@ -27,5 +29,16 @@ Rails.application.routes.draw do
 			post 'accounts/new_transaction', to: 'accounts#new_transaction'
 		end
 	end
+
+
+	root 'currencies#show', id: 'bitcoin'
+
+	resources :currencies, only: [:show]
+	
+	get '/currencies' => 'currencies#show'
+
+	
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

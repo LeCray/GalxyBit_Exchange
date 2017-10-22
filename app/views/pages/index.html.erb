@@ -1,3 +1,59 @@
+<div style="margin-top: 120px; margin-bottom: -100px">
+	<% flash.each do |key, value| %>
+		<div style="text-align: center; " class="alert alert-<%= key %>">
+			<%= value %>
+		</div>
+	<% end %>
+</div>	
+
+    
+<canvas id="nokey" width="100%" height="100%"> 
+</canvas>	
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="Hfade fadeInDown" id="heading" style="font-size: 4.5em; font-family: consolas;">
+			<div style="z-index: 6">
+	 			<i style="font-family: arial">G</i>ALXY<i style="color: rgb(204, 122, 0)">BIT</i></br>  
+	 		</div>
+
+	 		<div class="Pfade fadeInDown" style="font-size: 0.35em; font-family: arial; ">
+	 			Your Only Cryptocurrency Exchange  /<i style="color: rgb(204, 122, 0)">/</i>/
+	 		</div>
+
+	 		<div style="z-index: 4">
+		  		<%= button_to new_client_path, :method => "get", class: 'btn-style hvr-shutter-out-horizontal btn-fade btnfadeInDown' do %>
+				  	JOIN THE REVOLUTION
+				<% end %>
+			</div>
+
+			
+
+		</div>
+	</div>
+</div>
+
+<%= javascript_include_tag 'pages/Particles.js' %>
+
+
+
+	
+
+    
+
+
+
+<div class="everything" style="">
+Scroll Up and Down this page to see the parallax scrolling effect.
+This div is just here to enable scrolling.
+Tip: Try to remove the background-attachment property to remove the scrolling effect.
+</div>
+
+
+
+
+<!--
+	This is for the Launching Page
 <div class="container"> 
 
 	<div class="fadeInDown animate" id="heading" style="margin-top: 90px">

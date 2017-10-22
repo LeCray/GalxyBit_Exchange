@@ -7,13 +7,9 @@ class ClientMailer < ApplicationMailer
   #
   def account_activation(client)
     @client = client
-    mail to: client.email, subject: "MoneyCalls Account Activation"
+    mail to: client.email, subject: "Galxybit Account Activation"
   end
 
-  def call_request(client)
-    @client = client
-    mail to: "forexmaster@networktradingsa.co.za", subject: "New Call Request"
-  end
 
 
   # Subject can be set in your I18n file at config/locales/en.yml

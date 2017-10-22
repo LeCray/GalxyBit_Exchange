@@ -8,11 +8,12 @@ Rails.application.routes.draw do
 	root to: 'pages#index'
 
 	get '/about' => 'pages#about'
-	get '/call' => "clients#call"
+	
 
 	resources :clients do
 		resources :accounts
 		get '/zar_transactions' => 'zar_transactions#new'
+		get '/admin' => "clients#admin"
 		
 	end
 	post '/zar_transactions' => 'zar_transactions#create'

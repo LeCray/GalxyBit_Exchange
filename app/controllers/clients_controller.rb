@@ -1,5 +1,9 @@
 class ClientsController < ApplicationController
 
+	before_action :only_see_own_page, only: :show
+	before_action :check_if_admin, only: [:admin, :index]
+
+
 	def index
 		@clients = Client.all
 	end
@@ -78,7 +82,6 @@ class ClientsController < ApplicationController
 	end 
 
 
-
 	def edit
 	end
 
@@ -90,8 +93,11 @@ class ClientsController < ApplicationController
 		@client.destroy!
 		@account = @client.account
 		@account.destroy!
-		redirect_to clients_path
-		
+		redirect_to clients_path		
+	end
+
+	
+	def admin
 	end
 
 
@@ -103,6 +109,24 @@ class ClientsController < ApplicationController
 
 	def client_params
 		params.require(:client).permit(:first_name, :last_name, :email, :referral_id, :password, :password_confirmation)
+	end
+
+
+	def only_see_own_page
+	  @client = Client.find(params[:id])
+
+	  if current_client != @client
+	    redirect_to root_path, notice: "YOU THINK I'M DUMB HUH? THIS SYSTEM'S GOT TOO MUCH SAUCE FAM"
+	  end
+	end
+
+
+	def check_if_admin
+		
+		if current_client.admin != true
+	    	redirect_to root_path, notice: "YOU AIN'T NO ADMIN FAM NOR WILL YOU EVER BE"
+	  	end
+
 	end
 
 

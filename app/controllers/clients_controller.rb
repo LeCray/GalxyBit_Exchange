@@ -92,6 +92,7 @@ class ClientsController < ApplicationController
 	
 	def admin
 		@clients = Client.all
+		
 	end
 
 
@@ -122,8 +123,6 @@ class ClientsController < ApplicationController
 	    	redirect_to root_path, notice: "YOU AIN'T NO ADMIN FAM NOR WILL YOU EVER BE"
 	  	end
 	end
-
-
 
 
 

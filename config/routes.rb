@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 	get '/about' => 'pages#about'
 	
-	get '/admin' => "admin#index" 
+	resources :admin
 
 	resources :clients do
 		resources :accounts

@@ -15,8 +15,8 @@
 				%td #{c.referral_id}
 				%td
 					.btn-toolbar
-						= link_to client_path(c.id), class: 'btn btn-default' do
-							Dashboard
+						= link_to admin_path(c.id), class: 'btn btn-default' do
+							Manage
 
 
 						= link_to 'Delete',  client_path(c.id), class: 'btn btn-danger',

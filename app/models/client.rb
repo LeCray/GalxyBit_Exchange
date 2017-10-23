@@ -5,6 +5,7 @@ class Client < ApplicationRecord
 
 	has_one :account
 	has_many :zar_transactions
+	belongs_to :admin
 	has_secure_password
 
 	

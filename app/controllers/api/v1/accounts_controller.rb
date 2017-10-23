@@ -26,7 +26,11 @@ module Api
 								client_id: client_id
 							).execute!
 					
-					render json: { zar_balance: account.zar_balance }
+
+					render json: { 
+						zar_balance: account.zar_balance 
+
+					}
 				end
 
 			end

@@ -9,12 +9,11 @@ Rails.application.routes.draw do
 
 	get '/about' => 'pages#about'
 	
+	get '/admin' => "admin#index" 
 
 	resources :clients do
 		resources :accounts
 		get '/zar_transactions' => 'zar_transactions#new'
-		get '/admin' => "clients#admin" 
-
 		
 	end
 	post '/zar_transactions' => 'zar_transactions#create'

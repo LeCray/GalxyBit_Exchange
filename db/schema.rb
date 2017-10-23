@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022201336) do
+ActiveRecord::Schema.define(version: 20171023184640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20171022201336) do
     t.decimal  "ltc_balance"
     t.decimal  "eth_balance"
     t.index ["client_id"], name: "index_accounts_on_client_id", using: :btree
+  end
+
+  create_table "admins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "clients", force: :cascade do |t|

@@ -25,8 +25,6 @@ var New = (function() {
 
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
-
-	
 	};
 
 
@@ -51,7 +49,7 @@ var New = (function() {
 			var transactionType = $selectTransactionType.val();
 			disableControls();	
 
-			console.log('Amount: ' + amount + ' Transaction Type: ' + transactionType + ' Account ID: ' + AccountId + ' Client ID: ' + ClientId);		
+			console.log('Amount: ' + amount + ' Transaction Type: ' + transactionType + ' Account ID: ' + AccountId + ' Client ID: ' + ClientId );		
 
 			$notification.html('');
 
@@ -63,11 +61,12 @@ var New = (function() {
 					amount: amount,
 					transaction_type: transactionType,
 					account_id: AccountId,
-					client_id: ClientId
+					client_id: ClientId,
 				},
 
 				success: function(response) {
 					window.location.href = '/clients/' + ClientId + '/zar_transactions'
+
 				},
 				error: function(response) {
 					$notification.html(JSON.parse(response.responseText).errors.join());

@@ -90,10 +90,13 @@ class ClientsController < ApplicationController
 	end
 
 	
-	def admin
+	def admin_index
 		@clients = Client.all
-		
+
 	end
+
+	def manage
+	end 
 
 
 	

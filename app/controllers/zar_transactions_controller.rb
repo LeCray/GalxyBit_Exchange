@@ -1,5 +1,6 @@
 class ZarTransactionsController < ApplicationController
 	helper_method :current_client
+	
 
 	def new
 		@zar_transactions = ZarTransaction.new
@@ -15,6 +16,7 @@ class ZarTransactionsController < ApplicationController
 	def create
 		@transaction = Transaction.new(params[:amount])
 	end
+
 
 
 end

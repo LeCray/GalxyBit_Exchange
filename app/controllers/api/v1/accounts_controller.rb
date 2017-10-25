@@ -24,14 +24,14 @@ module Api
 								transaction_type: transaction_type,
 								account_id: account_id,
 								client_id: client_id
-							).execute!
-					
+							).execute!		
+				end
+			
 
 					render json: { 
 						zar_balance: account.zar_balance 
 
 					}
-				end
 
 			end
 		end

@@ -3,6 +3,7 @@ var Show = (function() {
 	var $btnChange;
 	var $status;
 	var $selectStatusType;
+	var $zarTransactionId;
 	var $parameters;
 	var ClientId;
 	var AccountId;
@@ -14,6 +15,7 @@ var Show = (function() {
 		
 		$btnChange	       		= $('#btn-change');
 		$selectStatusType 		= $('#select-status-type');
+		$zarTransactionId       = $('#zar-transaction-id');
 		$parameters 			= $('#parameters');
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
@@ -27,8 +29,14 @@ var Show = (function() {
 
 		$btnChange.on("click", function() {
 			var change_status_to = $selectStatusType.val();
+			var zar_transaction_id = $zarTransactionId.val();
 			
-			console.log(' Account ID: ' + AccountId + ' Client ID: ' + ClientId + ' Current Status: ' + Status + ' Change_Status_To: ' + change_status_to );		
+			console.log(' Account ID: ' + AccountId + 
+						' Client ID: ' + ClientId + 
+						' Current Status: ' + Status + 
+						' Change_Status_To: ' + change_status_to +
+						' ZarTransactionId: ' + zar_transaction_id	
+						 );		
 
 
 			$.ajax({

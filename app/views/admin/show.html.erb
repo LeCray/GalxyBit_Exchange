@@ -18,7 +18,7 @@
 					<label style="margin-left: 15px; margin-top: 30px">
 						Date of Transaction:
 					</label>
-					<%= select_tag :which_transaction, options_for_select(@zar_transactions.map { |z| z.created_at }), class: 'form-control', id: 'zar-transaction-date' %>
+					<%= select_tag :which_transaction, options_for_select(@zar_transactions.map { |z| z.id }), class: 'form-control', id: 'zar-transaction-date' %>
 
 					<button class="btn btn-primary" id="btn-change" type="button" style="margin-top: 20px">Change Status</button>		
 				</div>

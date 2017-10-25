@@ -10,7 +10,7 @@ class AdminController < ApplicationController
 		@client = Client.find(params[:id])
 		@account = @client.account
 		@zar_transactions = @account.zar_transactions.order('created_at DESC')
-		@status = @zar_transactions.last.status
+		
 	end
 
 

@@ -6,7 +6,7 @@ module Api
 			def change_status
 				account_id 		  		= params[:account_id]
 				client_id		  		= params[:client_id]
-				status 			  		= params[:status]
+				#status 			  		= params[:status]
 				change_status_to  		= params[:change_status_to]
 				zar_transaction_date 	= params[:zar_transaction_date]
 
@@ -14,14 +14,14 @@ module Api
 				zar_transaction = ::Accounts::ChangeStatus.new(
 							account_id: account_id,
 							client_id: client_id,
-							status: status,
+							#status: status,
 							change_status_to: change_status_to,
 							zar_transaction_date: zar_transaction_date,
 						).execute!
 				
 
 				render json: { 
-					status: zar_transaction.status
+					status: zar_transaction
 				}			
 
 			end

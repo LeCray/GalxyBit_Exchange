@@ -1,7 +1,7 @@
 var Show = (function() {
 
 	var $btnChange;
-	var $status;
+	//var $status;
 	var $selectStatusType;
 	var $zarTransactionDate;
 	var $parameters;
@@ -19,7 +19,7 @@ var Show = (function() {
 		$parameters 			= $('#parameters');
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
-		Status 					= $parameters.data('status');
+		//Status 					= $parameters.data('status');
 	};
 
 
@@ -33,7 +33,7 @@ var Show = (function() {
 			
 			console.log(' Account ID: ' + AccountId + 
 						' Client ID: ' + ClientId + 
-						' Current Status: ' + Status + 
+						//' Current Status: ' + Status + 
 						' Change_Status_To: ' + change_status_to +
 						' ZarTransactionDate: ' + zar_transaction_date	
 						 );		
@@ -44,7 +44,7 @@ var Show = (function() {
 				method: 'POST',
 				dataType: 'json',
 				data: {
-					status: Status,
+					//status: Status,
 					change_status_to: change_status_to,
 					zar_transaction_date: zar_transaction_date,
 					account_id: AccountId,

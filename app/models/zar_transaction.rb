@@ -3,6 +3,7 @@ class ZarTransaction < ApplicationRecord
   	belongs_to :client, optional: true
 
    	TRANSACTION_TYPES = ["Deposit", "Withdraw"]
+    STATUS_TYPES = ["Approved", "Cancelled"]
 
   	validates :account, presence: true
   	validates :amount, presence: true, numericality: true

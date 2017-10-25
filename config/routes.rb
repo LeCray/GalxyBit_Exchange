@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
 			post 'accounts/new_transaction', to: 'accounts#new_transaction'
+			post 'admin/change_status', to: 'admin#change_status'
 		end
 	end
 

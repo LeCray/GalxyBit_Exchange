@@ -7,6 +7,7 @@ class ZarTransactionsController < ApplicationController
 
 		@client = current_client	
 		@account = current_client.account
+		@zar_transactions = @account.zar_transactions.order('created_at DESC')
 
 		@btc_value = Currency.where(currency_type: 'bitcoin').last.value
 		@ltc_value = Currency.where(currency_type: 'litecoin').last.value

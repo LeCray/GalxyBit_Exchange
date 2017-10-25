@@ -6,42 +6,69 @@
 		<%= link_to "Back to Database", admin_index_path, class: "btn" %>
 	</div>
 
-	<div class="row">
-		<div class="col-xs-10 offset-xs-1">
+	<div style="background-color: #d9d9d9;">
+		<div class="row" style="background-color: #d9d9d9; padding: 20px; ">
+			<div class="col-xs-4 offset-xs-1" style="background-color: white">
 
-			<table class="table table-bordered">
+				<div data-account-id="<%= @account_id %>" data-client-id="@client_id" style="padding-left: 20px; padding-right: 20px">
+					<label style="margin-left: 15px">
+						Status Type:
+					</label>
+					<%= select_tag :status_type, options_for_select(ZarTransaction::STATUS_TYPES), class: 'form-control', id: 'select-status-type' %>
+
+					<button class="btn btn-primary" id="btn-change" type="button">Change Latest Status</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+		
+
+	<div class="row" style="background-color: #cccccc; padding-top: 20px; padding-left: 15px; padding-bottom: 20px">
+		<div class="col-xs-10 offset-xs-1" style="background-color: white; padding: 20px ">
+
+			<table class="table table-bordered" ">
 				<thead>
-				    <tr>
-				      	<th><b>Date of Transaction</b></th>
+					<tr>
+						<th><b>Date of Transaction</b></th>
 						<th><b>Transaction Type</b></th>
 						<th><b>Amount</b></th>
-						<th><b>Status</b></th>
-						<th></th>
-				    </tr>
+						<th><b id="status">Status</b></th>
+					</tr>
 				</thead>
 				<tbody>
-					<% @account.zar_transactions.each do |t| %>
+					<% @zar_transactions.each do |t| %>
 						<tr>
 							<td><%= t.created_at %></td>
-							<td><%= t.transaction_type %></td>
-							<td><%= t.amount %></td>
+							<td id="transaction_type"><%= t.transaction_type %></td>
+							<td id="amount"><%= t.amount %></td>
 							<td><%= t.status %></td>
-							<td> Buttons </td>
 						</tr>
 					<% end %>
 					<tr>
 						<th></th>
 						<th><b>Balance</b></th>
-						<th><b><%= number_to_currency(@account.zar_balance, unit: "R ") %></b></th>
+						<th><b><%= number_to_currency(@account.zar_balance, unit: "R ")%></b></th>
 					</tr>
 				</tbody>
 			</table>
 
-		</div>
-	</div>
 
+		</div>
+	</div>	
+<%= render partial: 'parameters' %>
 
 
 
 
 </div>
+
+<%= javascript_include_tag 'admin/Show.js' %>
+<script>
+
+	$(document).ready(function() {
+		Show.init();
+	});
+
+
+</script>

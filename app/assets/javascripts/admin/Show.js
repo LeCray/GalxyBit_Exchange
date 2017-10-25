@@ -1,7 +1,8 @@
 var Show = (function() {
 
 	var $btnChange;
-	var $status
+	var $status;
+	var $selectStatusType;
 	var $parameters;
 	var ClientId;
 	var AccountId;
@@ -12,6 +13,7 @@ var Show = (function() {
 	var fetchElements = function() {
 		
 		$btnChange	       		= $('#btn-change');
+		$selectStatusType 		= $('#select-status-type');
 		$parameters 			= $('#parameters');
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
@@ -24,10 +26,9 @@ var Show = (function() {
 	
 
 		$btnChange.on("click", function() {
+			var change_status_to = $selectStatusType.val();
 			
-
-
-			console.log(' Account ID: ' + AccountId + ' Client ID: ' + ClientId + ' Status: ' + Status );		
+			console.log(' Account ID: ' + AccountId + ' Client ID: ' + ClientId + ' Current Status: ' + Status + ' Change_Status_To: ' + change_status_to );		
 
 
 			$.ajax({
@@ -36,6 +37,7 @@ var Show = (function() {
 				dataType: 'json',
 				data: {
 					status: Status,
+					change_status_to: change_status_to,
 					account_id: AccountId,
 					client_id: ClientId,
 				},

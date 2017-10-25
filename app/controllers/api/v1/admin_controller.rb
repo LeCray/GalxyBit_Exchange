@@ -7,33 +7,20 @@ module Api
 				account_id 		  = params[:account_id]
 				client_id		  = params[:client_id]
 				status 			  = params[:status]
+				change_status_to  = params[:change_status_to]
 
 
-					
-
-
-
-
-
-
-
-
-
-
-=begin
-				account = ::Accounts::PerformTransaction.new(
-							amount: amount,
-							transaction_type: transaction_type,
+				zar_transaction = ::Accounts::ChangeStatus.new(
 							account_id: account_id,
-							client_id: client_id
+							client_id: client_id,
+							status: status,
+							change_status_to: change_status_to,
 						).execute!
 				
 
 				render json: { 
-					zar_balance: account.zar_balance 
-
-				}
-=end			
+					status: zar_transaction.status
+				}			
 
 			end
 		end

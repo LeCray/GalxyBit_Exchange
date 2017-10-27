@@ -9,7 +9,7 @@ class AdminController < ApplicationController
 	def show
 		@client = Client.find(params[:id])
 		@account = @client.account
-		@zar_transactions = @account.zar_transactions.order('created_at DESC')
+		@zar_transactions = @account.zar_transactions.order('created_at DESC').paginate(page: params[:page], per_page: 10)
 		
 	end
 

@@ -1,10 +1,10 @@
-%table.table.table-bordered
+%table.table
 	%thead
 		%tr
-			%th <b>Date of Transaction</b>
-			%th <b>Transaction Type</b>
-			%th <b>Amount (Rands)</b>
-			%th <b>Status</b>
+			%th <b>DATE OF TRANSACTION</b>
+			%th <b>TYPE</b>
+			%th <b>AMOUNT</b>
+			%th <b>STATUS</b>
 	%tbody
 		- @zar_transactions.each do |t|
 			%tr
@@ -17,3 +17,7 @@
 			%th
 			%th <b>Balance</b>
 			%th <b>#{number_to_currency(@account.zar_balance, unit: "R ")}</b>
+			%th
+
+%div{:style => "text-align: center"}
+	= will_paginate @zar_transactions, renderer: BootstrapPagination::Rails

@@ -30,13 +30,13 @@
 	<div class="row" style="background-color: #cccccc; padding-top: 20px; padding-bottom: 30px; margin-bottom: 500px">
 		<div class="col-xs-10 offset-xs-1" style="background-color: white; padding: 20px ">
 		
-			<table class="table table-bordered" ">
+			<table class="table" ">
 				<thead>
 					<tr>
-						<th><b>Date of Transaction</b></th>
-						<th><b>Transaction Type</b></th>
-						<th><b>Amount (Rands)</b></th>
-						<th><b>Status</b></th>
+						<th><b>DATE OF TRANSACTION</b></th>
+						<th><b>TYPE</b></th>
+						<th><b>AMOUNT</b></th>
+						<th><b>STATUS</b></th>
 						<th><b>ID</b></th>
 					</tr>
 				</thead>
@@ -54,9 +54,15 @@
 						<th></th>
 						<th><b>Balance</b></th>
 						<th><b><%= number_to_currency(@account.zar_balance, unit: "R ")%></b></th>
+						<th></th>
+						<th></th>
 					</tr>
 				</tbody>
 			</table>
+			<div style="text-align: center">
+			  <%= will_paginate @zar_transactions, renderer: BootstrapPagination::Rails %>
+			</div>
+
 
 
 		</div>

@@ -17,14 +17,22 @@ module Accounts
 				if @change_status_to == 'Approved'
 					@zar_transaction.update!(status: @change_status_to)
 
+					if @zar_transaction.transaction_type == "Deposit"
+						@account.update!(zar_balance: @account.zar_balance + @zar_transaction.amount)
+					end
+
+
+
 					elsif @change_status_to == 'Cancelled'
 						@zar_transaction.update!(status: @change_status_to)	
 
 						if @zar_transaction.transaction_type == "Withdraw"
 							@account.update!(zar_balance: @account.zar_balance + @zar_transaction.amount) 
-						else @account.update!(zar_balance: @account.zar_balance - @zar_transaction.amount)
-
+						elsif @zar_transaction.transaction_type == "Deposit"
+						 	@account.update!(zar_balance: @account.zar_balance - @zar_transaction.amount)
 					end
+
+
 				end
 
 			end

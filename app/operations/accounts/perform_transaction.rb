@@ -19,9 +19,7 @@ module Accounts
 				)
 
 				if @transaction_type == 'Withdraw'
-					@account.update!(zar_balance: @account.zar_balance - @amount)
-				elsif @transaction_type == 'Deposit'
-					@account.update!(zar_balance: @account.zar_balance + @amount)				
+					@account.update!(zar_balance: @account.zar_balance - @amount)				
 				end
 
 			end

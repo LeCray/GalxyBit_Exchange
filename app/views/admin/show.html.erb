@@ -16,9 +16,9 @@
 					</label>
 					<%= select_tag :status_type, options_for_select(ZarTransaction::STATUS_TYPES), class: 'form-control', id: 'select-status-type' %>
 					<label style="margin-left: 15px; margin-top: 30px">
-						Date of Transaction:
+						Transaction ID:
 					</label>
-					<%= select_tag :which_transaction, options_for_select(@zar_transactions.map { |z| z.id }), class: 'form-control', id: 'zar-transaction-date' %>
+					<%= select_tag :which_transaction, options_for_select(@zar_transactions.map { |z| z.id }), class: 'form-control', id: 'zar-transaction-id' %>
 
 					<button class="btn btn-primary" id="btn-change" type="button" style="margin-top: 20px">Change Status</button>		
 				</div>
@@ -35,17 +35,19 @@
 					<tr>
 						<th><b>Date of Transaction</b></th>
 						<th><b>Transaction Type</b></th>
-						<th><b>Amount</b></th>
-						<th><b id="status">Status</b></th>
+						<th><b>Amount (Rands)</b></th>
+						<th><b>Status</b></th>
+						<th><b>ID</b></th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @zar_transactions.each do |t| %>
 						<tr>
 							<td><%= t.created_at %></td>
-							<td id="transaction_type"><%= t.transaction_type %></td>
-							<td id="amount"><%= t.amount %></td>
+							<td><%= t.transaction_type %></td>
+							<td><%= number_to_currency(t.amount, unit: "R ")%></td>
 							<td><%= t.status %></td>
+							<td><%= t.id %></td>
 						</tr>
 					<% end %>
 					<tr>

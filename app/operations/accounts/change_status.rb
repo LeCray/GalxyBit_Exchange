@@ -1,14 +1,13 @@
 module Accounts
 	class ChangeStatus
 
-		def initialize(account_id:, client_id:, change_status_to:, zar_transaction_date:)
+		def initialize(account_id:, client_id:, change_status_to:, zar_transaction_id:)
 			@account_id 	   		= account_id
 			@client_id 		   		= client_id
-			#@status 		  	    = status
 			@change_status_to  	    = change_status_to
-			@zar_transaction_date   = zar_transaction_date
+			@zar_transaction_id     = zar_transaction_id
 			@account                = Account.where(id: @account_id).first
-			@zar_transaction        = ZarTransaction.where(id: @zar_transaction_date).last
+			@zar_transaction        = ZarTransaction.where(id: @zar_transaction_id).first
 		end
 
 		def execute!

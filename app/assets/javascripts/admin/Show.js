@@ -1,9 +1,8 @@
 var Show = (function() {
 
 	var $btnChange;
-	//var $status;
 	var $selectStatusType;
-	var $zarTransactionDate;
+	var $zarTransactionID;
 	var $parameters;
 	var ClientId;
 	var AccountId;
@@ -15,11 +14,10 @@ var Show = (function() {
 		
 		$btnChange	       		= $('#btn-change');
 		$selectStatusType 		= $('#select-status-type');
-		$zarTransactionDate       = $('#zar-transaction-date');
+		$zarTransactionID       = $('#zar-transaction-id');
 		$parameters 			= $('#parameters');
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
-		//Status 					= $parameters.data('status');
 	};
 
 
@@ -29,13 +27,12 @@ var Show = (function() {
 
 		$btnChange.on("click", function() {
 			var change_status_to = $selectStatusType.val();
-			var zar_transaction_date = $zarTransactionDate.val();
+			var zar_transaction_id = $zarTransactionID.val();
 			
 			console.log(' Account ID: ' + AccountId + 
 						' Client ID: ' + ClientId + 
-						//' Current Status: ' + Status + 
 						' Change_Status_To: ' + change_status_to +
-						' ZarTransactionDate: ' + zar_transaction_date	
+						' ZarTransactionID: ' + zar_transaction_id	
 						 );		
 
 
@@ -46,7 +43,7 @@ var Show = (function() {
 				data: {
 					//status: Status,
 					change_status_to: change_status_to,
-					zar_transaction_date: zar_transaction_date,
+					zar_transaction_id: zar_transaction_id,
 					account_id: AccountId,
 					client_id: ClientId,
 				},

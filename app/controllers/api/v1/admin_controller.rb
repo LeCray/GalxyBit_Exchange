@@ -19,7 +19,8 @@ module Api
 				
 
 				render json: { 
-					status: zar_transaction
+					status: zar_transaction,
+					zar_balance: account_id
 				}			
 
 			end

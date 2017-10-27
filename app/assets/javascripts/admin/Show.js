@@ -41,7 +41,6 @@ var Show = (function() {
 				method: 'POST',
 				dataType: 'json',
 				data: {
-					//status: Status,
 					change_status_to: change_status_to,
 					zar_transaction_id: zar_transaction_id,
 					account_id: AccountId,

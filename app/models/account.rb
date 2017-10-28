@@ -1,6 +1,9 @@
 class Account < ApplicationRecord
   belongs_to :client, optional: true
   has_many :zar_transactions
+  has_many :btc_transactions
+  has_many :ltc_transactions
+  has_many :eth_transactions
 
   validates :client, presence: true
   validates :zar_balance, presence: true, numericality: true
@@ -14,18 +17,8 @@ class Account < ApplicationRecord
   	if zar_balance.nil?
   		self.zar_balance = 0.00;
     end
-    
       self.btc_balance = 0.00;    
-      
-    
       self.ltc_balance = 0.00;    
-    
-    
       self.eth_balance = 0.00;    
-    
   end
-
-
-
-
 end

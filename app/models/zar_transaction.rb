@@ -1,8 +1,8 @@
-class EthTransaction < ApplicationRecord
-	belongs_to :account
+class ZarTransaction < ApplicationRecord
+    belongs_to :account
   	belongs_to :client, optional: true
 
-   	TRANSACTION_TYPES = ["Buy", "Sell"]
+   	TRANSACTION_TYPES = ["Deposit", "Withdraw"]
     STATUS_TYPES = ["Approved", "Cancelled"]
 
   	validates :account, presence: true
@@ -16,8 +16,8 @@ class EthTransaction < ApplicationRecord
 
   	def load_defaults
   		if self.new_record?
-  			self.transaction_number = SecureRandom.uuid
+        self.transaction_number = SecureRandom.uuid
         self.status = 'Pending'
-  		end
+  		end 
   	end
 end

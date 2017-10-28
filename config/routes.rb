@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 	resources :clients do
 		resources :accounts
 		get '/zar_transactions' => 'zar_transactions#new'
+		get '/btc_transactions' => 'btc_transactions#new'
+		get '/ltc_transactions' => 'ltc_transactions#new'
+		get '/eth_transactions' => 'eth_transactions#new'
 		
 	end
 	post '/zar_transactions' => 'zar_transactions#create'

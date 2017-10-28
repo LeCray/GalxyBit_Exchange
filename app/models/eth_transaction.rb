@@ -1,4 +1,4 @@
-class LtcTransaction < ApplicationRecord
+class EthTransaction < ApplicationRecord
 	belongs_to :account
   	belongs_to :client, optional: true
 
@@ -17,7 +17,7 @@ class LtcTransaction < ApplicationRecord
   	def load_defaults
   		if self.new_record?
   			self.transaction_number = SecureRandom.uuid
-        self.status = 'Pending'
+        	self.status = 'Pending'
   		end
   	end
 end

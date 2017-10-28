@@ -1,8 +1,8 @@
-class ZarTransaction < ApplicationRecord
-    belongs_to :account
+class BtcTransaction < ApplicationRecord
+	belongs_to :account
   	belongs_to :client, optional: true
 
-   	TRANSACTION_TYPES = ["Deposit", "Withdraw"]
+   	TRANSACTION_TYPES = ["Buy", "Sell"]
     STATUS_TYPES = ["Approved", "Cancelled"]
 
   	validates :account, presence: true
@@ -17,9 +17,7 @@ class ZarTransaction < ApplicationRecord
   	def load_defaults
   		if self.new_record?
   			self.transaction_number = SecureRandom.uuid
-        self.status = 'Pending'
+        	self.status = 'Pending'
   		end
-
-      
   	end
 end

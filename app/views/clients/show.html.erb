@@ -48,9 +48,7 @@
 				<h3 class="heading"> <%= @bitcoin%> </h3> 
 
 				<span style="text-align: right;">
-				<button class='btn btn-primary' href=#  style="margin-bottom: 8px; text-align: right"> 
-					<h5>BUY/SELL </h5>
-				</button>
+					<%= link_to "BUY/SELL", client_btc_transactions_path(@client.id), class: 'btn' %>
 				</span>
 
 				<%= area_chart @bitcoin_chart, curve: false, height: '300px', width: '740px', min: '40000', colors: ['#cc7a00','#cc7a00' ], backgroundColor: '#cc7a00' %>

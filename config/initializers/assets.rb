@@ -21,4 +21,6 @@ Rails.application.config.assets.precompile += %w( clients/Show.js )
 
 Rails.application.config.assets.precompile += %w( zar_transactions/New.js )
 
+Rails.application.config.assets.precompile += %w( admin/Show.js )
+
 

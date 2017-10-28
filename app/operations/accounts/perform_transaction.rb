@@ -5,7 +5,7 @@ module Accounts
 			@amount 		   = amount.try(:to_f)
 			@transaction_type  = transaction_type
 			@account_id 	   = account_id
-			@client_id 		   = client_id
+			@client_id 		   = client_id		
 			@account           = Account.where(id: @account_id).first
 		end
 
@@ -15,13 +15,11 @@ module Accounts
 				ZarTransaction.create!(
 					account: @account,
 					amount: @amount,
-					transaction_type: @transaction_type
+					transaction_type: @transaction_type,
 				)
 
 				if @transaction_type == 'Withdraw'
-					@account.update!(zar_balance: @account.zar_balance - @amount)
-				elsif @transaction_type == 'Deposit'
-					@account.update!(zar_balance: @account.zar_balance + @amount)				
+					@account.update!(zar_balance: @account.zar_balance - @amount)				
 				end
 
 			end

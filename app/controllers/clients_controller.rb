@@ -1,11 +1,10 @@
 class ClientsController < ApplicationController
 
-	before_action :only_see_own_page, only: :show
-	before_action :check_if_admin, only: [:admin, :index]
+	before_action :only_see_own_page, only: :show 
+	
 
 
 	def index
-		@clients = Client.all
 	end
 
 	def new
@@ -76,17 +75,11 @@ class ClientsController < ApplicationController
 	      @litecoin_chart = set_litecoin_chart(@litecoin_chart)
 	    end
 
-		
-
+	
 
 	end 
 
 
-	def edit
-	end
-
-	def update
-	end
 
 	def destroy
 		@client = Client.find(params[:id])
@@ -97,8 +90,7 @@ class ClientsController < ApplicationController
 	end
 
 	
-	def admin
-	end
+
 
 
 	
@@ -115,19 +107,14 @@ class ClientsController < ApplicationController
 	def only_see_own_page
 	  @client = Client.find(params[:id])
 
-	  if current_client != @client
+	  if current_client != @client 
 	    redirect_to root_path, notice: "YOU THINK I'M DUMB HUH? THIS SYSTEM'S GOT TOO MUCH SAUCE FAM"
 	  end
+
+
 	end
 
 
-	def check_if_admin
-		
-		if current_client.admin != true
-	    	redirect_to root_path, notice: "YOU AIN'T NO ADMIN FAM NOR WILL YOU EVER BE"
-	  	end
-
-	end
 
 
 

@@ -82,3 +82,5 @@ gem 'highcharts-rails'
 gem 'chartkick'
 gem 'groupdate'
 
+gem 'will_paginate-bootstrap'
+

@@ -1,0 +1,90 @@
+<div class="container" style="margin-top: 100px">
+
+	<h3><%= @client %></h3>
+	<hr >
+	<div style="margin-bottom: 50px"> 
+		<%= link_to "Back to Database", admin_index_path, class: "btn" %>
+	</div>
+
+	<div style="background-color: #d9d9d9;">
+		<div class="row" style="background-color: #d9d9d9; padding-top: 20px; padding-bottom: 20px ">
+			<div class="col-xs-10 offset-xs-1" style="background-color: white">
+
+				<div data-account-id="<%= @account_id %>" data-client-id="@client_id" style="padding: 20px">
+					<label style="margin-left: 15px">
+						Status Type:
+					</label>
+					<%= select_tag :status_type, options_for_select(ZarTransaction::STATUS_TYPES), class: 'form-control', id: 'select-status-type' %>
+					<label style="margin-left: 15px; margin-top: 30px">
+						Transaction ID:
+					</label>
+					<%= select_tag :which_transaction, options_for_select(@zar_transactions.map { |z| z.id }), class: 'form-control', id: 'zar-transaction-id' %>
+
+					<button class="btn btn-primary" id="btn-change" type="button" style="margin-top: 20px">Change Status</button>		
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="row" style="background-color: #cccccc; padding-top: 20px; padding-bottom: 30px; margin-bottom: 500px">
+		<div class="col-xs-10 offset-xs-1" style="background-color: white; padding: 20px ">
+		
+			<table class="table" ">
+				<thead>
+					<tr>
+						<th><b>DATE OF TRANSACTION</b></th>
+						<th><b>TYPE</b></th>
+						<th><b>AMOUNT</b></th>
+						<th><b>STATUS</b></th>
+						<th><b>ID</b></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @zar_transactions.each do |t| %>
+						<tr>
+							<td><%= t.created_at %></td>
+							<td><%= t.transaction_type %></td>
+							<td><%= number_to_currency(t.amount, unit: "R ")  %></td>
+							<td><%= t.status %></td>
+							<td><%= t.id %></td>
+						</tr>
+					<% end %>
+					<tr>
+						<th></th>
+						<th><b>Balance</b></th>
+						<th><b><%= number_to_currency(@account.zar_balance, unit: "R ")%></b></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</tbody>
+			</table>
+			<div style="text-align: center">
+			  <%= will_paginate @zar_transactions, renderer: BootstrapPagination::Rails %>
+			</div>
+
+
+
+		</div>
+	</div>
+	
+
+			
+
+	
+<%= render partial: 'parameters' %>
+
+
+
+
+</div>
+
+<%= javascript_include_tag 'admin/Show.js' %>
+<script>
+
+	$(document).ready(function() {
+		Show.init();
+	});
+
+
+</script>

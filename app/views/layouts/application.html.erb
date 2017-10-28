@@ -45,6 +45,10 @@
 		              		<%= @current_client.first_name %> 
 			            </a>
 			            <ul class="dropdown-menu">
+							<% if @current_client.admin? %>
+								<li><%= link_to "Admin Dashboard", admin_path(@current_client.id) %></li>
+							<% else %>
+							<% end %>
 							<li><%= link_to "Dashboard", current_client %></li>
 							<li><%= link_to "Settings", '#' %></li>
 							<li class="divider"></li>

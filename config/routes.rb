@@ -9,11 +9,11 @@ Rails.application.routes.draw do
 
 	get '/about' => 'pages#about'
 	
+	resources :admin
 
 	resources :clients do
 		resources :accounts
 		get '/zar_transactions' => 'zar_transactions#new'
-		get '/admin' => "clients#admin"
 		
 	end
 	post '/zar_transactions' => 'zar_transactions#create'
@@ -26,7 +26,9 @@ Rails.application.routes.draw do
 
 	namespace :api do
 		namespace :v1 do
+			post 'admin/change_status', to: 'admin#change_status'
 			post 'accounts/new_transaction', to: 'accounts#new_transaction'
+			post 'accounts/cancel_transaction', to: 'accounts#cancel_transaction'
 		end
 	end
 

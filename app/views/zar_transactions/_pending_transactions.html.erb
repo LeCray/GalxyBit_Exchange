@@ -1,0 +1,18 @@
+<table class="table" ">
+	<thead>
+		<tr>
+			<th><b>Type</b></th>
+			<th><b>Amount</b></th>
+			<th><b>ID</b></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @pending_zar_t.each do |t| %>
+			<tr>
+				<td><%= t.transaction_type %></td>
+				<td><%= number_to_currency(t.amount, unit: "R ")  %></td>
+				<td><%= t.id %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

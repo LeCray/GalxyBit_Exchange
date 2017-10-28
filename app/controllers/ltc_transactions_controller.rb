@@ -1,0 +1,2 @@
+class LtcTransactionsController < ApplicationController
+end

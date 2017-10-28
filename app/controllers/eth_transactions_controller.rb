@@ -1,0 +1,2 @@
+class EthTransactionsController < ApplicationController
+end

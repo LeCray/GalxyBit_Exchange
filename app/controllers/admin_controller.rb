@@ -3,7 +3,7 @@ class AdminController < ApplicationController
 	before_action :check_if_admin 
 
 	def index
-		@clients = Client.all
+		@clients = Client.all.order('created_at')
 	end
 
 	def show

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101071957) do
+ActiveRecord::Schema.define(version: 20171101111856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,27 +80,6 @@ ActiveRecord::Schema.define(version: 20171101071957) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.integer  "client_id"
-    t.integer  "account_id"
-    t.integer  "transaction_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["account_id"], name: "index_profiles_on_account_id", using: :btree
-    t.index ["client_id"], name: "index_profiles_on_client_id", using: :btree
-    t.index ["transaction_id"], name: "index_profiles_on_transaction_id", using: :btree
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.string   "transaction_type"
-    t.integer  "account_id"
-    t.decimal  "amount"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "transaction_number"
-    t.index ["account_id"], name: "index_transactions_on_account_id", using: :btree
-  end
-
   create_table "zar_transactions", force: :cascade do |t|
     t.string   "transaction_type"
     t.decimal  "amount"
@@ -112,8 +91,4 @@ ActiveRecord::Schema.define(version: 20171101071957) do
   end
 
   add_foreign_key "accounts", "clients"
-  add_foreign_key "profiles", "accounts"
-  add_foreign_key "profiles", "clients"
-  add_foreign_key "profiles", "transactions"
-  add_foreign_key "transactions", "accounts"
 end

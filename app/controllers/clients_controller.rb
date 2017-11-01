@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
 		@account = @client.build_account(client_id: @client.id, zar_balance: 0.00, btc_balance: 0.00, ltc_balance: 0.00, 
 			eth_balance: 0.00)
 		
-		if @client.save && @account.save 
+		if @client.save! && @account.save! 
 			ClientMailer.account_activation(@client).deliver_now
       		flash.now[:info] = "Awesome. Now swing over to your emails to activate your account :)"
       		render 'new'

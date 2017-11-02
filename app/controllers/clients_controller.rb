@@ -18,7 +18,7 @@ class ClientsController < ApplicationController
 			eth_balance: 0.00)
 		
 		if @client.save! && @account.save! 
-			ClientMailer.account_activation(@client).deliver_now
+			#ClientMailer.account_activation(@client).deliver_now
       		flash.now[:info] = "Awesome. Now swing over to your emails to activate your account :)"
       		render 'new'
 		else

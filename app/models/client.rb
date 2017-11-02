@@ -5,7 +5,7 @@ class Client < ApplicationRecord
 
 	has_one :account
 	has_many :zar_transactions
-	belongs_to :admin, optional: true
+	#belongs_to :admin, optional: true
 	has_secure_password
 
 	

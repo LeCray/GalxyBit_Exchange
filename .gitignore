@@ -26,6 +26,3 @@
 #Ignore the environment shandice
 .env
 
-#Ignoring the api shandice
-config/initializers/load_api_config.rb
-config/api_config.yml

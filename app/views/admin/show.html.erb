@@ -13,11 +13,11 @@
 				<div data-account-id="<%= @account_id %>" data-client-id="@client_id" style="padding: 20px">
 					<h6 style="margin-bottom: 10px"> Approve or Cancel transactions</h6>
 					<label style="margin-left: 15px">
-						Status Type:
+						Change Status Type To:
 					</label>
 					<%= select_tag :status_type, options_for_select(ZarTransaction::STATUS_TYPES), class: 'form-control', id: 'select-status-type' %>
 					<label style="margin-left: 15px; margin-top: 30px">
-						Transaction ID:
+						Select Transaction ID:
 					</label>
 					<%= select_tag :which_transaction, options_for_select(@zar_transactions.map { |z| z.id }), class: 'form-control', id: 'zar-transaction-id' %>
 

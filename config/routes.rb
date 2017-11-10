@@ -30,8 +30,12 @@ Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
 			post 'admin/change_status', to: 'admin#change_status'
+			
 			post 'accounts/new_transaction', to: 'accounts#new_transaction'
 			post 'accounts/cancel_transaction', to: 'accounts#cancel_transaction'
+
+			post 'bitcoin/new_btc_transaction', to: 'bitcoin#new_btc_transaction'
+			post 'bitcoin/cancel_transaction', to: 'bitcoin#cancel_transaction'
 		end
 	end
 

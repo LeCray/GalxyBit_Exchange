@@ -14,13 +14,14 @@ var CryptoNew = (function() {
 	var $notification;
 
 	var $btcTransactionID;
+	var $btcTransactionType;
 	var $btnCancel;
 
 	var ClientId;
 	var AccountId;
-	var btcBuy_url = '/api/v1/accounts/new_transaction';
-	var btcSell_url = '/api/v1/accounts/new_transaction';
-	var cancel_transaction_url = '/api/v1/accounts/cancel_transaction';
+
+	var btcTransaction_url = '/api/v1/bitcoin/new_btc_transaction';
+	var cancel_transaction_url = '/api/v1/bitcoin/cancel_transaction';
 
 
 
@@ -31,15 +32,15 @@ var CryptoNew = (function() {
 
 		
 		
-		$zarSpendAmount			= $('#cal1')
-		$zarRecieveAmount		= $('#cal2')
-		$btcBuyAmount			= $('#result')
-		$btcSellAmount			= $('#result2')	
+		$zarSpendAmount			= $('#cal1');
+		$zarRecieveAmount		= $('#cal2');
+		$btcBuyAmount			= $('#result');
+		$btcSellAmount			= $('#result2');	
 
 		$parameters 			= $('#parameters');
 		$notification 			= $('.notification');
 
-		$zarTransactionID       = $('#zar-transaction-id');
+		$btcTransactionID       = $('#zar-transaction-id');
 		$btnCancel				= $('#btn-cancel');
 
 
@@ -64,72 +65,78 @@ var CryptoNew = (function() {
 		$btnBuy.on("click", function() {
 			var zarSpendAmount = $zarSpendAmount.val();
 			var btcBuyAmount = $btcBuyAmount.val();
+			var btcTransactionType = 'BUY';
 			disableControls();	
 
 			console.log('ZarSpend:' + zarSpendAmount + 
-						' btcBuy:' + btcBuyAmount +  
+						' btcBuy:' + btcBuyAmount + 
+						' btcTransactionType:' + btcTransactionType +
 						' AccountID:' + AccountId + 
 						' ClientID:' + ClientId
 						);		
 
 			$notification.html('');
 
-			/*$.ajax({
-				url: btcBuy_url,
+			$.ajax({
+				url: btcTransaction_url,
 				method: 'POST',
 				dataType: 'json',
 				data: {
-					amount: amount,
-					transaction_type: transactionType,
+					zarSpendAmount: zarSpendAmount,
+					btcBuyAmount: btcBuyAmount,
+					btcTransactionType: btcTransactionType,
 					account_id: AccountId,
 					client_id: ClientId,
 				},
 
 				success: function(response) {
-					window.location.href = '/clients/' + ClientId + '/zar_transactions'
+					window.location.href = '/clients/' + ClientId + '/btc_transactions'
 
 				},
 				error: function(response) {
 					$notification.html(JSON.parse(response.responseText).errors.join());
 					enableControls();
 				}
-			}); */
+			}); 
 		});
 
 		//Selling BTC
 		$btnSell.on("click", function() {
 			var zarRecieveAmount = $zarRecieveAmount.val();
 			var btcSellAmount = $btcSellAmount.val();
+			var btcTransactionType = 'SELL';
 			disableControls();	
 
 			console.log('ZarRecieve:' + zarRecieveAmount + 
 						' btcSell:' + btcSellAmount +  
+						' btcTransactionType:' + btcTransactionType +
 						' AccountID:' + AccountId + 
 						' ClientID:' + ClientId
 						);		
 
 			$notification.html('');
 
-			/*$.ajax({
-				url: btcSell_url,
+			$.ajax({
+				url: btcTransaction_url,
 				method: 'POST',
 				dataType: 'json',
 				data: {
-					amount: amount,
-					transaction_type: transactionType,
+					zarRecieveAmount: zarRecieveAmount,
+					btcSellAmount: btcSellAmount,
+					btcTransactionType: btcTransactionType,
 					account_id: AccountId,
 					client_id: ClientId,
 				},
 
 				success: function(response) {
-					window.location.href = '/clients/' + ClientId + '/zar_transactions'
+					window.location.href = '/clients/' + ClientId + '/btc_transactions'
 
 				},
 				error: function(response) {
 					$notification.html(JSON.parse(response.responseText).errors.join());
 					enableControls();
 				}
-			}); */
+			}); 
 		});
 
 

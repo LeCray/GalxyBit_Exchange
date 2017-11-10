@@ -42,8 +42,8 @@ module Api
 				end
 			
 					render json: { 
-						zar_balance: account_id,
-						btc_balance: account_id
+						zar_balance: account.zar_balance,
+						btc_balance: account.btc_balance
 					}
 			end
 

@@ -8,7 +8,7 @@ module Accounts
 			@zarRecieveAmount      = zarRecieveAmount.try(:to_f)
 			@btcSellAmount		   = btcSellAmount.try(:to_f)	
 
-			@btcTransactionType    = btcTransactionType
+			@transaction_type    = btcTransactionType
 			@account_id 	   	   = account_id
 			@client_id 		       = client_id		
 			@account               = Account.where(id: @account_id).first
@@ -17,23 +17,25 @@ module Accounts
 		def execute!
 			ActiveRecord::Base.transaction do
 
-				if @btcTransactionType == 'BUY'
-					@amount = @btcBuyAmount
-				else 
-					@amount = @btcSellAmount
+				if @transaction_type == 'BUY'
+					@btcSellAmount = 0.00
+				else
+					@btcBuyAmount = 0.00
 				end
 
 				BtcTransaction.create!(
 					account: @account,
-					amount: @btcBuyAmount,
+					btcBuyAmount: @btcBuyAmount,
 					btcSellAmount: @btcSellAmount,
-					btcTransactionType: @btcTransactionType,
+					transaction_type: @transaction_type,
 				)
 
-				if @btcTransactionType == 'BUY'
+				if @transaction_type == 'BUY'
 					@account.update!(btc_balance: @account.btc_balance + @btcBuyAmount)	
+					@account.update!(zar_balance: @account.zar_balance - @zarSpendAmount)	
 				else
-					@account.update!(btc_balance: @account.btc_balance - @btcSellAmount)			
+					@account.update!(btc_balance: @account.btc_balance - @btcSellAmount)		
+					@account.update!(zar_balance: @account.zar_balance + @zarRecieveAmount)	
 				end
 
 			end

@@ -8,7 +8,8 @@ class BtcTransaction < ApplicationRecord
     STATUS_TYPES = ["Approved", "Cancelled"]
 
   	validates :account, presence: true
-  	validates :amount, presence: true, numericality: true
+  	validates :btcBuyAmount, presence: true, numericality: true
+    validates :btcSellAmount, presence: true, numericality: true
   	validates :transaction_type, presence: true, inclusion: {in: TRANSACTION_TYPES}
   	validates :transaction_number, presence: true#, uniqueness: true
     validates :status, presence: true

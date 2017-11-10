@@ -16,9 +16,9 @@ class Account < ApplicationRecord
   def load_defaults
   	if zar_balance.nil?
   		self.zar_balance = 0.00;
-    end
       self.btc_balance = 0.00;    
       self.ltc_balance = 0.00;    
       self.eth_balance = 0.00;    
+    end
   end
 end

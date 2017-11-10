@@ -77,6 +77,9 @@
 								Amount to Buy (Bitcoins):
 							</label>
 							<input type = "text" id = "result" class="form-control">
+
+							<!-- The Button -->
+							<input style="margin-top: 30px" type="button" id="btn-buy" class="btn btn-outline-primary" value="Proceed With Transaction">
 						</div>
 
 						<!-- SELLING -->
@@ -92,11 +95,14 @@
 								Amount to Sell (Bitcoins):
 							</label>
 							<input type = "text" id = "result2" class="form-control">
+
+							<!-- The Button -->
+							<input style="margin-top: 30px" type="button" id="btn-sell" class="btn btn-outline-primary" value="Proceed With Transaction">
 						</div>
 
 
-						<!-- The Button -->
-						<input style="margin-top: 30px" type="button" id="btn-save" class="btn btn-outline-primary" value="Proceed With Transaction">
+						
+						
 
 							
 						<%= render partial: 'parameters' %>
@@ -127,11 +133,11 @@
 		//Addition
 		$("#cal1").keyup(function(){
 			var b = $("#cal1").val();
-			$("#result").val(+b / +<%= @btc_value %>);
+			$("#result").val((+b / +<%= @btc_value %>).toFixed(8));
 		});
 		$("#cal2").keyup(function(){
 			var s = $("#cal2").val();
-			$("#result2").val(+s / +<%= @btc_value %>);
+			$("#result2").val((+s / +<%= @btc_value %>).toFixed(8));
 		});
 
 		$('#buy').click(function(){

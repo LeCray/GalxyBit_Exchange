@@ -16,8 +16,6 @@ var New = (function() {
 	var new_transaction_url = '/api/v1/accounts/new_transaction';
 	var cancel_transaction_url = '/api/v1/accounts/cancel_transaction';
 
-
-
 	var fetchElements = function() {
 		$btnNewTransaction 		= $("#btn-new-transaction");
 		$btnSave 	       		= $('#btn-save');

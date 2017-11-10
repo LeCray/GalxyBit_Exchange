@@ -1,5 +1,5 @@
 module Accounts
-	class PerformTransaction
+	class PerformBtcTransaction
 
 		def initialize(zarSpendAmount:,btcBuyAmount:,zarRecieveAmount:,btcSellAmount:, btcTransactionType:, account_id:, client_id:)
 			@zarSpendAmount		   = zarSpendAmount.try(:to_f)
@@ -17,9 +17,15 @@ module Accounts
 		def execute!
 			ActiveRecord::Base.transaction do
 
+				if @btcTransactionType == 'BUY'
+					@amount = @btcBuyAmount
+				else 
+					@amount = @btcSellAmount
+				end
+
 				BtcTransaction.create!(
 					account: @account,
-					btcBuyAmount: @btcBuyAmount,
+					amount: @btcBuyAmount,
 					btcSellAmount: @btcSellAmount,
 					btcTransactionType: @btcTransactionType,
 				)

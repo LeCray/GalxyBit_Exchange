@@ -28,10 +28,10 @@ module Api
 					render json: { errors: errors }, status: 402
 				else
 					account = ::Accounts::PerformBtcTransaction.new(
-						
+							#Buying
 							zarSpendAmount: zarSpendAmount,
 							btcBuyAmount: btcBuyAmount, 
-							
+							#Selling
 							zarRecieveAmount: zarRecieveAmount,	
 							btcSellAmount: btcSellAmount,
 
@@ -41,7 +41,10 @@ module Api
 							).execute!		
 				end
 			
-					
+					render json: { 
+						zar_balance: account_id,
+						btc_balance: account_id
+					}
 			end
 
 

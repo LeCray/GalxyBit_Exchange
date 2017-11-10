@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101111856) do
+ActiveRecord::Schema.define(version: 20171110221125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,13 @@ ActiveRecord::Schema.define(version: 20171101111856) do
 
   create_table "btc_transactions", force: :cascade do |t|
     t.string   "transaction_type"
-    t.decimal  "amount"
     t.integer  "account_id"
     t.string   "status"
-    t.datetime "created_at",       null: false  
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.decimal  "transaction_number"
+    t.decimal  "btcBuyAmount"
+    t.decimal  "btcSellAmount"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -64,20 +66,24 @@ ActiveRecord::Schema.define(version: 20171101111856) do
 
   create_table "eth_transactions", force: :cascade do |t|
     t.string   "transaction_type"
-    t.decimal  "amount"
     t.integer  "account_id"
     t.string   "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.decimal  "transaction_number"
+    t.decimal  "ethBuyAmount"
+    t.decimal  "ethSellAmount"
   end
 
   create_table "ltc_transactions", force: :cascade do |t|
     t.string   "transaction_type"
-    t.decimal  "amount"
     t.integer  "account_id"
     t.string   "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.decimal  "transaction_number"
+    t.decimal  "ltcBuyAmount"
+    t.decimal  "ltcSellAmount"
   end
 
   create_table "zar_transactions", force: :cascade do |t|

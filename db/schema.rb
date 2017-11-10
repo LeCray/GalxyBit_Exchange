@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20171101111856) do
     t.decimal  "amount"
     t.integer  "account_id"
     t.string   "status"
-    t.datetime "created_at",       null: false
+    t.datetime "created_at",       null: false  
     t.datetime "updated_at",       null: false
   end
 

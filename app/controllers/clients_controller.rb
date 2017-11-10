@@ -1,4 +1,4 @@
-class ClientsController < ApplicationController
+	class ClientsController < ApplicationController
 
 	before_action :only_see_own_page, only: :show 
 	

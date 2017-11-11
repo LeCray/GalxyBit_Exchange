@@ -1,6 +1,10 @@
 var Show = (function() {
 
-	var $btnChange;
+	var $btnZarChange;
+	var $btnBtcChange;
+	var $btnLtcChange;
+	var $btnEthChange;
+
 	var $selectStatusType;
 	var $zarTransactionID;
 	var $parameters;
@@ -12,7 +16,7 @@ var Show = (function() {
 
 	var fetchElements = function() {
 		
-		$btnChange	       		= $('#btn-change');
+		$btnZarChange	       	= $('#btn-zar-change');
 		$selectStatusType 		= $('#select-status-type');
 		$zarTransactionID       = $('#zar-transaction-id');
 		$parameters 			= $('#parameters');
@@ -25,7 +29,7 @@ var Show = (function() {
 	var initializeEvents = function() {
 	
 
-		$btnChange.on("click", function() {
+		$btnZarChange.on("click", function() {
 			var change_status_to = $selectStatusType.val();
 			var zar_transaction_id = $zarTransactionID.val();
 			

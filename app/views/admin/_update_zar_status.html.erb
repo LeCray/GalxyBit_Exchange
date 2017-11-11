@@ -1,0 +1,22 @@
+<div data-account-id="<%= @account_id %>" data-client-id="@client_id" style="padding: 20px">
+
+	<h6 style="margin-bottom: 10px"> Approve/Cancel <i style="color: red">ZAR</i> Transactions</h6>
+
+	<label style="margin-left: 15px; margin-right: 10px; display: inline-block">
+		Change Status Type To: 
+	</label>
+	<div style="display:inline-block; width: 100px">
+		<%= select_tag :status_type, options_for_select(ZarTransaction::STATUS_TYPES), class: 'form-control', id: 'select-status-type' %>
+	</div>
+	<br>
+
+	<label style="margin-left: 15px; margin-top: 30px; margin-right: 10px; display: inline-block"">
+		Select Transaction ID:
+	</label>
+	<div style="display: inline-block; width: 50px">
+		<%= select_tag :which_transaction, options_for_select(@zar_transactions.map { |z| z.id }), class: 'form-control', id: 'zar-transaction-id' %>
+	</div>
+	<br>
+
+	<button class="btn btn-outline-info" id="btn-zar-change" type="button" style="margin-top: 20px">Update Status</button>		
+</div>

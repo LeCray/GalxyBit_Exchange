@@ -1,0 +1,35 @@
+<table class="table" ">
+	<thead>
+		<tr>
+			<th><b>DATE OF TRANSACTION</b></th>
+			<th><b>TYPE</b></th>
+			<th><b>BUY AMOUNT</b></th>
+			<th><b>SELL AMOUNT</b></th>
+			<th><b>STATUS</b></th>
+			<th><b>ID</b></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @btc_transactions.each do |t| %>
+			<tr>
+				<td><%= t.created_at %></td>
+				<td><%= t.transaction_type %></td>
+				<td><%= t.btcBuyAmount %></td>
+				<td><%= t.btcSellAmount %></td>
+				<td><%= t.status %></td>
+				<td><%= t.id %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<th><b>Balance: <%= @account.btc_balance %> BTC</b></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</tbody>
+</table>
+<div style="text-align: center: bottom: 20px">
+  <%= will_paginate @btc_transactions, renderer: BootstrapPagination::Rails %>
+</div>

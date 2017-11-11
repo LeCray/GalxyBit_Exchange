@@ -2,7 +2,7 @@ class EthTransaction < ApplicationRecord
 	belongs_to :account
   	belongs_to :client, optional: true
 
-   	TRANSACTION_TYPES = ["Buy", "Sell"]
+   	TRANSACTION_TYPES = ["BUY", "SELL"]
     STATUS_TYPES = ["Approved", "Cancelled"]
 
   	validates :account, presence: true

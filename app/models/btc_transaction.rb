@@ -3,7 +3,6 @@ class BtcTransaction < ApplicationRecord
   	belongs_to :client, optional: true
 
 
-
    	TRANSACTION_TYPES = ["BUY", "SELL"]
     STATUS_TYPES = ["Approved", "Cancelled"]
 

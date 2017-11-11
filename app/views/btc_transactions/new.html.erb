@@ -1,44 +1,9 @@
 <div class="container" style="margin-top: 150px; padding-bottom: 100px">
 	<div class="row">
 
-		<!-- Left Client Blocks -->
 		<div class="col-xs-4" style="height: 700px; background-color: #d9d9d9">
-			
-			<div style="margin: 20px; padding: 20px; background-color: white">
-				<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  My Balances </h6>
-				<div style="text-align: left">
-
-					ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%>
-					
-					<hr style="border-color: grey; ">
-
-					BTC: <%= number_to_currency(@client.account.btc_balance, unit: '')%> <br>
-					<hr>
-					ETH: <%= number_to_currency(@client.account.eth_balance, unit: '')%> <br>
-					<hr>
-					LTC: <%= number_to_currency(@client.account.ltc_balance, unit: '')%> <br>
-				</div>
-			</div>
-
-
-			<div style="margin: 20px; padding: 20px; background-color: white;">
-				<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  Exchange Rates </h6>
-
-					BTC/ZAR: <%= @btc_value %> <br>
-					<hr>
-					ETH/ZAR: <%= @eth_value %> <br>
-					<hr>
-					LTC/ZAR: <%= @ltc_value %> <br>
-
-			</div>
-
-			<div style="text-align: center; color: #cc7a00">
-				<%= link_to "BACK TO DASHBOARD", client_path(@current_client.id), class: 'btn' %>
-			</div>	
-			<!-- End of Left Client Blocks -->
-
-
-		</div>	
+			<%= render partial: 'blocks' %>
+		</div>
 
 		<div class="col-xs-8" style="height: 960px; background-color: #cccccc; padding-left: 30px">
 			
@@ -46,68 +11,8 @@
 			<div class="row">
 				<div class="col-xs-6" style="margin: 20px; padding: 20px; background-color: white; height: 500px">
 				
-
-					<h4 id="buy_header" style="text-align: center; color: green"> BUYING <span style="color: grey">BITCOIN</span></h4>
-					<h4 id="sell_header" style="text-align: center; color: red; display: none"> SELLING <span style="color: grey">BITCOIN</span></h4>
-					<hr>
-					
-					
-					<div>
-						<label style="text-align: center">
-							Transaction Type:
-						</label>
-						<br>
-						
-						<div style="text-align: center">
-							<button id="buy" class="btn" style="color: green">Buy</button>
-							<button id="sell" class="btn" style="color: red">Sell</button>
-						</div>	
-						<br>
-
-						<!-- BUYING -->
-						<div id="buying_btc">
-							<label>
-								Amount to Spend (Rands):
-							</label>
-							<input type = "text" id = "cal1" class="form-control" >
-
-							<br>
-
-							<label>
-								Amount to Buy (Bitcoins):
-							</label>
-							<input type = "text" id = "result" class="form-control">
-
-							<!-- The Button -->
-							<input style="margin-top: 30px" type="button" id="btn-buy" class="btn btn-outline-primary" value="Proceed With Transaction">
-						</div>
-
-						<!-- SELLING -->
-						<div id="selling_btc" style="display: none">
-							<label>
-								Amount to Recieve (Rands):
-							</label>
-							<input type = "text" id = "cal2" class="form-control" >
-
-							<br>
-
-							<label>
-								Amount to Sell (Bitcoins):
-							</label>
-							<input type = "text" id = "result2" class="form-control">
-
-							<!-- The Button -->
-							<input style="margin-top: 30px" type="button" id="btn-sell" class="btn btn-outline-primary" value="Proceed With Transaction">
-						</div>
-
-
-						
-						
-
-							
-						<%= render partial: 'parameters' %>
-
-					</div>
+					<%= render partial: 'btc_form' %>
+					<%= render partial: 'parameters' %>
 				</div>
 				<!-- End of BTC form -->
 			
@@ -119,6 +24,15 @@
 				</div>
 				<!-- End of Shandice -->
 			</div>
+
+				<div class="row">
+					<div class="col-xs-11" style="margin-top: 10px; margin-left: 20px; margin-bottom: 50px; background-color: white">
+						<div style="margin:20px">
+							<%= render partial: 'btc_transactions' %>
+						</div>
+					</div>
+				</div>
+
 
 		</div>
 	</div>

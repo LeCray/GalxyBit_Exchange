@@ -17,11 +17,11 @@
 
 					<hr style="border-color: grey; margin-top: -0.25px">
 
-					BTC: <%= number_to_currency(@client.account.btc_balance, unit: '')%> <br>
+					BTC: <%= @client.account.btc_balance %> <br>
 					<hr>
-					ETH: <%= number_to_currency(@client.account.eth_balance, unit: '')%> <br>
+					ETH: <%= @client.account.eth_balance %> <br>
 					<hr>
-					LTC: <%= number_to_currency(@client.account.ltc_balance, unit: '')%> <br>
+					LTC: <%= @client.account.ltc_balance %> <br>
 				</div>
 			</div>
 

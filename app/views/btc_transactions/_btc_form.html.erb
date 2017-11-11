@@ -1,0 +1,55 @@
+<h4 id="buy_header" style="text-align: center; color: green"> BUYING <span style="color: grey">BITCOIN</span></h4>
+<h4 id="sell_header" style="text-align: center; color: red; display: none"> 
+	SELLING <span style="color: grey">BITCOIN</span>
+</h4>
+<hr>
+
+
+<div>
+	<label style="text-align: center">
+		Transaction Type:
+	</label>
+	<br>
+	
+	<div style="text-align: center">
+		<button id="buy" class="btn" style="color: green">Buy</button>
+		<button id="sell" class="btn" style="color: red">Sell</button>
+	</div>	
+	<br>
+
+	<!-- BUYING -->
+	<div id="buying_btc">
+		<label>
+			Amount to Spend (Rands):
+		</label>
+		<input type = "text" id = "cal1" class="form-control" >
+
+		<br>
+
+		<label>
+			Amount to Buy (Bitcoins):
+		</label>
+		<input type = "text" id = "result" class="form-control">
+
+		<!-- The Button -->
+		<input style="margin-top: 30px" type="button" id="btn-buy" class="btn btn-outline-primary" value="Proceed With Transaction">
+	</div>
+
+	<!-- SELLING -->
+	<div id="selling_btc" style="display: none">
+		<label>
+			Amount to Recieve (Rands):
+		</label>
+		<input type = "text" id = "cal2" class="form-control" >
+
+		<br>
+
+		<label>
+			Amount to Sell (Bitcoins):
+		</label>
+		<input type = "text" id = "result2" class="form-control">
+
+		<!-- The Button -->
+		<input style="margin-top: 30px" type="button" id="btn-sell" class="btn btn-outline-primary" value="Proceed With Transaction">
+	</div>
+</div>

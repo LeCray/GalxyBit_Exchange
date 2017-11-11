@@ -6,23 +6,39 @@
 		</div>
 
 		<div class="col-xs-8" style="height: 960px; background-color: #cccccc; padding-left: 30px">
-			
-			<!-- BTC form -->
 			<div class="row">
-				<div class="col-xs-6" style="margin: 20px; padding: 20px; background-color: white; height: 500px">
-				
+
+				<!-- BTC form -->
+				<div class="col-xs-11" style="margin: 20px; padding: 20px; background-color: white; height: 400px">
 					<%= render partial: 'btc_form' %>
 					<%= render partial: 'parameters' %>
 				</div>
 				<!-- End of BTC form -->
+			</div>
 			
+			<div class="row">
 				<!-- Pending Order Shandice -->
-				<div class="col-xs-4" style="margin-left: 20px; margin-top: 20px;  padding: 20px; height: 400px; background-color: white">
+				<div class="col-xs-11" style="margin-left: 20px; margin-top: 20px;  padding: 20px; height: 600px; background-color: white">
 
 					<h6 style="text-align: center; "> PENDING ORDERS </h6>
 					<hr style="margin-bottom: 25px">
+
+					<%= render partial: 'pending_transactions' %>
+
+					<% if @pending_btc_t.count > 0 %>
+						<div data-account-id="<%= @account_id %>" data-client-id="@client_id" style="padding: 20px">
+		
+							<label style="margin-left: 15px; margin-top: 30px">
+								Transaction to Cancel (ID):
+							</label>
+							<%= select_tag :which_transaction, options_for_select(@pending_btc_t.map { |b| b.id }), class: 'form-control', id: 'zar-transaction-id' %>
+
+							<button class="btn btn-danger" id="btn-cancel" type="button" style="margin-top: 20px">Cancel</button>		
+						</div>		
+					<% end %>
 				</div>
 				<!-- End of Shandice -->
+
 			</div>
 
 				<div class="row">

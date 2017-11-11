@@ -1,0 +1,20 @@
+<table class="table" ">
+	<thead>
+		<tr>
+			<th><b>Type</b></th>
+			<th><b>Buy Amount</b></th>
+			<th><b>Sell Amount</b></th>
+			<th><b>ID</b></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @pending_btc_t.each do |t| %>
+			<tr>
+				<td><%= t.transaction_type %></td>
+				<td><%= t.btcBuyAmount  %></td>
+				<td><%= t.btcSellAmount  %></td>
+				<td><%= t.id %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

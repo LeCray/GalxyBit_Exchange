@@ -1,15 +1,17 @@
-<table class="table" ">
+<table class="table" >
 	<thead>
 		<tr>
-			<th><b>Type</b></th>
-			<th><b>Buy Amount</b></th>
-			<th><b>Sell Amount</b></th>
+			<th><b>DATE OF TRANSACTION</b></th>	
+			<th><b>TYPE</b></th>
+			<th><b>BUT AMOUNT</b></th>
+			<th><b>SELL AMOUNT</b></th>
 			<th><b>ID</b></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @pending_btc_t.each do |t| %>
 			<tr>
+				<td><%= t.created_at %></td>
 				<td><%= t.transaction_type %></td>
 				<td><%= t.btcBuyAmount  %></td>
 				<td><%= t.btcSellAmount  %></td>

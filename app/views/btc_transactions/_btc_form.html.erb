@@ -19,37 +19,41 @@
 
 	<!-- BUYING -->
 	<div id="buying_btc">
-		<label>
-			Amount to Spend (Rands):
+		<label style="display: inline-block;">
+			Amount to Spend (Rands):  R
 		</label>
-		<input type = "text" id = "cal1" class="form-control" >
+		<input style="display: inline-block; width: 100px" type = "text" id = "cal1" class="form-control" >
 
 		<br>
 
-		<label>
-			Amount to Buy (Bitcoins):
+		<label style="margin-top: 30px; display: inline-block;">
+			Amount to Buy (Bitcoins):  BTC
 		</label>
-		<input type = "text" id = "result" class="form-control">
+		<input style="display: inline-block; width: 100px" type = "text" id = "result" class="form-control">
 
 		<!-- The Button -->
-		<input style="margin-top: 30px" type="button" id="btn-buy" class="btn btn-outline-primary" value="Proceed With Transaction">
+		<br>
+		<div style=>
+			<input style="margin-top: 40px; width: 250px" type="button" id="btn-buy" class="btn btn-outline-primary" value="Proceed With Transaction">
+		</div>
 	</div>
 
 	<!-- SELLING -->
 	<div id="selling_btc" style="display: none">
-		<label>
-			Amount to Recieve (Rands):
+		<label style="display: inline-block">
+			Amount to Recieve (Rands): R
 		</label>
-		<input type = "text" id = "cal2" class="form-control" >
+		<input style="display: inline-block; width: 100px" type = "text" id = "cal2" class="form-control" >
 
 		<br>
 
-		<label>
-			Amount to Sell (Bitcoins):
+		<label style="margin-top: 30px; display: inline-block">
+			Amount to Sell (Bitcoins): BTC
 		</label>
-		<input type = "text" id = "result2" class="form-control">
+		<input style="display: inline-block; width: 100px"  type = "text" id = "result2" class="form-control">
 
 		<!-- The Button -->
-		<input style="margin-top: 30px" type="button" id="btn-sell" class="btn btn-outline-primary" value="Proceed With Transaction">
+		<br>
+		<input style="margin-top: 40px; width: 250px" type="button" id="btn-sell" class="btn btn-outline-primary" value="Proceed With Transaction">
 	</div>
 </div>

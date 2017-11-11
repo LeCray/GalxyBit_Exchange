@@ -47,14 +47,15 @@
 							<!--<div data-account-id="<%= @account_id %>" data-client-id="@client_id" style="padding: 20px">-->
 			
 								<%= render partial: 'pending_transactions' %>
-								<label style="margin-top: 30px">
+								<label style="margin-top: 30px; margin-right: 10px; display: inline-block;">
 									Select Transaction to Cancel (ID):
 								</label>
 
-								<div style="width: 100px; ">
+								<div style="width: 100px; display: inline-block;">
 									<%= select_tag :which_transaction, options_for_select(@pending_btc_t.map { |b| b.id }), class: 'form', id: 'btc-transaction-id' %>
 								</div>
 
+								<br>
 								<button class="btn btn-outline-danger" id="btn-cancel" type="button" style="margin-top: 40px">Cancel Transaction</button>		
 							</div>		
 						<% end %>

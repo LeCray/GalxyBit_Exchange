@@ -69,7 +69,7 @@
 							<label>
 								Amount to Spend (Rands):
 							</label>
-							<input type = "number" id = "cal1" class="form-control" >
+							<input type = "text" id = "cal1" class="form-control" >
 
 							<br>
 
@@ -87,7 +87,7 @@
 							<label>
 								Amount to Recieve (Rands):
 							</label>
-							<input type = "number" id = "cal2" class="form-control" >
+							<input type = "text" id = "cal2" class="form-control" >
 
 							<br>
 
@@ -130,14 +130,24 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 
-		//Addition
+		//Buying
 		$("#cal1").keyup(function(){
 			var b = $("#cal1").val();
 			$("#result").val((+b / +<%= @btc_value %>).toFixed(8));
 		});
+		$("#result").keyup(function(){
+			var b = $("#result").val();
+			$("#cal1").val((+b * +<%= @btc_value %>).toFixed(2));
+		});
+
+		//Selling
 		$("#cal2").keyup(function(){
 			var s = $("#cal2").val();
 			$("#result2").val((+s / +<%= @btc_value %>).toFixed(8));
+		});
+		$("#result2").keyup(function(){
+			var s = $("#result2").val();
+			$("#cal2").val((+s * +<%= @btc_value %>).toFixed(2));
 		});
 
 		$('#buy').click(function(){
@@ -145,21 +155,22 @@
 			$('#buy_header').show(); 
 			$('#selling_btc').hide();
 			$('#sell_header').hide(); 
+			//Reset Selling Form
+			$("#cal2").val("");
+	       	$("#result2").val("");
 		});
 
 		$('#sell').click(function(){
 			$('#buying_btc').hide();
 			$('#buy_header').hide(); 
 			$('#selling_btc').show();
-			$('#sell_header').show();  
+			$('#sell_header').show(); 
+			//Reset Buying Form
+			$("#cal1").val("");
+	       	$("#result").val(""); 
 		});
 
-		// Reset Values
-	 	$("#reset").click(function(){
-	       $("#cal1").val("");
-	       $("#cal2").val("");
-	       $("#result").val("");
-		});
+
 	});
 </script>
 

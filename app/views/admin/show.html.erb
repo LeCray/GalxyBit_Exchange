@@ -8,9 +8,11 @@
 
 	<button id="zar-btn" class="btn btn-outline-info" >Zar Transactions</button>
 	<button id="btc-btn" class="btn btn-outline-info" style="">BTC Transactions</button>
+	<button id="ltc-btn" class="btn btn-outline-info" style="">LTC Transactions</button>
+	<button id="eth-btn" class="btn btn-outline-info" style="">ETH Transactions</button>
 
 	<!-- ZARS -->
-	<div id="zar-t">
+	<div id="zar">
 		<div style="background-color: #d9d9d9;">
 			<div class="row" style="background-color: #d9d9d9; padding-top: 20px; padding-bottom: 20px ">
 				<!-- Update Zar Status Action -->
@@ -29,11 +31,11 @@
 	<!-- END -->
 
 	<!-- BITCOINS -->
-	<div id="btc-t" style="display: none">
+	<div id="btc" style="display: none">
 		<div style="background-color: #d9d9d9;">
 			<div class="row" style="background-color: #d9d9d9; padding-top: 20px; padding-bottom: 20px ">
 				<!-- Update BTC Status Action -->
-				<div id="update-status" class="col-xs-10 offset-xs-1" style="background-color: white">
+				<div class="col-xs-10 offset-xs-1" style="background-color: white">
 					<%= render partial: 'update_btc_status' %>
 				</div>
 			</div>
@@ -42,6 +44,44 @@
 			<!-- Transactions -->
 			<div class="col-xs-10 offset-xs-1" style="background-color: white; padding: 20px; height:450px; ">
 				<%= render partial: 'btc_transactions' %>
+			</div>
+		</div>
+	</div>
+	<!-- END -->
+
+	<!-- LITECOINS -->
+	<div id="ltc" style="display: none">
+		<div style="background-color: #d9d9d9;">
+			<div class="row" style="background-color: #d9d9d9; padding-top: 20px; padding-bottom: 20px ">
+				<!-- Update LTC Status Action -->
+				<div class="col-xs-10 offset-xs-1" style="background-color: white">
+					<%= render partial: 'update_ltc_status' %>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="background-color: #cccccc; padding-top: 20px; padding-bottom: 30px; margin-bottom: 500px">
+			<!-- Transactions -->
+			<div class="col-xs-10 offset-xs-1" style="background-color: white; padding: 20px; height:450px; ">
+				<%= render partial: 'ltc_transactions' %>
+			</div>
+		</div>
+	</div>
+	<!-- END -->
+
+	<!-- ETHEREUM -->
+	<div id="eth" style="display: none">
+		<div style="background-color: #d9d9d9;">
+			<div class="row" style="background-color: #d9d9d9; padding-top: 20px; padding-bottom: 20px ">
+				<!-- Update ETH Status Action -->
+				<div class="col-xs-10 offset-xs-1" style="background-color: white">
+					<%= render partial: 'update_eth_status' %>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="background-color: #cccccc; padding-top: 20px; padding-bottom: 30px; margin-bottom: 500px">
+			<!-- Transactions -->
+			<div class="col-xs-10 offset-xs-1" style="background-color: white; padding: 20px; height:450px; ">
+				<%= render partial: 'eth_transactions' %>
 			</div>
 		</div>
 	</div>
@@ -62,13 +102,32 @@
 		Show.init();
 
 		$('#zar-btn').click(function(){
-			$('#zar-t').show();
-			$('#btc-t').hide(); 
+			$('#zar').show();
+			$('#btc').hide(); 
+			$('#ltc').hide();
+			$('#eth').hide();
 		});	
 
 		$('#btc-btn').click(function(){
-			$('#zar-t').hide();
-			$('#btc-t').show();
+			$('#btc').show();
+			$('#zar').hide();
+			$('#ltc').hide();
+			$('#eth').hide();
+		});	
+
+
+		$('#ltc-btn').click(function(){
+			$('#ltc').show();
+			$('#zar').hide();
+			$('#btc').hide();
+			$('#eth').hide();
+		});	
+
+		$('#eth-btn').click(function(){
+			$('#eth').show();
+			$('#zar').hide();
+			$('#ltc').hide();
+			$('#btc').hide();
 		});	
 	});
 

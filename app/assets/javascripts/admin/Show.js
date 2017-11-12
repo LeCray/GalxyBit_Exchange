@@ -23,17 +23,20 @@ var Show = (function() {
 		
 		$btnZarChange	       	= $('#btn-zar-change');
 		$zarTransactionID       = $('#zar-transaction-id');
+		$selectStatusType 		= $('#select-status-type');
 
 		$btnBtcChange			= $('#btn-btc-change');
 		$btcTransactionID       = $('#btc-transaction-id');
+		$btcStatusType 		    = $('#select-btc-status-type');
 
 		$btnLtcChange			= $('#btn-ltc-change');
 		$ltcTransactionID       = $('#ltc-transaction-id');
+		$ltcStatusType 		    = $('#select-ltc-status-type');
 
 		$btnEthChange			= $('#btn-eth-change');
 		$ethTransactionID       = $('#eth-transaction-id');
+		$ethStatusType 		    = $('#select-eth-status-type')
 
-		$selectStatusType 		= $('#select-status-type');
 		$parameters 			= $('#parameters');
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
@@ -80,7 +83,7 @@ var Show = (function() {
 
 		//BITCOINS
 		$btnBtcChange.on("click", function() {
-			var change_status_to = $selectStatusType.val();
+			var change_status_to = $btcStatusType.val();
 			var btc_transaction_id = $btcTransactionID.val();
 			var zar_transaction_id = 0
 			var ltc_transaction_id = 0
@@ -115,7 +118,7 @@ var Show = (function() {
 
 		//LITECOINS
 		$btnLtcChange.on("click", function() {
-			var change_status_to = $selectStatusType.val();
+			var change_status_to = $ltcStatusType.val();
 			var ltc_transaction_id = $ltcTransactionID.val();
 			var zar_transaction_id = 0
 			var btc_transaction_id = 0
@@ -150,7 +153,7 @@ var Show = (function() {
 
 		//ETHEREUM
 		$btnEthChange.on("click", function() {
-			var change_status_to = $selectStatusType.val();
+			var change_status_to = $ethStatusType.val();
 			var zar_transaction_id = $zarTransactionID.val();
 			
 			console.log(' Account ID: ' + AccountId + 

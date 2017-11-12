@@ -18,14 +18,16 @@ module Accounts
 					@btc_transaction.update!(status: @change_status_to)
 					if @btc_transaction.transaction_type == "BUY"
 						@account.update!(btc_balance: @account.btc_balance + @btc_transaction.btcBuyAmount)
+					elsif @btc_transaction.transaction_type == "SELL"
+						@account.update!(zar_balance: @account.zar_balance + @btc_transaction.zarRecieveAmount)
 					end
 					elsif @change_status_to == 'Cancelled'
 						@btc_transaction.update!(status: @change_status_to)	
 
-						if @btc_transaction.transaction_type == "SELL"
+						if @btc_transaction.transaction_type == "BUY"
+						 	@account.update!(zar_balance: @account.zar_balance + @btc_transaction.zarSpendAmount)
+						elsif @btc_transaction.transaction_type == "SELL"
 							@account.update!(btc_balance: @account.btc_balance + @btc_transaction.btcSellAmount) 
-						elsif @btc_transaction.transaction_type == "BUY"
-						 	@account.update!(btc_balance: @account.btc_balance - @btc_transaction.btcBuyAmount)
 					end
 				end
 

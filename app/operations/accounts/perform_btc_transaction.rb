@@ -27,15 +27,15 @@ module Accounts
 					account: @account,
 					btcBuyAmount: @btcBuyAmount,
 					btcSellAmount: @btcSellAmount,
+					zarSpendAmount: @zarSpendAmount,
+					zarRecieveAmount: @zarRecieveAmount,
 					transaction_type: @transaction_type,
 				)
 
-				if @transaction_type == 'BUY'
-					@account.update!(btc_balance: @account.btc_balance + @btcBuyAmount)	
+				if @transaction_type == 'BUY'	
 					@account.update!(zar_balance: @account.zar_balance - @zarSpendAmount)	
 				else
-					@account.update!(btc_balance: @account.btc_balance - @btcSellAmount)		
-					@account.update!(zar_balance: @account.zar_balance + @zarRecieveAmount)	
+					@account.update!(btc_balance: @account.btc_balance - @btcSellAmount)			
 				end
 
 			end

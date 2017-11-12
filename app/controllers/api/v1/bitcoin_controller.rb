@@ -40,33 +40,21 @@ module Api
 							client_id: client_id
 							).execute!		
 				end
-			
-					render json: { 
-						zar_balance: account.zar_balance,
-						btc_balance: account.btc_balance
-					}
 			end
 
 
-			def cancel_transaction
-				amount 			  	= params[:amount]
-				zar_transaction_id	= params[:zar_transaction_id]
+			def cancel_btc_transaction
+			
+				btc_transaction_id	= params[:btc_transaction_id]
 				account_id 		  	= params[:account_id]
 				client_id		  	= params[:client_id]
 
-				zar_transaction = ::Accounts::CancelTransaction.new(
+				btc_transaction = ::Accounts::CancelBtcTransaction.new(
 							account_id: account_id,
 							client_id: client_id,
-							zar_transaction_id: zar_transaction_id,
+							btc_transaction_id: btc_transaction_id,	
 						).execute!
-
-				render json: { 
-					status: zar_transaction,
-					zar_balance: account_id
-				}
 			end
-
-
 		end
 	end
 end

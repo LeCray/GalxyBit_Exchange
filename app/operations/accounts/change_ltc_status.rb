@@ -18,6 +18,8 @@ module Accounts
 					@ltc_transaction.update!(status: @change_status_to)
 					if @ltc_transaction.transaction_type == "BUY"
 						@account.update!(ltc_balance: @account.ltc_balance + @ltc_transaction.ltcBuyAmount)
+					elsif @ltc_transaction.transaction_type == "SELL"
+						@account.update!(zar_balance: @account.zar_balance + @ltc_transaction.zarRecieveAmount)	
 					end
 					elsif @change_status_to == 'Cancelled'
 						@ltc_transaction.update!(status: @change_status_to)	

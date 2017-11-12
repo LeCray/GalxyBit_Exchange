@@ -18,6 +18,8 @@ module Accounts
 					@eth_transaction.update!(status: @change_status_to)
 					if @eth_transaction.transaction_type == "BUY"
 						@account.update!(eth_balance: @account.eth_balance + @eth_transaction.ethBuyAmount)
+					elsif @eth_transaction.transaction_type == "SELL"
+						@account.update!(zar_balance: @account.zar_balance + @eth_transaction.zarRecieveAmount)
 					end
 					elsif @change_status_to == 'Cancelled'
 						@eth_transaction.update!(status: @change_status_to)	

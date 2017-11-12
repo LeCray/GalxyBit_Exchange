@@ -21,7 +21,7 @@ var CryptoNew = (function() {
 	var AccountId;
 
 	var btcTransaction_url = '/api/v1/bitcoin/new_btc_transaction';
-	var cancel_transaction_url = '/api/v1/bitcoin/cancel_transaction';
+	var cancel_btc_transaction_url = '/api/v1/bitcoin/cancel_btc_transaction';
 
 
 
@@ -30,8 +30,6 @@ var CryptoNew = (function() {
 		$btnBuy 	       		= $('#btn-buy');
 		$btnSell 	       		= $('#btn-sell');
 
-		
-		
 		$zarSpendAmount			= $('#cal1');
 		$zarRecieveAmount		= $('#cal2');
 		$btcBuyAmount			= $('#result');
@@ -40,9 +38,8 @@ var CryptoNew = (function() {
 		$parameters 			= $('#parameters');
 		$notification 			= $('.notification');
 
-		$btcTransactionID       = $('#zar-transaction-id');
+		$btcTransactionID       = $('#btc-transaction-id');
 		$btnCancel				= $('#btn-cancel');
-
 
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
@@ -61,7 +58,7 @@ var CryptoNew = (function() {
 
 	var initializeEvents = function() {
 	
-		//Buying BTC
+		//BUYING BTC
 		$btnBuy.on("click", function() {
 			var zarSpendAmount = $zarSpendAmount.val();
 			var btcBuyAmount = $btcBuyAmount.val();
@@ -100,7 +97,7 @@ var CryptoNew = (function() {
 			}); 
 		});
 
-		//Selling BTC
+		//SELLING BTC
 		$btnSell.on("click", function() {
 			var zarRecieveAmount = $zarRecieveAmount.val();
 			var btcSellAmount = $btcSellAmount.val();
@@ -139,31 +136,33 @@ var CryptoNew = (function() {
 			}); 
 		});
 
-
+		// CANCEL BTC TRANSACTION
 		$btnCancel.on("click", function() {
-			var amount = $inputAmount.val();
-			var zarTransactionID = $zarTransactionID.val(); 	
+			var zarRecieveAmount = $zarRecieveAmount.val();
+			var zarSpendAmount = $zarSpendAmount.val();
+			var btcSellAmount = $btcSellAmount.val();
+			var btcBuyAmount = $btcBuyAmount.val();
+			var btcTransactionID = $btcTransactionID.val(); 	
 
-			console.log('Amount: ' + amount + 
-						' ZarTransactionID: ' + zarTransactionID +
+			 
+			console.log(' BtcTransactionID: ' + btcTransactionID +
 						' Account ID: ' + AccountId + 
 						' Client ID: ' + ClientId + 
 						' Cancel ' );		
 
 
 			$.ajax({
-				url: cancel_transaction_url,
+				url: cancel_btc_transaction_url,
 				method: 'POST',
 				dataType: 'json',
 				data: {
-					amount: amount,
-					zar_transaction_id: zarTransactionID,
+					btc_transaction_id: btcTransactionID,
 					account_id: AccountId,
 					client_id: ClientId,
 				},
 
 				success: function(response) {
-					window.location.href = '/clients/' + ClientId + '/zar_transactions'
+					window.location.href = '/clients/' + ClientId + '/btc_transactions'
 
 				},
 			});

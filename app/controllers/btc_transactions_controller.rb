@@ -7,7 +7,7 @@ class BtcTransactionsController < ApplicationController
 
 		@client = current_client	
 		@account = current_client.account
-		@btc_transactions = @account.btc_transactions.order('created_at DESC').paginate(page: params[:page], per_page: 7)
+		@btc_transactions = @account.btc_transactions.order('created_at DESC').paginate(page: params[:page], per_page: 6)
 
 		@pending_btc_t = @btc_transactions.where(status: 'Pending').order('created_at DESC')
 

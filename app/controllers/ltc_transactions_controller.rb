@@ -7,7 +7,7 @@ class LtcTransactionsController < ApplicationController
 
 		@client = current_client	
 		@account = current_client.account
-		@ltc_transactions = @account.ltc_transactions.order('created_at DESC').paginate(page: params[:page], per_page: 7)
+		@ltc_transactions = @account.ltc_transactions.order('created_at DESC').paginate(page: params[:page], per_page: 6)
 
 		@pending_ltc_t = @ltc_transactions.where(status: 'Pending').order('created_at DESC')
 

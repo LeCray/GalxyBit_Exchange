@@ -7,7 +7,7 @@ class ZarTransactionsController < ApplicationController
 
 		@client = current_client	
 		@account = current_client.account
-		@zar_transactions = @account.zar_transactions.order('created_at DESC').paginate(page: params[:page], per_page: 7)
+		@zar_transactions = @account.zar_transactions.order('created_at DESC').paginate(page: params[:page], per_page: 6)
 
 		@pending_zar_t = @zar_transactions.where(status: 'Pending').order('created_at DESC')
 

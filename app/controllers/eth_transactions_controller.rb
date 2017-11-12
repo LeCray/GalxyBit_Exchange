@@ -7,7 +7,7 @@ class EthTransactionsController < ApplicationController
 
 		@client = current_client	
 		@account = current_client.account
-		@eth_transactions = @account.eth_transactions.order('created_at DESC').paginate(page: params[:page], per_page: 7)
+		@eth_transactions = @account.eth_transactions.order('created_at DESC').paginate(page: params[:page], per_page:6)
 
 		@pending_eth_t = @eth_transactions.where(status: 'Pending').order('created_at DESC')
 

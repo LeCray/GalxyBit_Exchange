@@ -6,66 +6,49 @@
 		</div>
 
 		<div class="col-xs-8" style="height: 960px; background-color: #cccccc; padding-left: 30px">
+			<!-- BTC form -->
 			<div class="row">
-
-				<!-- BTC form -->
 				<div class="col-xs-11" style="margin: 20px; padding: 20px; background-color: white; height: 400px">
 					<%= render partial: 'btc_form' %>
 					<%= render partial: 'parameters' %>
 				</div>
-				<!-- End of BTC form -->
 			</div>
+			<!-- End of BTC form -->
 			
 			<div style="text-align: center">	
 				<button id="t-btn" class="btn btn-outline" >Transactions</button>
 				<button id="p-btn" class="btn btn-outline" style="">Pending Orders</button>
 			</div>
 				
-				<!-- Transactions Shandice -->
-				<div class="row" id="transactions">
-					<div class="col-xs-11" style="margin-top: 10px; margin-left: 20px; margin-bottom: 50px; padding: 20px; background-color: white; height: 435px">
-						<h6><strong> TRANSACTIONS </strong></h6>
-						<hr style="margin-bottom: 25px">
-						
-						<% if @btc_transactions.count > 0 %>
-							<%= render partial: 'btc_transactions' %>
-						<% end %>
-					</div>
+			<!-- Transactions Shandice -->
+			<div class="row" id="transactions">
+				<div class="col-xs-11" style="margin-top: 10px; margin-left: 20px; margin-bottom: 50px; padding: 20px; background-color: white; height: 435px">
+					<h6><strong> TRANSACTIONS </strong></h6>
+					<hr style="margin-bottom: 25px">
+					
+					<% if @btc_transactions.count > 0 %>
+						<%= render partial: 'btc_transactions' %>
+					<% end %>
 				</div>
-				<!-- End of Shandice -->
+			</div>
+			<!-- End of Shandice -->
 
 
-				<!-- Pending Order Shandice -->
-				<div class="row" id="pending" style="display: none">
-					<div class="col-xs-11" style="margin-left: 20px; margin-top: 10px;  padding: 20px; background-color: white; height: 435px">
+			<!-- Pending Order Shandice -->
+			<div class="row" id="pending" style="display: none">
+				<div class="col-xs-11" style="margin-left: 20px; margin-top: 10px;  padding: 20px; background-color: white; height: 435px">
 
-						<h6><strong> PENDING ORDERS</strong> </h6>
-						<hr style="margin-bottom: 25px">
+					<h6><strong> PENDING ORDERS</strong> </h6>
+					<hr style="margin-bottom: 25px">
 
 
-						<% if @pending_btc_t.count > 0 %>
-							<!--<div data-account-id="<%= @account_id %>" data-client-id="@client_id" style="padding: 20px">-->
-			
-								<%= render partial: 'pending_transactions' %>
-								<label style="margin-top: 30px; margin-right: 10px; display: inline-block;">
-									Select Transaction to Cancel (ID):
-								</label>
+					<% if @pending_btc_t.count > 0 %>
+						<%= render partial: 'pending_transactions' %>		
+					<% end %>
 
-								<div style="width: 100px; display: inline-block;">
-									<%= select_tag :which_transaction, options_for_select(@pending_btc_t.map { |b| b.id }), class: 'form', id: 'btc-transaction-id' %>
-								</div>
-
-								<br>
-								<button class="btn btn-outline-danger" id="btn-cancel" type="button" style="margin-top: 40px">Cancel Transaction</button>		
-							</div>		
-						<% end %>
-					</div>
-					<!-- End of Shandice -->
 				</div>
-
-			
-
-
+			</div>
+			<!-- End of Shandice -->
 		</div>
 	</div>
 </div>

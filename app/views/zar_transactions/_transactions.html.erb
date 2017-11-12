@@ -1,0 +1,29 @@
+<table class="table" ">
+	<thead>
+		<tr>
+			<th><b>TYPE</b></th>
+			<th><b>AMOUNT</b></th>
+			<th><b>STATUS</b></th>
+			<th><b>CREATED AT</b></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @zar_transactions.each do |t| %>
+			<tr>
+				<td style="width: 140px"><%= t.transaction_type %></td>
+				<td><%= number_to_currency(t.amount, unit: "R ")  %></td>
+				<td style="width: 120px"><%= t.status %></td>
+				<td><%= t.created_at.strftime("%Y-%m-%d / %X") %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<th><b>Balance: </b></th>
+			<th><b><%= number_to_currency(@account.zar_balance, unit: "R ")%></b></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</tbody>
+</table>
+<div style="text-align: center;">
+  <%= will_paginate @zar_transactions, renderer: BootstrapPagination::Rails %>
+</div>

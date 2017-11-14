@@ -17,5 +17,8 @@ module GalxyCoin
     Rails.application.config.autoload_paths << '#{Rails.root}/app/operations'
     Rails.application.config.autoload_paths << '#{Rails.root}/config/initializers'
 
+    config.assets.enabled = true
+    config.serve_static_assets = true
+
   end
 end

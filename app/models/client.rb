@@ -28,6 +28,13 @@ class Client < ApplicationRecord
 		self.last_name = self.last_name.capitalize
 	end
 
+  	def random_token
+  		if self.new_record?
+  			self.token = SecureRandom.uuid
+   
+  		end
+  	end
+
 
 	 # Returns true if the given token matches the digest.
 	def authenticated?(attribute, token)

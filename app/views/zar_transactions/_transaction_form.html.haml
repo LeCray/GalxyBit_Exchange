@@ -1,11 +1,11 @@
 #transaction-form{"data-account-id" => "#{@account_id}", "data-client-id" => "@client_id", :style => "margin-top: 30px; padding-left: 20px; padding-right: 20px"}
-	%label{:style => "margin-left: 15px; margin-right: 20px; display: inline"}
+	%label{:style => "margin-left: 15px; margin-right: 10px; display: inline"}
 		Select Transaction Type:
 	= select_tag :transaction_type, options_for_select(ZarTransaction::TRANSACTION_TYPES), class: 'form-control', style: 'display: inline; width: 150px', id: 'select-transaction-type'
 	%br
 	%br
 
-	%label{:style => "margin-top: 100px; margin-left: 15px; margin-right: 20px; display: inline"}
+	%label{:style => "margin-top: 100px; margin-left: 15px; margin-right: 66px; display: inline"}
 		Amount (Rands):
 	=number_field_tag :amount, 1000, min: '0', step: '10', id: 'input-amount', class: 'form-control', style: 'display: inline; width: 150px'
 	%br

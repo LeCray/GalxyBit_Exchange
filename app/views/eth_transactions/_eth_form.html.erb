@@ -1,0 +1,59 @@
+<h4 id="buy_header" style="text-align: center; color: green"> BUYING <span style="color: grey">ETHEREUM</span></h4>
+<h4 id="sell_header" style="text-align: center; color: red; display: none"> 
+	SELLING <span style="color: grey">ETHEREUM</span>
+</h4>
+<hr>
+
+
+<div>
+	<label style="text-align: center">
+		Transaction Type:
+	</label>
+	<br>
+	
+	<div style="text-align: center">
+		<button id="buy" class="btn " style="color: green">Buy</button>
+		<button id="sell" class="btn " style="color: red">Sell</button>
+	</div>	
+	<br>
+
+	<!-- BUYING -->
+	<div id="buying_eth">
+		<label style="display: inline-block;">
+			Amount to Spend (Rands):  R
+		</label>
+		<input style="display: inline-block; width: 100px" type = "text" id = "cal1" class="form-control" >
+
+		<br>
+
+		<label style="margin-top: 30px; display: inline-block;">
+			Amount to Buy (Ethereum):  ETH
+		</label>
+		<input style="display: inline-block; width: 100px" type = "text" id = "result" class="form-control">
+
+		<br>
+		<!-- The Button -->
+		<div style=>
+			<input style="margin-top: 40px; width: 250px" type="button" id="btn-buy" class="btn btn-outline-primary" value="Proceed With Transaction">
+		</div>
+	</div>
+
+	<!-- SELLING -->
+	<div id="selling_eth" style="display: none">
+		<label style="display: inline-block">
+			Amount to Recieve (Rands): R
+		</label>
+		<input style="display: inline-block; width: 100px" type = "text" id = "cal2" class="form-control" >
+
+		<br>
+
+		<label style="margin-top: 30px; display: inline-block">
+			Amount to Sell (Ethereum): ETH
+		</label>
+		<input style="display: inline-block; width: 100px"  type = "text" id = "result2" class="form-control">
+
+		<br>
+		<!-- The Button -->
+		<input style="margin-top: 40px; width: 250px" type="button" id="btn-sell" class="btn btn-outline-primary" value="Proceed With Transaction">
+	</div>
+</div>

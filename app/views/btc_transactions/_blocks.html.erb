@@ -10,10 +10,13 @@
 		<hr style="border-color: grey; ">
 
 		BTC: <%= @client.account.btc_balance %> <br>
+		<%= link_to "BUY/SELL", client_btc_transactions_path(@client.id), class: 'btn' %>
 		<hr>
 		ETH: <%= @client.account.eth_balance %> <br>
+		<%= link_to "BUY/SELL", client_eth_transactions_path(@client.id), class: 'btn' %>
 		<hr>
 		LTC: <%= @client.account.ltc_balance %> <br>
+		<%= link_to "BUY/SELL", client_ltc_transactions_path(@client.id), class: 'btn' %>
 	</div>
 </div>
 

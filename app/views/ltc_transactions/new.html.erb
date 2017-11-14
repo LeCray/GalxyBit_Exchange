@@ -1,0 +1,134 @@
+<div class="container" style="margin-top: 150px; padding-bottom: 100px">
+	<div class="row">
+
+		<div class="col-xs-4" style="height: 700px; background-color: #d9d9d9">
+			<%= render partial: 'blocks' %>
+		</div>
+
+		<div class="col-xs-8" style="height: 960px; background-color: #cccccc; padding-left: 30px">
+			<!-- LTC form -->
+			<div class="row">
+				<div class="col-xs-11" style="margin: 20px; padding: 20px; background-color: white; height: 400px">
+					<%= render partial: 'ltc_form' %>
+					<%= render partial: 'parameters' %>
+				</div>
+			</div>
+			<!-- End of LTC form -->
+			
+			<div style="text-align: center">	
+				<button id="t-btn" class="btn btn-outline" >Transactions</button>
+				<button id="p-btn" class="btn btn-outline" style="">Pending Orders</button>
+			</div>
+				
+			<!-- Transactions Shandice -->
+			<div class="row" id="transactions">
+				<div class="col-xs-11" style="margin-top: 10px; margin-left: 20px; margin-bottom: 50px; padding: 20px; background-color: white; height: 435px">
+					<h6><strong> TRANSACTIONS </strong></h6>
+					<hr style="margin-bottom: 25px">
+					
+					<% if @ltc_transactions.count > 0 %>
+						<%= render partial: 'ltc_transactions' %>
+					<% end %>
+				</div>
+			</div>
+			<!-- End of Shandice -->
+
+
+			<!-- Pending Order Shandice -->
+			<div class="row" id="pending" style="display: none">
+				<div class="col-xs-11" style="margin-left: 20px; margin-top: 10px;  padding: 20px; background-color: white; height: 435px">
+
+					<h6><strong> PENDING ORDERS</strong> </h6>
+					<hr style="margin-bottom: 25px">
+
+
+					<% if @pending_ltc_t.count > 0 %>
+						<%= render partial: 'pending_transactions' %>		
+					<% end %>
+
+				</div>
+			</div>
+			<!-- End of Shandice -->
+		</div>
+	</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		//Buying
+		$("#cal1").keyup(function(){
+			var b = $("#cal1").val();
+			$("#result").val((+b / +<%= @ltc_value %>).toFixed(8));
+		});
+		$("#result").keyup(function(){
+			var b = $("#result").val();
+			$("#cal1").val((+b * +<%= @ltc_value %>).toFixed(2));
+		});
+
+		//Selling
+		$("#cal2").keyup(function(){
+			var s = $("#cal2").val();
+			$("#result2").val((+s / +<%= @ltc_value %>).toFixed(8));
+		});
+		$("#result2").keyup(function(){
+			var s = $("#result2").val();
+			$("#cal2").val((+s * +<%= @ltc_value %>).toFixed(2));
+		});
+
+		$('#buy').click(function(){
+			$('#buying_ltc').show(); 
+			$('#buy_header').show(); 
+			$('#selling_ltc').hide();
+			$('#sell_header').hide(); 
+			//Reset Selling Form
+			$("#cal2").val("");
+	       	$("#result2").val("");
+		});
+
+		$('#sell').click(function(){
+			$('#buying_ltc').hide();
+			$('#buy_header').hide(); 
+			$('#selling_ltc').show();
+			$('#sell_header').show(); 
+			//Reset Buying Form
+			$("#cal1").val("");
+	       	$("#result").val(""); 
+		});
+
+		$('#t-btn').click(function(){
+			$('#transactions').show();
+			$('#pending').hide(); 
+		});	
+
+		$('#p-btn').click(function(){
+			$('#transactions').hide();
+			$('#pending').show(); 
+		});	
+
+
+
+	});
+</script>
+
+
+<%= javascript_include_tag 'ltc_transactions/ltcNew.js' %>
+	<script>
+
+		$(document).ready(function() {
+			 ltcNew.init();
+		});
+
+
+	</script>
+
+		
+
+
+
+
+					
+

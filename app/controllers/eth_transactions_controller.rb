@@ -3,7 +3,7 @@ class EthTransactionsController < ApplicationController
 	
 
 	def new
-		@eth_transactions = ethTransaction.new
+		@eth_transactions = EthTransaction.new
 
 		@client = current_client	
 		@account = current_client.account

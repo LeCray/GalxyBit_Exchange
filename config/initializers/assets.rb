@@ -21,7 +21,9 @@ Rails.application.config.assets.precompile += %w( clients/Show.js )
 
 Rails.application.config.assets.precompile += %w( zar_transactions/New.js )
 
-Rails.application.config.assets.precompile += %w( btc_transactions/CryptoNew.js )
+Rails.application.config.assets.precompile += %w( btc_transactions/btcNew.js )
+Rails.application.config.assets.precompile += %w( ltc_transactions/ltcNew.js )
+Rails.application.config.assets.precompile += %w( eth_transactions/ethNew.js )
 
 Rails.application.config.assets.precompile += %w( admin/Show.js )
 

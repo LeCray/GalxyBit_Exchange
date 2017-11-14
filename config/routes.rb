@@ -36,6 +36,12 @@ Rails.application.routes.draw do
 
 			post 'bitcoin/new_btc_transaction', to: 'bitcoin#new_btc_transaction'
 			post 'bitcoin/cancel_btc_transaction', to: 'bitcoin#cancel_btc_transaction'
+
+			post 'ethereum/new_eth_transaction', to: 'ethereum#new_eth_transaction'
+			post 'ethereum/cancel_eth_transaction', to: 'ethereum#cancel_eth_transaction'
+
+			post 'litecoin/new_ltc_transaction', to: 'litecoin#new_ltc_transaction'
+			post 'litecoin/cancel_ltc_transaction', to: 'litecoin#cancel_ltc_transaction'
 		end
 	end
 

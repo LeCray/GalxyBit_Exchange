@@ -1,0 +1,45 @@
+<table class="table" >
+	<thead>
+		<tr>
+			<th><b>TYPE</b></th>
+			<th><b>LTC AMOUNT</b></th>
+			<th><b>ZAR AMOUNT</b></th>
+			<th><b>ID</b></th>
+			<th><b>CREATED AT</b></th>	
+		</tr>
+	</thead>
+	<tbody>
+		<% @pending_ltc_t.each do |t| %>
+			<tr>
+				<td><%= t.transaction_type %></td>
+				<td>
+					<% if t.transaction_type == 'BUY' %>
+						<%= t.ltcBuyAmount %>
+					<% else %>
+						<%= t.ltcSellAmount %>
+					<% end %>
+				</td>
+				<td>
+					<% if t.transaction_type == 'BUY' %>
+						<%= number_to_currency(t.zarSpendAmount, unit: "R ")%>
+					<% else %>
+						<%= number_to_currency(t.zarRecieveAmount, unit: "R ")%>
+					<% end %>
+				</td>
+				<td><%= t.id %></td>
+				<td><%= t.created_at.strftime("%Y-%m-%d / %X") %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<label style="margin-top: 30px; margin-right: 10px; display: inline-block;">
+	Select Transaction to Cancel (ID):
+</label>
+
+<div style="width: 100px; display: inline-block;">
+	<%= select_tag :which_transaction, options_for_select(@pending_ltc_t.map { |b| b.id }), class: 'form', id: 'ltc-transaction-id' %>
+</div>
+
+<br>
+<button class="btn btn-outline-danger" id="btn-cancel" type="button" style="margin-top: 40px">Cancel Transaction</button>

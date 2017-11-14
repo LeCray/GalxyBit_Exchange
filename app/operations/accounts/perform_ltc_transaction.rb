@@ -8,7 +8,7 @@ module Accounts
 			@zarRecieveAmount      = zarRecieveAmount.try(:to_f)
 			@ltcSellAmount		   = ltcSellAmount.try(:to_f)	
 
-			@transaction_type    = ltcTransactionType
+			@transaction_type      = ltcTransactionType
 			@account_id 	   	   = account_id
 			@client_id 		       = client_id		
 			@account               = Account.where(id: @account_id).first

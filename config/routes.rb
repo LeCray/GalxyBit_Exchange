@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
 			post 'litecoin/new_ltc_transaction', to: 'litecoin#new_ltc_transaction'
 			post 'litecoin/cancel_ltc_transaction', to: 'litecoin#cancel_ltc_transaction'
+
+			
 		end
 	end
 

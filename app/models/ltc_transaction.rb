@@ -1,16 +1,16 @@
 class LtcTransaction < ApplicationRecord
-	belongs_to :account
+	  belongs_to :account
   	belongs_to :client, optional: true
 
    	TRANSACTION_TYPES = ["BUY", "SELL"]
     STATUS_TYPES = ["Approved", "Cancelled"]
 
-  	validates :account, presence: true
-  	validates :amount, presence: true, numericality: true
-  	validates :transaction_type, presence: true, inclusion: {in: TRANSACTION_TYPES}
-  	validates :transaction_number, presence: true#, uniqueness: true
+    validates :account, presence: true
+    validates :ltcBuyAmount, presence: true, numericality: true
+    validates :ltcSellAmount, presence: true, numericality: true
+    validates :transaction_type, presence: true, inclusion: {in: TRANSACTION_TYPES}
+    validates :transaction_number, presence: true#, uniqueness: true
     validates :status, presence: true
-
 
   	before_validation :load_defaults
 

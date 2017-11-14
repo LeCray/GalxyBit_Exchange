@@ -154,7 +154,10 @@ var Show = (function() {
 		//ETHEREUM
 		$btnEthChange.on("click", function() {
 			var change_status_to = $ethStatusType.val();
-			var zar_transaction_id = $zarTransactionID.val();
+			var eth_transaction_id = $ethTransactionID.val();
+			var zar_transaction_id = 0
+			var ltc_transaction_id = 0
+			var btc_transaction_id = 0
 			
 			console.log(' Account ID: ' + AccountId + 
 						' Client ID: ' + ClientId + 

@@ -22,6 +22,6 @@
 
 #Seed the currency database every x hours
 
- every 3.hours do
-   rake "currency:seed"
- end
+ #every 3.hours do
+  # rake "currency:seed"
+ #end

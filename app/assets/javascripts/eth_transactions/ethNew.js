@@ -19,6 +19,7 @@ var ethNew = (function() {
 
 	var ClientId;
 	var AccountId;
+	var Value;
 
 	var ethTransaction_url = '/api/v1/ethereum/new_eth_transaction';
 	var cancel_eth_transaction_url = '/api/v1/ethereum/cancel_eth_transaction';
@@ -43,6 +44,7 @@ var ethNew = (function() {
 
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
+		Value 					= $parameters.data('value');
 	};
 
 
@@ -68,6 +70,7 @@ var ethNew = (function() {
 			console.log('ZarSpend:' + zarSpendAmount + 
 						' ethBuy:' + ethBuyAmount + 
 						' ethTransactionType:' + ethTransactionType +
+						' Value:' + Value +
 						' AccountID:' + AccountId + 
 						' ClientID:' + ClientId
 						);		
@@ -82,6 +85,7 @@ var ethNew = (function() {
 					zarSpendAmount: zarSpendAmount,
 					ethBuyAmount: ethBuyAmount,
 					ethTransactionType: ethTransactionType,
+					value: Value,
 					account_id: AccountId,
 					client_id: ClientId,
 				},
@@ -107,6 +111,7 @@ var ethNew = (function() {
 			console.log('ZarRecieve:' + zarRecieveAmount + 
 						' ethSell:' + ethSellAmount +  
 						' ethTransactionType:' + ethTransactionType +
+						' Value:' + Value +
 						' AccountID:' + AccountId + 
 						' ClientID:' + ClientId
 						);		
@@ -121,6 +126,7 @@ var ethNew = (function() {
 					zarRecieveAmount: zarRecieveAmount,
 					ethSellAmount: ethSellAmount,
 					ethTransactionType: ethTransactionType,
+					value: Value,
 					account_id: AccountId,
 					client_id: ClientId,
 				},

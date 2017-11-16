@@ -19,6 +19,7 @@ var ltcNew = (function() {
 
 	var ClientId;
 	var AccountId;
+	var Value;
 
 	var ltcTransaction_url = '/api/v1/litecoin/new_ltc_transaction';
 	var cancel_ltc_transaction_url = '/api/v1/litecoin/cancel_ltc_transaction';
@@ -43,6 +44,7 @@ var ltcNew = (function() {
 
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
+		Value 					= $parameters.data('value');
 	};
 
 
@@ -68,6 +70,7 @@ var ltcNew = (function() {
 			console.log('ZarSpend:' + zarSpendAmount + 
 						' ltcBuy:' + ltcBuyAmount + 
 						' LtcTransactionType:' + ltcTransactionType +
+						' Value:' + Value +
 						' AccountID:' + AccountId + 
 						' ClientID:' + ClientId
 						);		
@@ -82,6 +85,7 @@ var ltcNew = (function() {
 					zarSpendAmount: zarSpendAmount,
 					ltcBuyAmount: ltcBuyAmount,
 					ltcTransactionType: ltcTransactionType,
+					value: Value,
 					account_id: AccountId,
 					client_id: ClientId,
 				},
@@ -107,6 +111,7 @@ var ltcNew = (function() {
 			console.log('ZarRecieve:' + zarRecieveAmount + 
 						' ltcSell:' + ltcSellAmount +  
 						' ltcTransactionType:' + ltcTransactionType +
+						' Value:' + Value +
 						' AccountID:' + AccountId + 
 						' ClientID:' + ClientId
 						);		
@@ -121,6 +126,7 @@ var ltcNew = (function() {
 					zarRecieveAmount: zarRecieveAmount,
 					ltcSellAmount: ltcSellAmount,
 					ltcTransactionType: ltcTransactionType,
+					value: Value,
 					account_id: AccountId,
 					client_id: ClientId,
 				},

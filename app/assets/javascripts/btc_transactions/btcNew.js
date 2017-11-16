@@ -19,6 +19,7 @@ var btcNew = (function() {
 
 	var ClientId;
 	var AccountId;
+	var Value;
 
 	var btcTransaction_url = '/api/v1/bitcoin/new_btc_transaction';
 	var cancel_btc_transaction_url = '/api/v1/bitcoin/cancel_btc_transaction';
@@ -43,6 +44,7 @@ var btcNew = (function() {
 
 		AccountId 				= $parameters.data('account-id');
 		ClientId				= $parameters.data('client-id');
+		Value 					= $parameters.data('value');
 	};
 
 
@@ -68,6 +70,7 @@ var btcNew = (function() {
 			console.log('ZarSpend:' + zarSpendAmount + 
 						' btcBuy:' + btcBuyAmount + 
 						' btcTransactionType:' + btcTransactionType +
+						' Value:' + Value +
 						' AccountID:' + AccountId + 
 						' ClientID:' + ClientId
 						);		
@@ -82,6 +85,7 @@ var btcNew = (function() {
 					zarSpendAmount: zarSpendAmount,
 					btcBuyAmount: btcBuyAmount,
 					btcTransactionType: btcTransactionType,
+					value: Value,
 					account_id: AccountId,
 					client_id: ClientId,
 				},
@@ -107,6 +111,7 @@ var btcNew = (function() {
 			console.log('ZarRecieve:' + zarRecieveAmount + 
 						' btcSell:' + btcSellAmount +  
 						' btcTransactionType:' + btcTransactionType +
+						' Value:' + Value +
 						' AccountID:' + AccountId + 
 						' ClientID:' + ClientId
 						);		
@@ -121,6 +126,7 @@ var btcNew = (function() {
 					zarRecieveAmount: zarRecieveAmount,
 					btcSellAmount: btcSellAmount,
 					btcTransactionType: btcTransactionType,
+					value: Value,
 					account_id: AccountId,
 					client_id: ClientId,
 				},

@@ -1,7 +1,9 @@
 module Accounts
 	class PerformLtcTransaction
 
-		def initialize(zarSpendAmount:,ltcBuyAmount:,zarRecieveAmount:,ltcSellAmount:, ltcTransactionType:, account_id:, client_id:)
+		def initialize(zarSpendAmount:,ltcBuyAmount:,
+						zarRecieveAmount:,ltcSellAmount:, ltcTransactionType:, 
+						account_id:, client_id:, value:)
 			@zarSpendAmount		   = zarSpendAmount.try(:to_f)
 			@ltcBuyAmount 		   = ltcBuyAmount.try(:to_f)
 
@@ -9,6 +11,7 @@ module Accounts
 			@ltcSellAmount		   = ltcSellAmount.try(:to_f)	
 
 			@transaction_type      = ltcTransactionType
+			@value 				   = value
 			@account_id 	   	   = account_id
 			@client_id 		       = client_id		
 			@account               = Account.where(id: @account_id).first
@@ -30,6 +33,7 @@ module Accounts
 					zarSpendAmount: @zarSpendAmount,
 					zarRecieveAmount: @zarRecieveAmount,
 					transaction_type: @transaction_type,
+					value: @value
 				)
 
 				if @transaction_type == 'BUY'	

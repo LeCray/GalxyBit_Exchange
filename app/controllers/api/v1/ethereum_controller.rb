@@ -3,8 +3,10 @@ module Api
 		class EthereumController < ApplicationController
 
 			def new_eth_transaction
-				#For Buying
 				ethTransactionType  = params[:ethTransactionType]
+				value  			    = params[:value]
+
+				#For Buying
 				zarSpendAmount 	  =	params[:zarSpendAmount]
 				ethBuyAmount 	  = params[:ethBuyAmount]
 
@@ -36,6 +38,7 @@ module Api
 							ethSellAmount: ethSellAmount,
 
 							ethTransactionType: ethTransactionType,
+							value: value,
 							account_id: account_id,
 							client_id: client_id
 							).execute!		

@@ -3,8 +3,10 @@ module Api
 		class BitcoinController < ApplicationController
 
 			def new_btc_transaction
-				#For Buying
 				btcTransactionType  = params[:btcTransactionType]
+				value  			    = params[:value]
+				
+				#For Buying
 				zarSpendAmount 	  =	params[:zarSpendAmount]
 				btcBuyAmount 	  = params[:btcBuyAmount]
 
@@ -36,6 +38,7 @@ module Api
 							btcSellAmount: btcSellAmount,
 
 							btcTransactionType: btcTransactionType,
+							value: value,
 							account_id: account_id,
 							client_id: client_id
 							).execute!		

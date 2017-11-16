@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112095254) do
+ActiveRecord::Schema.define(version: 20171116084855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20171112095254) do
     t.decimal  "btcSellAmount"
     t.decimal  "zarSpendAmount"
     t.decimal  "zarRecieveAmount"
+    t.decimal  "value"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20171112095254) do
     t.decimal  "ethSellAmount"
     t.decimal  "zarSpendAmount"
     t.decimal  "zarRecieveAmount"
+    t.decimal  "value"
   end
 
   create_table "ltc_transactions", force: :cascade do |t|
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171112095254) do
     t.decimal  "ltcSellAmount"
     t.decimal  "zarSpendAmount"
     t.decimal  "zarRecieveAmount"
+    t.decimal  "value"
   end
 
   create_table "zar_transactions", force: :cascade do |t|

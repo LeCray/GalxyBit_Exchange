@@ -3,6 +3,7 @@
     <tr>
       <th><b>TYPE</b></th>
       <th><b>LTC AMOUNT</b></th>
+      <th><b>PRICE</b></th>
       <th><b>ZAR AMOUNT</B></th>
       <th><b>STATUS</b></th>
       <th><b>CREATED AT</b></th>
@@ -21,6 +22,7 @@
           <% end %>
 
         </td>
+        <td><%= t.value %></td>
         <td>
 
           <% if t.transaction_type == 'BUY' %>

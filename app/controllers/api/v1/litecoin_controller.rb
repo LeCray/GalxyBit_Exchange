@@ -3,8 +3,10 @@ module Api
 		class LitecoinController < ApplicationController
 
 			def new_ltc_transaction
-				#For Buying
 				ltcTransactionType  = params[:ltcTransactionType]
+				value  			    = params[:value]
+
+				#For Buying
 				zarSpendAmount 	  =	params[:zarSpendAmount]
 				ltcBuyAmount 	  = params[:ltcBuyAmount]
 
@@ -36,6 +38,7 @@ module Api
 							ltcSellAmount: ltcSellAmount,
 
 							ltcTransactionType: ltcTransactionType,
+							value: value,
 							account_id: account_id,
 							client_id: client_id
 							).execute!		

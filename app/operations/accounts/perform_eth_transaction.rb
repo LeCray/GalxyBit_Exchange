@@ -1,14 +1,17 @@
 module Accounts
 	class PerformEthTransaction
 
-		def initialize(zarSpendAmount:,ethBuyAmount:,zarRecieveAmount:,ethSellAmount:, ethTransactionType:, account_id:, client_id:)
+		def initialize(zarSpendAmount:,ethBuyAmount:,
+						zarRecieveAmount:,ethSellAmount:, ethTransactionType:, 
+						account_id:, client_id:, value:)
 			@zarSpendAmount		   = zarSpendAmount.try(:to_f)
 			@ethBuyAmount 		   = ethBuyAmount.try(:to_f)
 
 			@zarRecieveAmount      = zarRecieveAmount.try(:to_f)
 			@ethSellAmount		   = ethSellAmount.try(:to_f)	
 
-			@transaction_type    = ethTransactionType
+			@transaction_type      = ethTransactionType
+			@value 				   = value
 			@account_id 	   	   = account_id
 			@client_id 		       = client_id		
 			@account               = Account.where(id: @account_id).first
@@ -30,6 +33,7 @@ module Accounts
 					zarSpendAmount: @zarSpendAmount,
 					zarRecieveAmount: @zarRecieveAmount,
 					transaction_type: @transaction_type,
+					value: @value
 				)
 
 				if @transaction_type == 'BUY'	

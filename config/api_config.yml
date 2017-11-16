@@ -1,16 +1,17 @@
 #config/api_config.yml
 production:
-  bitcoin_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
-  ethereum_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=ETH&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
-  litecoin_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=LTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  bitcoin_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  ethereum_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  litecoin_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=LTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
   
 
 development:
-  bitcoin_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
-  ethereum_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=ETH&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
-  litecoin_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=LTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  bitcoin_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  ethereum_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  litecoin_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=LTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
 
 test:
-  bitcoin_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
-  ethereum_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=ETH&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
-  litecoin_api_url: "https://min-api.cryptocompare.com/data/histominute?fsym=LTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  bitcoin_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  ethereum_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=ETH&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  litecoin_api_url: "https://min-api.cryptocompare.com/data/histohour?fsym=LTC&tsym=ZAR&limit=60&aggregate=1&e=CCCAGG"
+  

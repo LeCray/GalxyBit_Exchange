@@ -10,9 +10,20 @@
 	<tbody>
 		<% @zar_transactions.each do |t| %>
 			<tr>
-				<td style="width: 140px"><%= t.transaction_type %></td>
-				<td><%= number_to_currency(t.amount, unit: "R ")  %></td>
-				<td style="width: 120px"><%= t.status %></td>
+				<% if t.transaction_type == "Deposit"%>
+					<td style="width: 140px; color: green"><%= t.transaction_type %></td>
+					<td style="color: green"> + <%= number_to_currency(t.amount, unit: "R ")  %></td>
+				<% else %>
+					<td style="width: 140px; color: red"><%= t.transaction_type %></td>
+					<td style="color: red"> - <%= number_to_currency(t.amount, unit: "R ")  %></td>
+				<% end %>
+
+				<% if t.status == "Approved" %>
+					<td style="width: 120px; color: green"><%= t.status %></td>
+				<% else %>
+					<td style="width: 120px"><%= t.status %></td>
+				<% end %>
+
 				<td><%= t.created_at.strftime("%Y-%m-%d / %X") %></td>
 			</tr>
 		<% end %>

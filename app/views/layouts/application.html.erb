@@ -34,26 +34,31 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container" style=" z-index: 5">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+				<span class="icon-bar color"></span>
+				<span class="icon-bar color"></span>
+				<span class="icon-bar color"></span> 
+			</button>
+			<a class="navbar-brand" href="/" style="margin-top: 10px; margin-bottom: -10px"><i style="font-family: arial; ">G</i>ALXY<i style="color: #cc7a00">BIT</i></a>
+		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">	
-			<ul class="nav navbar-nav navbar-left" style="margin-top: 10px; margin-bottom: -10px"> 
-				<a class="navbar-brand" href="/"><i style="font-family: arial">G</i>ALXY<i style="color: #cc7a00">BIT</i></a>
-			</ul>
-      		<ul class="nav navbar-nav navbar-right">
+      		<ul class="nav navbar-nav navbar-right" style="text-align: center">
 	      		<li><%= link_to "About", about_path %></li>
 	      		<li><%= link_to "Contact", "#" %></li>
+	      		<li><%= link_to "Settings", '#' %></li>
 
 	   	        <% if logged_in? %>
-		         	<li class="dropdown">
+		         	<li class="dropdown" style="text-align: center" >
 			            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		              		<%= @current_client.first_name %> 
 			            </a>
-			            <ul class="dropdown-menu">
+			            <ul class="dropdown-menu" style="text-align: left">
 							<% if @current_client.admin? %>
 								<li><%= link_to "Admin Dashboard", admin_index_path %></li>
 							<% else %>
 							<% end %>
 							<li><%= link_to "Dashboard", current_client %></li>
-							<li><%= link_to "Settings", '#' %></li>
 							<li class="divider"></li>
 							<li>
 			              		<%= link_to "Log out", logout_path, method: :delete %>

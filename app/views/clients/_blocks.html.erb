@@ -4,7 +4,7 @@
 	<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  My Balances </h6>
 	<div style="text-align: left">
 
-		ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%>
+		ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%> <br>
 		<%= link_to "DEPOSIT/WITHDRAW", client_zar_transactions_path(@client.id), class: 'btn' %>
 		
 		<hr style="border-color: grey; ">

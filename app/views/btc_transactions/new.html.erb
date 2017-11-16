@@ -15,7 +15,7 @@
 			</div>
 			<!-- End of BTC form -->
 			
-			<div style="text-align: center">	
+			<div style="margin-left: 25px">	
 				<button id="t-btn" class="btn btn-outline" >Transactions</button>
 				<button id="p-btn" class="btn btn-outline" style="">Pending Orders</button>
 			</div>
@@ -26,7 +26,7 @@
 
 	<!-- Transactions Shandice -->
 	<div class="row" id="transactions">
-		<div class="col-xs-10 offset-xs-2" style="margin-top: 0px; margin-bottom: 50px; padding: 40px; background-color: #a6a6a6;height: 600px">
+		<div class="col-xs-10 offset-xs-2" style="margin-top: 0px; margin-bottom: 50px; padding: 40px; background-color: #a6a6a6">
 			<div style="background-color: white; padding: 20px; ">
 				<h6><strong> TRANSACTIONS </strong></h6>
 				<hr style="margin-bottom: 25px">
@@ -42,16 +42,16 @@
 
 	<!-- Pending Order Shandice -->
 	<div class="row" id="pending" style="display: none">
-		<div class="col-xs-11" style="margin-left: 20px; margin-top: 10px;  padding: 20px; background-color: white; height: 435px">
+		<div class="col-xs-10 offset-xs-2" style="margin-top: 0px; margin-bottom: 50px; padding: 40px; background-color: #a6a6a6">
+			<div style="background-color: white; padding: 20px; ">
+				<h6><strong> PENDING ORDERS</strong> </h6>
+				<hr style="margin-bottom: 25px">
 
-			<h6><strong> PENDING ORDERS</strong> </h6>
-			<hr style="margin-bottom: 25px">
 
-
-			<% if @pending_btc_t.count > 0 %>
-				<%= render partial: 'pending_transactions' %>		
-			<% end %>
-
+				<% if @pending_btc_t.count > 0 %>
+					<%= render partial: 'pending_transactions' %>		
+				<% end %>
+			</div>
 		</div>
 	</div>
 	<!-- End of Shandice -->

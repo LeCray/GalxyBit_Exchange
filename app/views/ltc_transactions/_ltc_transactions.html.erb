@@ -2,43 +2,54 @@
   <thead>
     <tr>
       <th><b>TYPE</b></th>
-      <th><b>LTC AMOUNT</b></th>
+      <th><b>LTC</b></th>
       <th><b>PRICE</b></th>
-      <th><b>ZAR AMOUNT</B></th>
+      <th><b>ZAR</B></th>
       <th><b>STATUS</b></th>
+      <th><b>ID</b></th>
       <th><b>CREATED AT</b></th>
     </tr>
   </thead>
   <tbody>
     <% @ltc_transactions.each do |t| %>
       <tr>
-        <td><%= t.transaction_type %></td>
-        <td>
+      <% if t.transaction_type == "BUY" %>
+          <td style="color: green"><%= t.transaction_type %></td>
+      <% else %>
+        <td style="color: red"><%= t.transaction_type %></td>
+      <% end %>
 
-          <% if t.transaction_type == 'BUY' %>
-            <%= t.ltcBuyAmount %>
-          <% else %>
-            <%= t.ltcSellAmount %>
-          <% end %>
+    <% if t.transaction_type == 'BUY' %>
+      <td style="color: green"> + <%= t.ltcBuyAmount %></td>
+    <% else %>
+      <td style="color: red"> - <%= t.ltcSellAmount %></td>
+    <% end %>
 
-        </td>
         <td><%= t.value %></td>
-        <td>
 
-          <% if t.transaction_type == 'BUY' %>
-            <%= number_to_currency(t.zarSpendAmount, unit: "R ")%>
-          <% else %>
-            <%= number_to_currency(t.zarRecieveAmount, unit: "R ")%>
-          <% end %>
+        
+    <% if t.transaction_type == 'BUY' %>
+      <td style="color: red"> - <%= number_to_currency(t.zarSpendAmount, unit: "R ")%></td>
+    <% else %>
+      <td style="color: green"> + <%= number_to_currency(t.zarRecieveAmount, unit: "R ")%></td>
+    <% end %>
+    
+      <% if t.status =="Approved" %>
+          <td style="color: blue"><%= t.status %></td>
+        <% else %>
+          <td><%= t.status %></td>
+        <% end %>
 
-        </td>
-        <td><%= t.status %></td>
+        <td><%= t.id%></td>
+        
         <td><%= t.created_at.strftime("%Y-%m-%d / %X") %></td>
       </tr>
     <% end %>
     <tr>
       <th><b>Balance:</b></th>
       <th><b><%= @account.ltc_balance %> LTC</b></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>

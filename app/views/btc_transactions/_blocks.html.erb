@@ -1,6 +1,6 @@
 <!-- Left Client Blocks -->
 					
-<div style="margin: 20px; padding: 20px; background-color: white">
+<div style="margin: 20px; padding: 20px; background-color: white; height: 400px">
 	<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  My Balances </h6>
 	<div style="text-align: left">
 
@@ -21,16 +21,6 @@
 </div>
 
 
-<div style="margin: 20px; padding: 20px; background-color: white;">
-	<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  Exchange Rates </h6>
-
-		BTC/ZAR: <%= @btc_value %> <br>
-		<hr>
-		ETH/ZAR: <%= @eth_value %> <br>
-		<hr>
-		LTC/ZAR: <%= @ltc_value %> <br>
-
-</div>
 
 <div style="text-align: center; color: #cc7a00">
 	<%= link_to "BACK TO DASHBOARD", client_path(@current_client.id), class: 'btn btn-outline' %>

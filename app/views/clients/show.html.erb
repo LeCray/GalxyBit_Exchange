@@ -2,14 +2,11 @@
 
 
 	<div class="row">
-
-
-		<div class="col-xs-4" style="height: 680px; background-color: #d9d9d9">
+		<div class="col-xs-12 col-md-4 col-ls-4" style="height: 680px; background-color: #d9d9d9; display: inline">
 			<%= render partial: 'blocks' %>
 		</div>	
 
-		<div class="col-ls-8" style="height: 500px; background-color: white">
-
+		<div class="col-md-8 col-ls-8" style="height: 500px; background-color: white; display: inline;">
 			<div class="btc_chart" style="padding-top: 30px;">
 				<h3 class="heading"> <%= @bitcoin%> </h3> 
 
@@ -34,16 +31,14 @@
 				<button id="eth" class="btn">ETH/ZAR</button>
 				<button id="ltc" class="btn">LTC/ZAR</button>
 			</div>
-					
-			<%= javascript_include_tag 'clients/Show.js' %>
-
-			
 		</div>
 
+	
 
 	</div>
 </div>
 	
 
 
+<%= javascript_include_tag 'clients/Show.js' %>
 					

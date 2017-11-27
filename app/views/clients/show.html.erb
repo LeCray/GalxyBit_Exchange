@@ -1,44 +1,75 @@
-<div class="container" style="margin-top: 150px;  height: 5000px; ">
+<div class="container-fluid" style="background-color:">
+
+	<div class="container" style="margin-top: 150px;  height: 5000px; ">
 
 
-	<div class="row">
-		<div class="col-xs-12 col-md-4 col-ls-4" style="height: 680px; background-color: #d9d9d9; display: inline">
-			<%= render partial: 'blocks' %>
-		</div>	
+		<div class="row">
+			<div class="col-xs-12 col-md-4 col-ls-4" style="height: 680px; background-color: ; display: inline; border-radius: 3px 0px 3px 3px; border: 1px solid black">
+				<%= render partial: 'blocks' %>
+			</div>	
 
-		<div class="col-md-8 col-ls-8" style="height: 500px; background-color: white; display: inline;">
-			<div class="btc_chart" style="padding-top: 30px;">
-				<h3 class="heading"> <%= @bitcoin%> </h3> 
+			<div class="col-md-8 col-ls-8" style="height: 500px; background-color: white; display: inline; border-radius: 0px 3px 3px 0px; border: 1px solid black; border-left: 0px">
+				<div class="btc_chart" style="padding-top: 30px;">
+					<h3 class="heading" id="BTC"> BITCOIN </h3> 
 
-				<%= area_chart @bitcoin_chart, curve: false, height: '300px', width: '740px', min: '40000', colors: ['#cc7a00','#cc7a00' ], backgroundColor: '#cc7a00' %>
-			</div>
+					<%= area_chart @bitcoin_chart, curve: false, height: '300px', width: '740px', min: '40000', colors: ['#cc7a00','#cc7a00' ], backgroundColor: '#cc7a00' %>
+				</div>
 
-			<div class="eth_chart" style="padding-top: 30px; display: none ">
-				<h3 class="heading"> <%= @ethereum%> </h3>
+				<div class="eth_chart" style="padding-top: 30px; display: none ">
+					<h3 class="heading" id="ETH"> ETHEREUM </h3>
 
-				<%= area_chart @ethereum_chart, curve: false, height: '300px', width: '740px',min: '2000', colors: ['#cc7a00'] %>
-			</div>
+					<%= area_chart @ethereum_chart, curve: false, height: '300px', width: '740px',min: '2000', colors: ['#cc7a00'] %>
+				</div>
 
-			<div class="ltc_chart" style="padding-top: 30px; display: none">
-				<h3 class="heading"> <%= @litecoin%> </h3>
+				<div class="ltc_chart" style="padding-top: 30px; display: none">
+					<h3 class="heading" id="LTC"> LITECOIN </h3>
 
-				<%= area_chart @litecoin_chart, curve: false, height: '300px', width: '740px',min: '300', colors: ['#cc7a00'], backgroundColor: '#555' %>
-			</div>
+					<%= area_chart @litecoin_chart, curve: false, height: '300px', width: '740px',min: '300', colors: ['#cc7a00'], backgroundColor: '#555' %>
+				</div>
 
 
-			<div style="text-align: center; margin-top: 20px" >	
-				<button id="btc" class="btn">BTC/ZAR</button>
-				<button id="eth" class="btn">ETH/ZAR</button>
-				<button id="ltc" class="btn">LTC/ZAR</button>
+				<div style="text-align: center; margin-top: 20px" >	
+					<button id="btc" class="btn btn-outline">BTC/ZAR</button>
+					<button id="eth" class="btn btn-outline">ETH/ZAR</button>
+					<button id="ltc" class="btn btn-outline">LTC/ZAR</button>
+				</div>
 			</div>
 		</div>
+		<!-- End of row -->
 
-	
-
+		<div class="row">
+			<div id="feedControl">Loading...</div>
+		</div>
+		
 	</div>
 </div>
-	
-
-
 <%= javascript_include_tag 'clients/Show.js' %>
+
+<script type="text/javascript">
+
+	$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
+	  $('#btc').click(function(){
+	    $('.btc_chart').show();
+	    $('.eth_chart').hide();
+	    $('.ltc_chart').hide();
+	  });
+	});
+
+	$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
+	  $('#eth').click(function(){
+	    $('.eth_chart').show(); 
+	    $('.btc_chart').hide();
+	    $('.ltc_chart').hide();
+	  });
+	});
+
+	$(function(){ // If you are not familiar with jQuery, this will run when the page is loaded and ready
+	  $('#ltc').click(function(){
+	    $('.ltc_chart').show(); 
+	    $('.btc_chart').hide();
+	    $('.eth_chart').hide();
+	  });
+	});
+
+</script>
 					

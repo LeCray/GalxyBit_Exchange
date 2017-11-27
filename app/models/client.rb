@@ -19,6 +19,7 @@ class Client < ApplicationRecord
 
 	before_save :format_name
 	
+	
 	def to_s
 		"#{first_name} #{last_name}"
 	end
@@ -63,6 +64,11 @@ class Client < ApplicationRecord
 		self.activation_digest = Client.digest(activation_token)
     end
 
+     # Returns a random token.
+	def Client.new_token
+		SecureRandom.urlsafe_base64
+	end
+
     # Returns the hash digest of the given string.
 	def Client.digest(string)
 		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -70,10 +76,6 @@ class Client < ApplicationRecord
 		BCrypt::Password.create(string, cost: cost)
 	end
 
-     # Returns a random token.
-	def Client.new_token
-		SecureRandom.urlsafe_base64
-	end
 
 	
 

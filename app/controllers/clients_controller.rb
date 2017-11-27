@@ -139,14 +139,14 @@
 	end
 
 	def set_litecoin_chart(currency_type)
-		    @litecoin_chart = Currency.where(currency_type: Currency.currency_types["litecoin"])
-		    @litecoin_chart.inject({}) do |new_element, current_element|
-			    date = current_element.date
-			    value = current_element.value
-			    new_element[date] = value
-			    new_element
-		    end
-		end
+	    @litecoin_chart = Currency.where(currency_type: Currency.currency_types["litecoin"])
+	    @litecoin_chart.inject({}) do |new_element, current_element|
+		    date = current_element.date
+		    value = current_element.value
+		    new_element[date] = value
+		    new_element
+	    end
+	end
 
 
 

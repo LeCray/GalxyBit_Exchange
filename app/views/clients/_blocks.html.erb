@@ -1,27 +1,27 @@
 <!-- Left Client Blocks -->
 					
-<div style="margin: 20px; padding: 20px; background-color: white">
+<div style="margin: 20px; padding: 20px; background-color: white; border: 1px solid black; border-radius: 3px">
 	<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  My Balances </h6>
 	<div style="text-align: left">
 
 		ZAR: <%= number_to_currency(@client.account.zar_balance, unit: '')%> <br>
-		<%= link_to "DEPOSIT/WITHDRAW", client_zar_transactions_path(@client.id), class: 'btn' %>
+		<%= link_to "DEPOSIT/WITHDRAW", client_zar_transactions_path(@client.id), class: 'btn btn-outline-success' %>
 		
 		<hr style="border-color: grey; ">
 
 		BTC: <%= @client.account.btc_balance %> <br>
-		<%= link_to "BUY/SELL", client_btc_transactions_path(@client.id), class: 'btn' %>
+		<%= link_to "BUY/SELL", client_btc_transactions_path(@client.id), class: 'btn btn-outline-success' %>
 		<hr>
 		ETH: <%= @client.account.eth_balance %> <br>
-		<%= link_to "BUY/SELL", client_eth_transactions_path(@client.id), class: 'btn' %>
+		<%= link_to "BUY/SELL", client_eth_transactions_path(@client.id), class: 'btn btn-outline-success' %>
 		<hr>
 		LTC: <%= @client.account.ltc_balance %> <br>
-		<%= link_to "BUY/SELL", client_ltc_transactions_path(@client.id), class: 'btn' %>
+		<%= link_to "BUY/SELL", client_ltc_transactions_path(@client.id), class: 'btn btn-outline-success' %>
 	</div>
 </div>
 
 
-<div style="margin: 20px; padding: 20px; background-color: white;">
+<div style="margin: 20px; padding: 20px; background-color: white; border: 1px solid black; border-radius: 3px">
 	<h6 style="text-align: center; margin-bottom: 20px"> <span class="glyphicon glyphicon-leaf" style="color: #cc7a00"></span>  Exchange Rates </h6>
 
 		BTC/ZAR: <%= @btc_value %> <br>
@@ -30,7 +30,7 @@
 		<hr>
 		LTC/ZAR: <%= @ltc_value %> <br>
 
-</div>
+</div>	
 
 <!-- End of Left Client Blocks -->
 
